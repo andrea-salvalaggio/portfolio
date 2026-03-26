@@ -10,7 +10,6 @@ export default defineNuxtConfig({
         css: {
             preprocessorOptions: {
                 scss: {
-                    api: 'modern-compiler',
                     silenceDeprecations: ['color-functions', 'global-builtin', 'import', 'if-function'],
                 }
             }
