@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "title": "Deliveboo",
+        "description": "Deliveboo is a food delivery web app that allows customers to order food from their favorite restaurant without registration.",
+        "image": "/img/projects/deliveboo.png",
+        "tags": [
+            "Vue",
+            "Sass",
+            "PHP",
+            "Laravel"
+        ],
+        "link": "https://github.com/andrea-salvalaggio/laravel-deliveboo"
+    },
+    {
+        "id": 2,
+        "title": "Boolzapp",
+        "description": "This project is a practice application developed to recreate the core features of WhatsApp using JavaScript.",
+        "image": "/img/projects/boolzapp.png",
+        "tags": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "link": "https://github.com/andrea-salvalaggio/vue-boolzapp"
+    }
+]
