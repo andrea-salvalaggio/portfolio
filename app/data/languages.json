@@ -1,0 +1,74 @@
+[
+    {
+        "id": "1",
+        "label": "HTML5",
+        "icon": [
+            "fa-brands",
+            "fa-html5"
+        ],
+        "url": "https://it.wikipedia.org/wiki/HTML5"
+    },
+    {
+        "id": "2",
+        "label": "CSS",
+        "icon": [
+            "fa-brands",
+            "fa-css3-alt"
+        ],
+        "url": "https://it.wikipedia.org/wiki/CSS"
+    },
+    {
+        "id": "3",
+        "label": "SCSS",
+        "icon": [
+            "fa-brands",
+            "fa-sass"
+        ],
+        "url": "https://sass-lang.com/"
+    },
+    {
+        "id": "4",
+        "label": "Bootstrap",
+        "icon": [
+            "fa-brands",
+            "fa-bootstrap"
+        ],
+        "url": "https://getbootstrap.com/"
+    },
+    {
+        "id": "5",
+        "label": "JavaScript",
+        "icon": [
+            "fa-brands",
+            "fa-js"
+        ],
+        "url": "https://www.javascript.com/"
+    },
+    {
+        "id": "6",
+        "label": "Vue.js",
+        "icon": [
+            "fa-brands",
+            "fa-vuejs"
+        ],
+        "url": "https://vuejs.org/"
+    },
+    {
+        "id": "7",
+        "label": "PHP",
+        "icon": [
+            "fa-brands",
+            "fa-php"
+        ],
+        "url": "https://www.php.net/"
+    },
+    {
+        "id": "8",
+        "label": "Laravel",
+        "icon": [
+            "fa-brands",
+            "fa-laravel"
+        ],
+        "url": "https://laravel.com/"
+    }
+]
