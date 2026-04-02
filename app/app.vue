@@ -1,4 +1,5 @@
 <template>
+    <LayoutAppHeader />
     <main>
         <NuxtPage />
     </main>
