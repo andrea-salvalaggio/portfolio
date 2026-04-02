@@ -1,4 +1,5 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import svgLoader from 'vite-svg-loader'
+
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: true },
@@ -13,6 +14,7 @@ export default defineNuxtConfig({
                     silenceDeprecations: ['color-functions', 'global-builtin', 'import', 'if-function'],
                 }
             }
-        }
+        },
+        plugins: [svgLoader()],
     }
 })

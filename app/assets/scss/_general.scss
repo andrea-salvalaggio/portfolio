@@ -1,0 +1,13 @@
+* {
+    font-family: $font-family;
+    overflow-x: clip;
+}
+
+body {
+    height: 100vh;
+
+    @include media-breakpoint-up(lg) {
+        width: 700px;
+        margin: 0 auto;
+    }
+}
