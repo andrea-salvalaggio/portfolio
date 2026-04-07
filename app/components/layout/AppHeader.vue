@@ -15,9 +15,7 @@
                 </ul>
 
                 <div class="navbar-actions">
-                    <button>
-                        Light/Dark mode
-                    </button>
+                    <UiDarkModeToggle />
                 </div>
             </div>
         </nav>
@@ -44,6 +42,12 @@ const navLinks = [
 
         .router-link-active {
             background-color: $light;
+        }
+    }
+
+    .navbar-actions {
+        .nav-link {
+            font-size: $font-size-small;
         }
     }
 }
