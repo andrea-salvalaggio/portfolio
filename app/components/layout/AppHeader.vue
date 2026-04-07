@@ -6,13 +6,13 @@
                     <navLogo class="navbar-logo" />
                 </NuxtLink>
 
-                <div class="navbar-nav">
-                    <li class="nav-item" v-for="link in navLinks" :key="link.to">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item mx-1" v-for="link in navLinks" :key="link.to">
                         <NuxtLink class="nav-link" :to="link.to">
                             {{ link.label }}
                         </NuxtLink>
                     </li>
-                </div>
+                </ul>
 
                 <div class="navbar-actions">
                     <button>
@@ -33,3 +33,18 @@ const navLinks = [
     { to: '/stack', label: 'Stack' }
 ]
 </script>
+
+<style scoped lang="scss">
+.navbar {
+    .nav-item {
+        .nav-link {
+            border-radius: $radius-pill;
+            padding: $spacer-1 1.25rem;
+        }
+
+        .router-link-active {
+            background-color: $light;
+        }
+    }
+}
+</style>

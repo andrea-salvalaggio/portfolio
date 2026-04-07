@@ -5,6 +5,7 @@
 
 body {
     height: 100vh;
+    font-weight: $font-weight-light;
 
     @include media-breakpoint-up(lg) {
         width: 700px;
