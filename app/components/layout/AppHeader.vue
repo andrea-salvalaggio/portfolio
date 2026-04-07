@@ -44,11 +44,5 @@ const navLinks = [
             background-color: $light;
         }
     }
-
-    .navbar-actions {
-        .nav-link {
-            font-size: $font-size-small;
-        }
-    }
 }
 </style>
