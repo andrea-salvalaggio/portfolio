@@ -1,6 +1,6 @@
 <template>
     <header class="mt-4">
-        <nav class="navbar navbar-expand-lg sticky-top px-4 py-3">
+        <nav class="navbar navbar-expand-lg sticky-top p-3">
             <div class="container p-0">
                 <NuxtLink to="/" class="navbar-brand m-0 p-0">
                     <navLogo class="navbar-logo" />
