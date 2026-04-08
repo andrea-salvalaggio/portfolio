@@ -13,9 +13,9 @@
                         combining aesthetics with clean and maintainable code.
                     </p>
                     <div class="hero-links d-flex">
-                        <a href="#" class="btn-link">GitHub</a>
-                        <a href="#" class="btn-link mx-3">LinkedIn</a>
-                        <a href="#" class="btn-link">Email</a>
+                        <a href="#" class="btn-link" target="_blank" aria-label="Download CV">Download CV <ArrowTop class="btn-icon"/></a>
+                        <a href="mailto:andrea.salvalaggio95@gmail.com" class="btn-link mx-3" aria-label="Contact me">Contact me <ArrowTop class="btn-icon"/></a>
+                        <a href="https://www.instagram.com/andrea_salvalaggio/" class="btn-link" target="_blank" aria-label="Instagram">Instagram <ArrowTop class="btn-icon"/></a>
                     </div>
                 </div>
             </div>
@@ -23,15 +23,15 @@
     </div>
 </template>
 
+<script setup>
+import ArrowTop from '@/assets/img/icons/arrow-top-right.svg'
+</script>
+
 <style scoped lang="scss">
 @use '@/assets/scss/variables' as *;
 
 .hero-section {
     margin-top: $spacer-8;
-
-    .hero-title {
-        font-size: $font-size-big;
-    }
 
     .hero-description {
         font-size: 18px;
@@ -39,11 +39,18 @@
 
     .hero-links {
         .btn-link {
+            display: flex;
+            align-items: center;
             color: $dark;
             background-color: $gray-100;
-            padding: $spacer-1 1.25rem;
+            padding: .35rem 1.25rem;
             border-radius: $radius-pill;
             text-decoration: none;
+
+            .btn-icon {
+                margin-left: $spacer-2;
+                transform: scale(1.35);
+            }
         }
     }
 }

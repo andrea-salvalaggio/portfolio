@@ -1,9 +1,9 @@
 <template>
     <header class="mt-4">
-        <nav class="navbar navbar-expand-lg sticky-top p-3">
+        <nav class="navbar navbar-expand sticky-top p-3">
             <div class="container p-0">
                 <NuxtLink to="/" class="navbar-brand m-0 p-0">
-                    <navLogo class="navbar-logo" />
+                    <NavLogo class="navbar-logo" />
                 </NuxtLink>
 
                 <ul class="navbar-nav align-items-center">
@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import navLogo from '@/assets/img/icons/logo.svg'
+import NavLogo from '@/assets/img/icons/logo.svg'
 
 const navLinks = [
     { to: '/', label: 'Home' },

@@ -10,6 +10,7 @@ $font-size-base: 1rem;
 $font-size-tiny: 0.875rem;
 
 // Font weight
+$font-weight-extralight: 200;
 $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
@@ -17,11 +18,11 @@ $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
 // Line height
-$line-height-big: 1.2;
-$line-height-medium: 1.3;
-$line-height-small: 1.4;
+$line-height-tiny: 1.2;
+$line-height-small: 1.3;
+$line-height-medium: 1.4;
 $line-height-base: 1.5;
-$line-height-tiny: 1.6;
+$line-height-big: 1.6;
 
 // Colors
 $gray-100: #F5F5F5;
