@@ -1,6 +1,10 @@
 * {
     font-family: $font-family;
     overflow-x: clip;
+
+    &::selection {
+        background-color: rgba($dark, .1);
+    }
 }
 
 body {
