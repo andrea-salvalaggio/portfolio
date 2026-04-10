@@ -3,6 +3,12 @@ import svgLoader from 'vite-svg-loader'
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: true },
+    modules: ['@nuxtjs/color-mode'],
+    colorMode: {
+        classSuffix: '',
+        preference: 'system',
+        fallback: 'light'
+    },
     css: [
         '@fortawesome/fontawesome-svg-core/styles.css',
         '~/assets/scss/main.scss'

@@ -36,6 +36,7 @@ const navLinks = [
         .nav-link {
             border-radius: $radius-pill;
             padding: $spacer-1 1.25rem;
+            transition: none;
         }
 
         .router-link-active {

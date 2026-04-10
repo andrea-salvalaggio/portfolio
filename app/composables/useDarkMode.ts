@@ -1,38 +1,38 @@
 export const useDarkMode = () => {
-    const isDark = useState<boolean>('dark-mode', () => false)
+    const colorMode = useColorMode()
 
-    // Apply theme to DOM
-    const applyTheme = () => {
-        if (import.meta.client) {
-            document.documentElement.setAttribute(
-                'data-theme',
-                isDark.value ? 'dark' : 'light'
-            )
-        }
+    const isDark = computed(() => colorMode.value === 'dark')
+
+    const currentTheme = computed(() => colorMode.value)
+
+    const toggleTheme = () => {
+        colorMode.preference =
+            colorMode.value === 'dark' ? 'light' : 'dark'
     }
 
-    const toggleDarkMode = () => {
-        isDark.value = !isDark.value
-        applyTheme()
-
-        // Save preference in localStorage
-        if (import.meta.client) {
-            localStorage.setItem('theme', isDark.value ? 'dark' : 'light')
-        }
+    const setLightTheme = () => {
+        colorMode.preference = 'light'
     }
 
-    // Initialize: read saved preference or system preference
-    const initDarkMode = () => {
-        if (import.meta.client) {
-            const saved = localStorage.getItem('theme')
-            if (saved) {
-                isDark.value = saved === 'dark'
-            } else {
-                isDark.value = window.matchMedia('(prefers-color-scheme: dark)').matches
-            }
-            applyTheme()
-        }
+    const setDarkTheme = () => {
+        colorMode.preference = 'dark'
     }
 
-    return { isDark, toggleDarkMode, initDarkMode }
+    const setSystemTheme = () => {
+        colorMode.preference = 'system'
+    }
+
+    const themeIcon = computed(() =>
+        isDark.value ? ['fas', 'sun'] : ['fas', 'moon']
+    )
+
+    return {
+        currentTheme,
+        isDark,
+        toggleTheme,
+        setLightTheme,
+        setDarkTheme,
+        setSystemTheme,
+        themeIcon
+    }
 }

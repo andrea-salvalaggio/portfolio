@@ -3,7 +3,7 @@
         <div class="container p-0">
             <div class="row">
                 <div class="col-12 col-md-2">
-                    <img src="/img/profile-light.png" class="img-fluid rounded-circle img-profile lazyload" alt="Profile picture">
+                    <img :src="profileImg" class="img-fluid rounded-circle img-profile lazyload" alt="Profile picture">
                 </div>
                 <div class="col-12 col-md-9">
                     <h1 class="hero-title fw-bold mb-3">Hey! I’m Andrea</h1>
@@ -28,6 +28,16 @@
         </div>
     </section>
 </template>
+
+<script setup>
+const { isDark } = useDarkMode()
+
+const profileImg = computed(() =>
+    isDark.value
+        ? '/img/profile-dark.png'
+        : '/img/profile-light.png'
+)
+</script>
 
 <style scoped lang="scss">
 @use '@/assets/scss/variables' as *;
