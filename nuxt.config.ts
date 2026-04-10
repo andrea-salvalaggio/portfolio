@@ -28,6 +28,7 @@ export default defineNuxtConfig({
         head: {
             htmlAttrs: {
                 lang: "en",
+                'data-theme': 'light'
             },
             title: "Portfolio | Andrea Salvalaggio",
             meta: [

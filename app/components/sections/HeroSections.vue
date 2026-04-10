@@ -3,7 +3,7 @@
         <div class="container p-0">
             <div class="row">
                 <div class="col-12 col-md-2">
-                    <img :src="profileImg" class="img-fluid rounded-circle img-profile lazyload" alt="Profile picture">
+                    <img v-if="mounted" :src="profileImg" class="img-fluid rounded-circle img-profile lazyload" alt="Profile picture">
                 </div>
                 <div class="col-12 col-md-9">
                     <h1 class="hero-title fw-bold mb-3">Hey! I’m Andrea</h1>
@@ -31,6 +31,12 @@
 
 <script setup>
 const { isDark } = useDarkMode()
+
+const mounted = ref(false)
+
+onMounted(() => {
+    mounted.value = true
+})
 
 const profileImg = computed(() =>
     isDark.value
@@ -69,9 +75,9 @@ const profileImg = computed(() =>
 
     @media(max-width: 768px) {
         .img-profile {
-            width: 100px;
-            height: 100px;
-            margin-bottom: $spacer-4;
+            width: 90px;
+            height: 90px;
+            margin-bottom: $spacer-3;
         }
     } 
 }

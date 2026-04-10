@@ -1,11 +1,21 @@
 <template>
-    <button class="btn btn-link nav-link" type="button" @click="toggleTheme">
-        <font-awesome-icon :icon="themeIcon" />
+    <button v-if="mounted" class="btn btn-link nav-link" type="button" @click="toggleTheme">
+        <font-awesome-icon :icon="icon" />
     </button>
 </template>
 
 <script setup>
 import { useDarkMode } from '@/composables/useDarkMode'
 
-const { toggleTheme, themeIcon, themeLabel } = useDarkMode()
+const { isDark, toggleTheme } = useDarkMode()
+
+const mounted = ref(false)
+
+onMounted(() => {
+    mounted.value = true
+})
+
+const icon = computed(() =>
+    isDark.value ? ['fas', 'bolt'] : ['fas', 'moon']
+)
 </script>
