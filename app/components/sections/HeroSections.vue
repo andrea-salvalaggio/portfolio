@@ -1,9 +1,9 @@
 <template>
-    <div class="hero-section mt-9 p-3">
+    <section class="hero-section p-3">
         <div class="container p-0">
             <div class="row">
                 <div class="col-12 col-md-2">
-                    <img src="@/assets/img/profile-light.png" class="img-fluid rounded-circle img-profile" alt="Profile picture">
+                    <img src="/img/profile-light.png" class="img-fluid rounded-circle img-profile" alt="Profile picture">
                 </div>
                 <div class="col-12 col-md-9">
                     <h1 class="hero-title fw-bold mb-3">Hey! I’m Andrea</h1>
@@ -13,19 +13,21 @@
                         combining aesthetics with clean and maintainable code.
                     </p>
                     <div class="hero-links d-flex">
-                        <a href="#" class="btn-link" target="_blank" aria-label="Download CV">Download CV <ArrowTop class="btn-icon"/></a>
-                        <a href="mailto:andrea.salvalaggio95@gmail.com" class="btn-link mx-2 mx-md-3" aria-label="Contact me">Contact me <ArrowTop class="btn-icon"/></a>
-                        <a href="https://www.instagram.com/andrea_salvalaggio/" class="btn-link" target="_blank" aria-label="Instagram">Instagram <ArrowTop class="btn-icon"/></a>
+                        <a href="https://drive.google.com/file/d/1DX-yTtHCVmeSe1dJYeU8f3gXjvwp4_KL/view?usp=sharing" class="btn-link" target="_blank" aria-label="Download CV">
+                            Download CV <img src="/img/icons/arrow-top-right.svg" class="btn-icon" alt="Arrow" />
+                        </a>
+                        <a href="mailto:andrea.salvalaggio95@gmail.com" class="btn-link mx-2 mx-md-3" aria-label="Contact me">
+                            Contact me <img src="/img/icons/arrow-top-right.svg" class="btn-icon" alt="Arrow" />
+                        </a>
+                        <a href="https://www.instagram.com/andrea_salvalaggio/" class="btn-link" target="_blank" aria-label="Instagram">
+                            Instagram <img src="/img/icons/arrow-top-right.svg" class="btn-icon" alt="Arrow" />
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </template>
-
-<script setup>
-import ArrowTop from '@/assets/img/icons/arrow-top-right.svg'
-</script>
 
 <style scoped lang="scss">
 @use '@/assets/scss/variables' as *;

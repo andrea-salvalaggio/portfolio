@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand sticky-top p-3">
             <div class="container p-0">
                 <NuxtLink to="/" class="navbar-brand d-none d-sm-block m-0 p-0">
-                    <NavLogo class="navbar-logo" />
+                    <img src="/img/icons/logo.svg" class="navbar-logo" alt="logo" />
                 </NuxtLink>
 
                 <ul class="navbar-nav align-items-center">
@@ -23,8 +23,6 @@
 </template>
 
 <script setup>
-import NavLogo from '@/assets/img/icons/logo.svg'
-
 const navLinks = [
     { to: '/', label: 'Home' },
     { to: '/about', label: 'About' },
@@ -41,7 +39,7 @@ const navLinks = [
         }
 
         .router-link-active {
-            background-color: $light;
+            background-color: $primary;
         }
     }
 }

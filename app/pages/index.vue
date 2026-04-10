@@ -1,5 +1,6 @@
 <template>
     <SectionsHeroSections />
+    <SectionsProjectsSection />
 </template>
 
 <script setup>
