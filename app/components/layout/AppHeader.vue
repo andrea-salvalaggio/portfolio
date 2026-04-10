@@ -2,7 +2,7 @@
     <header class="mt-4">
         <nav class="navbar navbar-expand sticky-top p-3">
             <div class="container p-0">
-                <NuxtLink to="/" class="navbar-brand d-none d-sm-block m-0 p-0">
+                <NuxtLink to="/" class="navbar-brand d-none d-sm-flex m-0 p-0">
                     <img src="/img/icons/logo.svg" class="navbar-logo" alt="logo" />
                 </NuxtLink>
 

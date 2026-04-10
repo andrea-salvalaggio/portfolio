@@ -1,8 +1,8 @@
 <template>
     <section class="projects-section mt-9 p-3">
         <div class="container p-0">
-            <h2 class="h6 projects-title">Projects</h2>
-            <div class="row row-cols-2 gx-4 mt-4">
+            <div class="h6 projects-title">Projects</div>
+            <div class="row row-cols-2 gx-3 gx-sm-4 mt-4">
                 <div v-for="project in projects" :key="project.id">
                     <UiProjectCard :project="project" />
                 </div>

@@ -17,5 +17,19 @@ export default defineNuxtConfig({
             }
         },
         plugins: [svgLoader()],
-    }
+    },
+    app: {
+        head: {
+            htmlAttrs: {
+                lang: "en",
+            },
+            title: "Portfolio | Andrea Salvalaggio",
+            meta: [
+                {
+                    name: "description",
+                    content: "This is my professional portfolio where I present my projects and skills as a web developer. Explore my work and experience in the field of web development.",
+                },
+            ],
+        },
+    },
 })
