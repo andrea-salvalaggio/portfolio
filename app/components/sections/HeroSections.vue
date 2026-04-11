@@ -19,8 +19,8 @@
                         <a href="mailto:andrea.salvalaggio95@gmail.com" class="btn-link mx-2 mx-md-3" aria-label="Contact me">
                             Contact me <img src="/img/icons/arrow-top-right.svg" class="btn-icon lazyload" alt="Arrow" />
                         </a>
-                        <a href="https://www.instagram.com/andrea_salvalaggio/" class="btn-link" target="_blank" aria-label="Instagram">
-                            Instagram <img src="/img/icons/arrow-top-right.svg" class="btn-icon lazyload" alt="Arrow" />
+                        <a href="https://linkedin.com/in/andrea-salvalaggio" class="btn-link" target="_blank" aria-label="LinkedIn">
+                            LinkedIn <img src="/img/icons/arrow-top-right.svg" class="btn-icon lazyload" alt="Arrow" />
                         </a>
                     </div>
                 </div>

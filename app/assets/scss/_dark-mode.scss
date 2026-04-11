@@ -1,6 +1,6 @@
 html.dark {
     body {
-        color: $primary;
+        color: $light;
         background-color: $dark;
     }
 
@@ -12,7 +12,7 @@ html.dark {
 
             .router-link-active {
                 color: $light;
-                background-color: $gray-800;
+                background-color: $gray-900;
             }
         }
     }
@@ -23,13 +23,13 @@ html.dark {
 
     .hero-section {
         .hero-description {
-            color: $gray-400;
+            color: $gray-500;
         }
 
         .hero-links {
             .btn-link {
                 color: $light;
-                background-color: $gray-800;
+                background-color: $gray-900;
             }
         }
     }
@@ -40,7 +40,7 @@ html.dark {
         }
 
         .card-text {
-            color: $gray-400;
+            color: $gray-500;
         }
     }
 }
