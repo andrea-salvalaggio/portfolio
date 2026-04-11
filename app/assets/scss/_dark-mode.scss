@@ -2,6 +2,10 @@ html.dark {
     body {
         color: $light;
         background-color: $dark;
+
+        a {
+            color: $gray-500;
+        }
     }
 
     .navbar {
@@ -41,6 +45,14 @@ html.dark {
 
         .card-text {
             color: $gray-500;
+        }
+    }
+
+    .projects-page {
+        .projects-thumb {
+            img {
+                background-color: $gray-900;
+            }
         }
     }
 }

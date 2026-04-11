@@ -1,5 +1,5 @@
 <template>
-    <section class="projects-section mt-9 p-3">
+    <section class="projects-section p-3">
         <div class="container p-0">
             <div class="h6 projects-title">Projects</div>
             <div class="row row-cols-2 gx-3 gx-sm-4 mt-4">
