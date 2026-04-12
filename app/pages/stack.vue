@@ -1,11 +1,5 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1>Stack</h1>
-            </div>
-        </div>
-    </div>
+    <SectionsStacksSection />
 </template>
 
 <script setup>
