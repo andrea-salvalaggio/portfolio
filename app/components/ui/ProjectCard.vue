@@ -4,7 +4,7 @@
             <img :src="project.image" :alt="project.title" class="card-image rounded-1 lazyload" />
             <div class="card-body d-flex flex-column p-0 mt-3">
                 <div class="h5 card-title fw-medium">{{ project.title }}</div>
-                <p class="card-text fw-light">{{ project.description }}</p>
+                <p class="card-text line-clamp-3 fw-light">{{ project.description }}</p>
             </div>
         </div>
     </a>
@@ -18,3 +18,14 @@ defineProps({
     }
 })
 </script>
+
+<style scoped lang="scss">
+@use '@/assets/scss/variables' as *;
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+</style>
