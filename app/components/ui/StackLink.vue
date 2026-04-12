@@ -26,7 +26,7 @@ defineProps({
 
     .btn-icon {
         margin-right: $spacer-2;
-        transform: scale(1.35);
+        transform: scale(1.5);
     }
 }
 </style>

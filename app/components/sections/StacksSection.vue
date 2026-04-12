@@ -7,11 +7,11 @@
                     <p>These are my superpowers!</p>
                 </div>
             </div>
-            <div class="stacks-languages row">
-                <div class="h6 fw-regular col-12 col-sm-3">Languages</div>
-                <div class="col-12 col-sm-9">
+            <div class="stacks-languages row mb-4">
+                <div class="h6 fw-light col-12 col-md-3 mb-3 mb-md-0">Languages</div>
+                <div class="col-12 col-md-9">
                     <div class="row flex-wrap g-2">
-                        <div class="col-12 col-sm-6" v-for="stack in stacks" :key="stack.id">
+                        <div class="col-12 col-md-6" v-for="stack in stacks" :key="stack.id">
                             <UiStackLink :stack="stack" />
                         </div>
                     </div>
