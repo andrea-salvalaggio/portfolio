@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="stacks-languages row mb-4">
-                <div class="h6 fw-light col-12 col-md-3 mb-3 mb-md-0">Languages</div>
+                <h2 class="h6 fw-light col-12 col-md-3 mb-4 mb-md-0">Languages</h2>
                 <div class="col-12 col-md-9">
                     <div class="row flex-wrap g-2">
                         <div class="col-12 col-md-6" v-for="stack in stacks" :key="stack.id">
