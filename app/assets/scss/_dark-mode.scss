@@ -55,4 +55,11 @@ html.dark {
             }
         }
     }
+
+    .stacks-section {
+        .btn-link {
+            color: $light;
+            background-color: $gray-900;
+        }
+    }
 }

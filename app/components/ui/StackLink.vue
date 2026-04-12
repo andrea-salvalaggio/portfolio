@@ -1,5 +1,5 @@
 <template>
-    <a :href="stack.url" class="btn btn-link d-flex align-items-center justify-content-between text-decoration-none roundend-1 w-100" target="_blank" :aria-label="stack.label">
+    <a :href="stack.url" class="btn btn-link fw-light d-flex align-items-center justify-content-between text-decoration-none roundend-1 w-100" target="_blank" :aria-label="stack.label">
         <div class="d-flex align-items-center">
             <font-awesome-icon :icon="stack.icon" class="fs-5 me-2" /> {{ stack.label }} 
         </div>
