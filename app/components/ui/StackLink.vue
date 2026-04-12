@@ -3,9 +3,7 @@
         <div class="d-flex align-items-center">
             <font-awesome-icon :icon="stack.icon" class="fs-5 me-2" /> {{ stack.label }} 
         </div>
-        <div>
-            <img src="/img/icons/arrow-top-right.svg" class="btn-icon lazyload" alt="Arrow" />
-        </div>
+        <img src="/img/icons/arrow-top-right.svg" class="btn-icon lazyload" alt="Arrow" />
     </a>
 </template>
 
@@ -26,7 +24,7 @@ defineProps({
 
     .btn-icon {
         margin-right: $spacer-2;
-        transform: scale(1.5);
+        transform: scale(1.35);
     }
 }
 </style>
