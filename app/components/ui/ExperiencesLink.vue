@@ -2,7 +2,7 @@
     <a :href="experience.url"
         class="fw-light text-decoration-none roundend-1 w-100"
         target="_blank" :aria-label="experience.label">
-        <div class="d-flex justify-content-between mb-3">
+        <div class="d-flex justify-content-between mb-3 mb-sm-4">
             <div class="d-flex align-items-center flex-grow-1">
                 <img :src="experience.logo" :alt="experience.company" class="experience-logo rounded-pill lazyload me-3" />
                 <div class="experience-head">
