@@ -33,7 +33,7 @@ defineProps({
 }
 
 @media (min-width: 576px) {
-    .line-clamp-3 {
+    .line-clamp-sm-3 {
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
