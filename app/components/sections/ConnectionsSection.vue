@@ -1,5 +1,5 @@
 <template>
-    <section class="connections-section p-3">
+    <section class="connections-section mt-5 p-3">
         <div class="container p-0">
             <div class="row mb-4">
                 <h2 class="h6 fw-light col-12 col-md-3 mb-4 mb-md-0">Languages</h2>
@@ -18,9 +18,3 @@
 <script setup>
 import connections from '~/data/connections.json'
 </script>
-
-<style scoped lang="scss">
-.connections-section {
-    margin-top: $spacer-8;
-}
-</style>

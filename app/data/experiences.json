@@ -4,27 +4,31 @@
         "logo": "/img/experiences/vg7.png",
         "role": "Web Designer",
         "company": "VG7 by Vampigroup S.r.l.",
-        "period": "2023 – Present"
+        "period": "2023 – Present",
+        "url": "https://www.vg7.it/"
     },
     {
         "id": 2,
         "logo": "/img/experiences/boolean.png",
         "role": "Jr. Full Stack Web Developer Trainee",
         "company": "Boolean",
-        "period": "2022"
+        "period": "2022",
+        "url": "https://boolean.careers/"
     },
     {
         "id": 3,
         "logo": "/img/experiences/quellogiusto.png",
         "role": "Graphic Designer",
         "company": "Quellogiusto S.r.l.",
-        "period": "2019 – 2022"
+        "period": "2019 – 2022",
+        "url": "https://www.quellogiusto.it/"
     },
     {
         "id": 4,
         "logo": "/img/experiences/filmop.png",
         "role": "Graphic Designer",
         "company": "Filmop International S.r.l.",
-        "period": "2014 - 2019"
+        "period": "2014 - 2019",
+        "url": "https://www.filmop.com/"
     }
 ]
