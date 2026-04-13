@@ -1,5 +1,5 @@
 <template>
-    <div class="about-title p-3">
+    <div class="about-title mt-5 mt-sm-8 p-3">
         <div class="row">
             <div class="col">
                 <h1 class="h2 fw-bold">About</h1>
@@ -17,9 +17,3 @@ useHead({
     title: 'About | Andrea Salvalaggio'
 })
 </script>
-
-<style scoped lang="scss">
-.about-title {
-    margin-top: $spacer-8;
-}
-</style>

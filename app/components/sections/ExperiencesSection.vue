@@ -1,7 +1,7 @@
 <template>
-    <section class="experiences-section mt-5 p-3">
+    <section class="experiences-section mt-4 mt-sm-5 p-3">
         <div class="container p-0">
-            <div class="row mb-4">
+            <div class="row">
                 <h2 class="h6 fw-light col-12 col-md-3 mb-4 mb-md-0">Experiences</h2>
                 <div class="col-12 col-md-9">
                     <div class="row">

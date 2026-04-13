@@ -1,5 +1,5 @@
 <template>
-    <div class="projects-page p-3">
+    <div class="projects-page mt-5 mt-sm-8 p-3">
         <div class="container p-0">
             <div class="row">
                 <div class="col">
@@ -21,7 +21,7 @@
                     </p>
                 </div>
             </div>
-            <div class="projects-thumb">
+            <div class="projects-thumb mt-5 mt-sm-8">
                 <img src="/img/projects/deliveboo-1.png" alt="Deliveboo project desktop" class="img-fluid rounded-1 lazyload">
                 <img src="/img/projects/deliveboo-2.png" alt="Deliveboo project backoffice" class="img-fluid rounded-1 lazyload mt-2">
                 <img src="/img/projects/deliveboo-3.png" alt="Deliveboo project mobile" class="img-fluid rounded-1 lazyload mt-2">
@@ -52,7 +52,6 @@ const profileImg = computed(() =>
 
 <style lang="scss">
 .projects-page {
-    margin-top: $spacer-8;
 
     .img-profile {
         width: 50px;
@@ -60,8 +59,6 @@ const profileImg = computed(() =>
     }
 
     .projects-thumb {
-        margin-top: $spacer-8;
-
         img {
             background-color: $primary;
         }

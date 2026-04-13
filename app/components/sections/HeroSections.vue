@@ -48,45 +48,43 @@ const profileImg = computed(() =>
 <style scoped lang="scss">
 @use '@/assets/scss/variables' as *;
 
-.hero-section {
-    .hero-title {
-        @media (max-width: 576px) {
-            font-size: $font-size-big;
-        }
+.hero-title {
+    @media (max-width: 576px) {
+        font-size: $font-size-big;
     }
-
-    .hero-description {
-        font-size: 18px;
-    }
-
-    .hero-links {
-        .btn-link {
-            display: flex;
-            align-items: center;
-            color: $dark;
-            background-color: $gray-100;
-            padding: .35rem 1.25rem;
-            border-radius: $radius-pill;
-            text-decoration: none;
-            white-space: nowrap;
-
-            .btn-icon {
-                margin-left: $spacer-2;
-                transform: scale(1.35);
-            }
-
-            @media(max-width: 576px) {
-                margin-bottom: $spacer-2;
-            }
-        }
-    }
-
-    @media(max-width: 768px) {
-        .img-profile {
-            width: 90px;
-            height: 90px;
-            margin-bottom: $spacer;
-        }
-    } 
 }
+
+.hero-description {
+    font-size: 18px;
+}
+
+.hero-links {
+    .btn-link {
+        display: flex;
+        align-items: center;
+        color: $dark;
+        background-color: $gray-100;
+        padding: .35rem 1.25rem;
+        border-radius: $radius-pill;
+        text-decoration: none;
+        white-space: nowrap;
+
+        .btn-icon {
+            margin-left: $spacer-3;
+            transform: scale(1.35);
+        }
+
+        @media(max-width: 576px) {
+            margin-bottom: $spacer-2;
+        }
+    }
+}
+
+@media(max-width: 768px) {
+    .img-profile {
+        width: 90px;
+        height: 90px;
+        margin-bottom: $spacer;
+    }
+} 
 </style>

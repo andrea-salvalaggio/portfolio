@@ -5,7 +5,7 @@ html.dark {
 
         a,
         p {
-            color: $gray-500;
+            color: $gray-400;
         }
 
         h1,
@@ -35,26 +35,10 @@ html.dark {
         filter: invert(1);
     }
 
-    .hero-section {
-        .hero-description {
-            color: $gray-500;
-        }
-
-        .hero-links {
-            .btn-link {
-                color: $light;
-                background-color: $gray-900;
-            }
-        }
-    }
-
-    .projects-section {
-        .card-title {
+    .hero-links {
+        .btn-link {
             color: $light;
-        }
-
-        .card-text {
-            color: $gray-500;
+            background-color: $gray-900;
         }
     }
 
