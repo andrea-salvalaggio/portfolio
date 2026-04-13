@@ -1,5 +1,5 @@
 <template>
-    <section class="hero-section mt-5 mt-sm-8 p-3">
+    <section class="hero-section">
         <div class="container p-0">
             <div class="row">
                 <div class="col-12 col-md-2">

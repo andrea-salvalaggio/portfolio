@@ -40,6 +40,13 @@ body {
 
 @include media-breakpoint-up(sm) {
     .mt-sm-8 {
-        margin-top: $spacer-8;
+        margin-top: $spacer-8 !important;
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    .py-sm-8 {
+        padding-top: $spacer-8 !important;
+        padding-bottom: $spacer-8 !important;
     }
 }

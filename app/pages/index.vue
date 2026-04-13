@@ -1,6 +1,8 @@
 <template>
-    <SectionsHeroSections />
-    <SectionsProjectsSection />
+    <div class="p-3 py-5 py-sm-8">
+        <SectionsHeroSections />
+        <SectionsProjectsSection />
+    </div>
 </template>
 
 <script setup>

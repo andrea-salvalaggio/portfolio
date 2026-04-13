@@ -1,5 +1,5 @@
 <template>
-    <div class="projects-page mt-5 mt-sm-8 p-3">
+    <div class="projects-page p-3 py-5 py-sm-8">
         <div class="container p-0">
             <div class="row">
                 <div class="col">

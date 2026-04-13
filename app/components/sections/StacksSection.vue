@@ -1,5 +1,5 @@
 <template>
-    <section class="stacks-section mt-5 mt-sm-8 p-3">
+    <section class="stacks-section p-3 py-5 py-sm-8">
         <div class="container p-0">
             <div class="row">
                 <div class="col">
@@ -7,7 +7,7 @@
                     <p>These are my superpowers!</p>
                 </div>
             </div>
-            <div class="stacks-languages mt-5 mt-sm-8 mb-5">
+            <div class="stacks-languages mt-5 mt-sm-8">
                 <div class="row">
                     <h2 class="h6 fw-light col-12 col-md-3 mb-4 mb-md-0">Languages</h2>
                     <div class="col-12 col-md-9">

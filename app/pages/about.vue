@@ -1,15 +1,19 @@
 <template>
-    <div class="about-title mt-5 mt-sm-8 p-3">
-        <div class="row">
-            <div class="col">
-                <h1 class="h2 fw-bold">About</h1>
-                <p>A little bit of my life.</p>
+    <div class="p-3 py-5 py-sm-8">
+        <div class="about-title">
+            <div class="container p-0">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="h2 fw-bold">About</h1>
+                        <p>A little bit of my life.</p>
+                    </div>
+                </div>
             </div>
         </div>
+        <SectionsAboutSections />
+        <SectionsConnectionsSection />
+        <SectionsExperiencesSection />
     </div>
-    <SectionsAboutSections />
-    <SectionsConnectionsSection />
-    <SectionsExperiencesSection />
 </template>
 
 <script setup>
