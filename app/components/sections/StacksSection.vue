@@ -1,7 +1,7 @@
 <template>
     <section class="stacks-section p-3">
         <div class="container p-0">
-            <div class="row justify-content-between">
+            <div class="row">
                 <div class="col">
                     <h1 class="h2 fw-bold">Stack</h1>
                     <p>These are my superpowers!</p>

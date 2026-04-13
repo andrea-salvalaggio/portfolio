@@ -1,5 +1,5 @@
 <template>
-    <header class="mt-4">
+    <header class="mt-sm-4">
         <nav class="navbar navbar-expand sticky-top p-3">
             <div class="container p-0">
                 <NuxtLink to="/" class="navbar-brand d-none d-sm-flex m-0 p-0">

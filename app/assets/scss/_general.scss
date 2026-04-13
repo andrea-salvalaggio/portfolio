@@ -9,6 +9,7 @@
 
 body {
     height: 100vh;
+    line-height: $line-height-medium;
     font-weight: $font-weight-light;
     letter-spacing: .2px;
 
@@ -35,4 +36,10 @@ body {
 
 .fw-regular {
     font-weight: $font-weight-regular;
+}
+
+@include media-breakpoint-up(sm) {
+    .mt-sm-8 {
+        margin-top: $spacer-8;
+    }
 }

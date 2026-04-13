@@ -1,5 +1,5 @@
 <template>
-    <div class="about-sections p-3">
+    <div class="about-sections mt-5 p-3">
         <div class="container p-0">
             <div class="row mb-4">
                 <h2 class="h6 fw-light col-12 col-md-3 mb-4 mb-md-0">About</h2>

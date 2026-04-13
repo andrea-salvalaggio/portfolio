@@ -1,5 +1,5 @@
 <template>
-    <section class="hero-section p-3">
+    <section class="hero-section mt-5 mt-sm-8 p-3">
         <div class="container p-0">
             <div class="row">
                 <div class="col-12 col-md-2">
@@ -12,7 +12,7 @@
                         with a design-first mindset. I focus on building intuitive, responsive,
                         combining aesthetics with clean and maintainable code.
                     </p>
-                    <div class="hero-links d-flex">
+                    <div class="hero-links d-flex flex-wrap">
                         <a href="https://drive.google.com/file/d/1DX-yTtHCVmeSe1dJYeU8f3gXjvwp4_KL/view?usp=sharing" class="btn-link" target="_blank" aria-label="Download CV">
                             Download CV <img src="/img/icons/arrow-top-right.svg" class="btn-icon lazyload" alt="Arrow" />
                         </a>
@@ -49,7 +49,11 @@ const profileImg = computed(() =>
 @use '@/assets/scss/variables' as *;
 
 .hero-section {
-    margin-top: $spacer-8; 
+    .hero-title {
+        @media (max-width: 576px) {
+            font-size: $font-size-big;
+        }
+    }
 
     .hero-description {
         font-size: 18px;
@@ -70,6 +74,10 @@ const profileImg = computed(() =>
                 margin-left: $spacer-2;
                 transform: scale(1.35);
             }
+
+            @media(max-width: 576px) {
+                margin-bottom: $spacer-2;
+            }
         }
     }
 
@@ -77,7 +85,7 @@ const profileImg = computed(() =>
         .img-profile {
             width: 90px;
             height: 90px;
-            margin-bottom: $spacer-3;
+            margin-bottom: $spacer;
         }
     } 
 }
