@@ -40,6 +40,7 @@ const navLinks = [
         }
 
         .router-link-active {
+            color: $dark;
             background-color: $primary;
         }
     }
