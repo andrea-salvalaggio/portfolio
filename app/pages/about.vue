@@ -10,6 +10,7 @@
                 </div>
             </div>
         </div>
+        <SectionsFanDeckSection />
         <SectionsAboutSections />
         <SectionsConnectionsSection />
         <SectionsExperiencesSection />
