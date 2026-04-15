@@ -1,9 +1,5 @@
 * {
     font-family: $font-family;
-
-    &::selection {
-        background-color: rgba($dark, .1);
-    }
 }
 
 body {

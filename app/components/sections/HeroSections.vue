@@ -3,7 +3,8 @@
         <div class="container p-0">
             <div class="row">
                 <div class="col-12 col-md-2">
-                    <img v-if="mounted" :src="profileImg" class="img-fluid rounded-circle img-profile lazyload" alt="Profile picture">
+                    <img v-if="mounted" :src="profileImg" class="img-fluid rounded-circle img-profile lazyload"
+                        alt="Profile picture">
                 </div>
                 <div class="col-12 col-md-9">
                     <h1 class="hero-title fw-bold mb-3">Hey! I’m Andrea</h1>
@@ -13,13 +14,18 @@
                         combining aesthetics with clean and maintainable code.
                     </p>
                     <div class="hero-links d-flex flex-wrap">
-                        <a href="https://drive.google.com/file/d/1DX-yTtHCVmeSe1dJYeU8f3gXjvwp4_KL/view?usp=sharing" class="btn-link" target="_blank" aria-label="Download CV">
-                            Download CV <img src="/img/icons/arrow-top-right.svg" class="btn-icon lazyload" alt="Arrow" />
+                        <a href="https://drive.google.com/file/d/1DX-yTtHCVmeSe1dJYeU8f3gXjvwp4_KL/view?usp=sharing"
+                            class="btn-link" target="_blank" aria-label="Download CV">
+                            Download CV <img src="/img/icons/arrow-top-right.svg" class="btn-icon lazyload"
+                                alt="Arrow" />
                         </a>
-                        <a href="mailto:andrea.salvalaggio95@gmail.com" class="btn-link mx-2 mx-md-3" aria-label="Contact me">
-                            Contact me <img src="/img/icons/arrow-top-right.svg" class="btn-icon lazyload" alt="Arrow" />
+                        <a href="mailto:andrea.salvalaggio95@gmail.com" class="btn-link mx-2 mx-md-3"
+                            aria-label="Contact me">
+                            Contact me <img src="/img/icons/arrow-top-right.svg" class="btn-icon lazyload"
+                                alt="Arrow" />
                         </a>
-                        <a href="https://linkedin.com/in/andrea-salvalaggio" class="btn-link" target="_blank" aria-label="LinkedIn">
+                        <a href="https://linkedin.com/in/andrea-salvalaggio" class="btn-link" target="_blank"
+                            aria-label="LinkedIn">
                             LinkedIn <img src="/img/icons/arrow-top-right.svg" class="btn-icon lazyload" alt="Arrow" />
                         </a>
                     </div>
@@ -47,6 +53,8 @@ const profileImg = computed(() =>
 
 <style scoped lang="scss">
 @use '@/assets/scss/variables' as *;
+@use "@/assets/scss/mixins/buttons" as *;
+@include link-hover-fade(".hero-links");
 
 .hero-title {
     @media (max-width: 576px) {
@@ -86,5 +94,5 @@ const profileImg = computed(() =>
         height: 90px;
         margin-bottom: $spacer;
     }
-} 
+}
 </style>

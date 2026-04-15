@@ -1,0 +1,15 @@
+@mixin link-hover-fade($section) {
+    #{$section} :deep(.btn-link) {
+        opacity: 1;
+        transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+        transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    #{$section}:hover :deep(.btn-link) {
+        opacity: 0.5;
+    }
+
+    #{$section} :deep(.btn-link:hover) {
+        opacity: 1;
+    }
+}

@@ -10,7 +10,7 @@
             <div class="stacks-languages mt-5 mt-sm-8">
                 <div class="row">
                     <h2 class="h6 fw-light col-12 col-md-3 mb-4 mb-md-0">Languages</h2>
-                    <div class="col-12 col-md-9">
+                    <div class="col-12 col-md-9 stacks-links">
                         <div class="row flex-wrap g-2">
                             <div class="col-12 col-md-6" v-for="stack in stacks" :key="stack.id">
                                 <UiStackLink :stack="stack" />
@@ -26,3 +26,8 @@
 <script setup>
 import stacks from '~/data/stacks.json'
 </script>
+
+<style scoped lang="scss">
+@use "@/assets/scss/mixins/buttons" as *;
+@include link-hover-fade(".stacks-links");
+</style>
