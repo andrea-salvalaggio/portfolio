@@ -2,7 +2,7 @@
     <div ref="container" class="fan">
         <div v-for="(card, i) in activeCards" :key="i" :ref="el => setCardRef(el, i)" class="card border-0"
             @mouseenter="onEnter(i)" @mouseleave="onLeave">
-            <img :src="card.image" />
+            <img :src="card.image" :alt="card.alt"/>
         </div>
     </div>
 </template>
