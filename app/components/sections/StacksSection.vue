@@ -7,7 +7,7 @@
                     <p>These are my superpowers!</p>
                 </div>
             </div>
-            <div class="stacks-languages mt-5 mt-sm-8">
+            <div class="stacks-languages mt-5 mt-sm-9">
                 <div class="row">
                     <h2 class="h6 fw-light col-12 col-md-3 mb-4 mb-md-0">Languages</h2>
                     <div class="col-12 col-md-9 stacks-links">

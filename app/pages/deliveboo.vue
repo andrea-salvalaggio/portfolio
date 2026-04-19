@@ -21,7 +21,7 @@
                     </p>
                 </div>
             </div>
-            <div class="projects-thumb mt-5 mt-sm-8">
+            <div class="projects-thumb mt-5 mt-sm-9">
                 <img src="/img/projects/deliveboo-1.png" alt="Deliveboo project desktop" class="img-fluid rounded-1 lazyload">
                 <img src="/img/projects/deliveboo-2.png" alt="Deliveboo project backoffice" class="img-fluid rounded-1 lazyload mt-2">
                 <img src="/img/projects/deliveboo-3.png" alt="Deliveboo project mobile" class="img-fluid rounded-1 lazyload mt-2">
