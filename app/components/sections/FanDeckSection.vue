@@ -13,9 +13,9 @@ const cards = [
 ]
 
 const mobileCards = [
-    { image: '/img/deck/bici-2.jpg', alt: 'Andrea in bici & company' },
+    { image: '/img/deck/andrea-elisa.jpg', alt: 'Andrea ed Elisa' },
     { image: '/img/deck/andrea.jpg', alt: 'Ritratto di Andrea' },
-    { image: '/img/deck/sissi.jpg', alt: 'Sissi' }
+    { image: '/img/deck/bici-2.jpg', alt: 'Andrea in bici & company' },
 ]
 
 const desktopFanSettings = {
