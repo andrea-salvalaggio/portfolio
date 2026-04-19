@@ -1,5 +1,5 @@
 <template>
-    <button v-if="mounted" class="btn btn-link nav-link" type="button" @click="toggleTheme">
+    <button v-if="mounted" class="btn btn-link nav-link" type="button" @click="toggleTheme" aria-label="Dark mode toggle">
         <font-awesome-icon :icon="icon" />
     </button>
 </template>

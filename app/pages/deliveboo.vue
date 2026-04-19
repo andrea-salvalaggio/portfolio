@@ -17,7 +17,7 @@
                 <div class="flex-grow-1 ms-3">
                     <div class="h6 fw-light m-0">Andrea Salvalaggio</div>
                     <p class="m-0">
-                        2022 – <a href="https://github.com/andrea-salvalaggio/laravel-deliveboo" target="_blank" rel="noopener noreferrer">Visit project</a>
+                        2022 – <a href="https://github.com/andrea-salvalaggio/laravel-deliveboo" target="_blank" rel="noopener noreferrer" aria-label="Visita project">Visit project</a>
                     </p>
                 </div>
             </div>
