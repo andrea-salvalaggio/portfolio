@@ -25,6 +25,9 @@ defineProps({
 @use '@/assets/scss/variables' as *;
 
 .card {
+    opacity: 1;
+    transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+
     .card-image {
         overflow: clip;
 
@@ -35,13 +38,16 @@ defineProps({
     }
 
     &:hover {
+        opacity: 1;
+
         .card-image {
             img {
-                transform: scale(1.08);
+                transform: scale(1.05);
             }
         }
     }
 }
+
 
 .line-clamp-2 {
     display: -webkit-box;
