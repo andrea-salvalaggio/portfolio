@@ -13,11 +13,11 @@
                 </div>
             </div>
             <div class="d-flex align-items-center mt-3">
-                <img v-if="mounted" :src="profileImg" class="img-fluid rounded-circle img-profile lazyload" alt="Profile picture">
+                <img src="/img/profile.png" class="img-fluid rounded-circle img-profile lazyload" alt="Profile picture">
                 <div class="flex-grow-1 ms-3">
                     <div class="h6 fw-light m-0">Andrea Salvalaggio</div>
                     <p class="m-0">
-                        2022 – <a href="https://github.com/andrea-salvalaggio/laravel-deliveboo" target="_blank" rel="noopener noreferrer" aria-label="Visita project">Visit project</a>
+                        2022 – <a href="https://github.com/andrea-salvalaggio/laravel-deliveboo" target="_blank" rel="noopener noreferrer" aria-label="Visit project">Visit project</a>
                     </p>
                 </div>
             </div>
@@ -29,26 +29,6 @@
         </div>
     </div>
 </template>
-
-<script setup>
-useHead({
-    title: 'Deliveboo | Andrea Salvalaggio'
-})
-
-const { isDark } = useDarkMode()
-
-const mounted = ref(false)
-
-onMounted(() => {
-    mounted.value = true
-})
-
-const profileImg = computed(() =>
-    isDark.value
-        ? '/img/profile-dark.png'
-        : '/img/profile-light.png'
-)
-</script>
 
 <style lang="scss">
 .projects-page {

@@ -3,7 +3,7 @@
         <div class="container p-0">
             <div class="row">
                 <div class="col-12 col-md-2">
-                    <img v-if="mounted" :src="profileImg" class="img-fluid rounded-circle img-profile lazyload"
+                    <img src="/img/profile.png" class="img-fluid rounded-circle img-profile lazyload"
                         alt="Profile picture">
                 </div>
                 <div class="col-12 col-md-9">
@@ -34,22 +34,6 @@
         </div>
     </section>
 </template>
-
-<script setup>
-const { isDark } = useDarkMode()
-
-const mounted = ref(false)
-
-onMounted(() => {
-    mounted.value = true
-})
-
-const profileImg = computed(() =>
-    isDark.value
-        ? '/img/profile-dark.png'
-        : '/img/profile-light.png'
-)
-</script>
 
 <style scoped lang="scss">
 @use '@/assets/scss/variables' as *;

@@ -33,6 +33,10 @@ body {
     font-weight: $font-weight-regular;
 }
 
+.img-profile {
+    background-color: $primary;
+}
+
 @include media-breakpoint-up(sm) {
     .mt-sm-9 {
         margin-top: $spacer-9 !important;
