@@ -8,7 +8,7 @@
 
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item mx-sm-1" v-for="link in navLinks" :key="link.to">
-                        <NuxtLink class="nav-link" :to="link.to">
+                        <NuxtLink class="nav-link rounded-pill" :to="link.to">
                             {{ link.label }}
                         </NuxtLink>
                     </li>
@@ -34,7 +34,6 @@ const navLinks = [
 .navbar {
     .nav-item {
         .nav-link {
-            border-radius: $radius-pill;
             padding: $spacer-1 $spacer;
             transition: none;
         }
