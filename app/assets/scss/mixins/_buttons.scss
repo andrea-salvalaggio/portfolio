@@ -1,8 +1,11 @@
 @mixin link-hover-fade($section) {
     #{$section} :deep(.btn-link) {
         opacity: 1;
-        transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1),
-        transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    #{$section} :deep(.btn-icon) {
+        transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     #{$section}:hover :deep(.btn-link) {
@@ -11,5 +14,9 @@
 
     #{$section} :deep(.btn-link:hover) {
         opacity: 1;
+    }
+
+    #{$section} :deep(.btn-link:hover .btn-icon) {
+        transform: scale(1.35) rotate(45deg);
     }
 }
