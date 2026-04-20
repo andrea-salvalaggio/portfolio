@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     modules: ['@nuxtjs/color-mode'],
     colorMode: {
         classSuffix: '',
-        preference: 'system',
+        preference: 'light',
         fallback: 'light'
     },
     css: [
@@ -28,7 +28,6 @@ export default defineNuxtConfig({
         head: {
             htmlAttrs: {
                 lang: "en",
-                'data-theme': 'light'
             },
             title: "Portfolio | Andrea Salvalaggio",
             meta: [
@@ -37,6 +36,20 @@ export default defineNuxtConfig({
                     content: "This is my professional portfolio where I present my projects and skills as a web developer. Explore my work and experience in the field of web development.",
                 },
             ],
+            script: [
+                {
+                innerHTML: `(function () {
+                    try {
+                    const theme = localStorage.getItem('nuxt-color-mode')
+                    if (theme === 'dark') {
+                        document.documentElement.classList.add('dark')
+                    } else if (theme === 'light') {
+                        document.documentElement.classList.add('light')
+                    }
+                    } catch (e) {}
+                })();`
+                }
+            ]
         },
     },
 })

@@ -43,5 +43,10 @@ const navLinks = [
             background-color: $primary;
         }
     }
+
+    .navbar-actions {
+        width: 20px;
+        height: 24px;
+    }
 }
 </style>

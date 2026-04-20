@@ -5,6 +5,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useDarkMode } from '@/composables/useDarkMode'
 
 const { isDark, toggleTheme } = useDarkMode()

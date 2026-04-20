@@ -4,12 +4,10 @@ export const useDarkMode = () => {
     const isDark = computed(() => colorMode.value === 'dark')
 
     const toggleTheme = () => {
-        colorMode.preference =
-            colorMode.value === 'dark' ? 'light' : 'dark'
+        colorMode.preference = isDark.value ? 'light' : 'dark'
     }
 
     return {
-        colorMode,
         isDark,
         toggleTheme
     }
