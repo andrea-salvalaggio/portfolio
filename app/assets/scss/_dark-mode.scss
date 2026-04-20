@@ -67,4 +67,10 @@ html.dark {
             border: none;
         }
     }
+
+    .error-section {
+        a {
+            color: $primary;
+        }
+    }
 }
