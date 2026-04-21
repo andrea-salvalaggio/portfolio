@@ -23,7 +23,6 @@ defineProps({
 
 <style scoped lang="scss">
 @use '@/assets/scss/variables' as *;
-@import "bootstrap/scss/bootstrap";
 
 .card {
     opacity: 1;
@@ -56,7 +55,7 @@ defineProps({
     overflow: hidden;
 }
 
-@include media-breakpoint-up(sm) {
+@media (min-width: 576px) {
     .line-clamp-sm-3 {
         display: -webkit-box;
         -webkit-line-clamp: 3;

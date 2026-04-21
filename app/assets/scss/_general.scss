@@ -8,7 +8,7 @@ body {
     font-weight: $font-weight-light;
     letter-spacing: .2px;
 
-    @include media-breakpoint-up(lg) {
+    @media (min-width: 992px) {
         width: 700px;
         margin: 0 auto;
     }
@@ -36,13 +36,13 @@ body {
     background-color: $primary;
 }
 
-@include media-breakpoint-up(sm) {
+@media (min-width: 576px) {
     .mt-sm-9 {
         margin-top: $spacer-9 !important;
     }
 }
 
-@include media-breakpoint-up(sm) {
+@media (min-width: 576px){
     .py-sm-8 {
         padding-top: $spacer-8 !important;
         padding-bottom: $spacer-8 !important;

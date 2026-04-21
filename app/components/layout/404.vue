@@ -15,10 +15,9 @@
 
 <style scoped lang="scss">
 @use '@/assets/scss/variables' as *;
-@import "bootstrap/scss/bootstrap";
 
 .error-title {
-    @include media-breakpoint-down(sm) {
+    @media (max-width: 576px) {
         font-size: $font-size-big;
     }
 }

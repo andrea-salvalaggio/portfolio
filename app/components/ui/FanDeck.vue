@@ -60,7 +60,6 @@ onMounted(async () => {
 
 <style scoped lang="scss">
 @use '@/assets/scss/variables' as *;
-@import "bootstrap/scss/bootstrap";
 
 .fan {
     height: 450px;
@@ -69,7 +68,7 @@ onMounted(async () => {
     align-items: center;
     position: relative;
 
-    @include media-breakpoint-up(md) {
+    @media (min-width: 768px) {
         margin-bottom: $spacer-9;
     }
 

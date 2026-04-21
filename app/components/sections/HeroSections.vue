@@ -38,11 +38,11 @@
 <style scoped lang="scss">
 @use '@/assets/scss/variables' as *;
 @use "@/assets/scss/mixins/buttons" as *;
-@import "bootstrap/scss/bootstrap";
+
 @include link-hover-fade(".hero-links");
 
 .hero-title {
-    @include media-breakpoint-down(sm) {
+    @media(max-width: 576px) {
         font-size: $font-size-big;
     }
 }
@@ -67,13 +67,13 @@
             transform: scale(1.35);
         }
 
-        @include media-breakpoint-down(sm) {
+        @media (max-width: 576px) {
             margin-bottom: $spacer-2;
         }
     }
 }
 
-@include media-breakpoint-down(md) {
+@media (max-width: 768px) {
     .img-profile {
         width: 90px;
         height: 90px;
