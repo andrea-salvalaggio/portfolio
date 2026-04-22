@@ -1,7 +1,7 @@
 <template>
     <div class="projects-page p-3 py-5 py-sm-8">
         <div class="container p-0">
-            <div class="row">
+            <div class="row reveal">
                 <div class="col">
                     <h1 class="h2 fw-bold">Deliveboo</h1>
                     <p>
@@ -12,7 +12,7 @@
                     </p>
                 </div>
             </div>
-            <div class="d-flex align-items-center mt-3">
+            <div class="d-flex align-items-center mt-3 reveal">
                 <img src="/img/profile.png" width="100" height="100" class="img-fluid rounded-circle img-profile" alt="Profile picture" fetchpriority="high">
                 <div class="flex-grow-1 ms-3">
                     <div class="h6 fw-light m-0">Andrea Salvalaggio</div>
@@ -21,7 +21,7 @@
                     </p>
                 </div>
             </div>
-            <div class="projects-thumb mt-5 mt-sm-9">
+            <div class="projects-thumb mt-5 mt-sm-9 reveal">
                 <img src="/img/projects/deliveboo-1.png" alt="Deliveboo project desktop" class="img-fluid rounded-1">
                 <img src="/img/projects/deliveboo-2.png" alt="Deliveboo project backoffice" class="img-fluid rounded-1 mt-2">
                 <img src="/img/projects/deliveboo-3.png" alt="Deliveboo project mobile" class="img-fluid rounded-1 mt-2">
@@ -29,6 +29,10 @@
         </div>
     </div>
 </template>
+
+<script setup>
+useReveal()
+</script>
 
 <style lang="scss">
 .projects-page {

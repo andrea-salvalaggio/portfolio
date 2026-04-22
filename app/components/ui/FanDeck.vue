@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" class="fan">
+    <div ref="container" class="fan reveal">
         <div v-for="(card, i) in activeCards" :key="i" :ref="el => setCardRef(el, i)" class="card border-0"
             @mouseenter="onEnter(i)" @mouseleave="onLeave">
             <img :src="card.image" :alt="card.alt"/>
@@ -10,6 +10,7 @@
 <script setup>
 import { onMounted, nextTick, onBeforeUpdate } from 'vue'
 import { useFanDeck } from '~/composables/useFanDeck'
+useReveal()
 
 const props = defineProps({
     cards: Array,

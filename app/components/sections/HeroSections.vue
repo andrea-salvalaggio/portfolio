@@ -1,5 +1,5 @@
 <template>
-    <section class="hero-section">
+    <section class="hero-section reveal">
         <div class="container p-0">
             <div class="row">
                 <div class="col-12 col-md-2">
@@ -34,6 +34,10 @@
         </div>
     </section>
 </template>
+
+<script setup>
+useReveal()
+</script>
 
 <style scoped lang="scss">
 @use '@/assets/scss/variables' as *;

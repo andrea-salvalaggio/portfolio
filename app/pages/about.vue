@@ -1,6 +1,6 @@
 <template>
     <div class="p-3 py-5 py-sm-8">
-        <div class="about-title">
+        <div class="about-title reveal">
             <div class="container p-0">
                 <div class="row">
                     <div class="col">
@@ -21,4 +21,5 @@
 useHead({
     title: 'About | Andrea Salvalaggio'
 })
+useReveal()
 </script>
