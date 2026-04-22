@@ -1,6 +1,6 @@
 <template>
     <a :href="experience.url"
-        class="btn-link fw-light text-decoration-none roundend-1 w-100"
+        class="btn-link fw-light text-decoration-none rounded-1 w-100"
         target="_blank" :aria-label="experience.label">
         <div class="d-flex justify-content-between pb-3 pb-sm-4">
             <div class="d-flex align-items-center flex-grow-1">
