@@ -3,7 +3,7 @@
         <div class="d-flex align-items-center">
             <font-awesome-icon :icon="stack.icon" class="fs-5 me-2" /> {{ stack.label }} 
         </div>
-        <img src="/img/icons/arrow-top-right.svg" class="btn-icon lazyload" alt="Arrow" />
+        <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon" alt="Arrow" />
     </a>
 </template>
 

@@ -3,8 +3,8 @@
         <div class="container p-0">
             <div class="row">
                 <div class="col-12 col-md-2">
-                    <img src="/img/profile.png" class="img-fluid rounded-circle img-profile lazyload"
-                        alt="Profile picture">
+                    <img src="/img/profile.png" width="180" height="180" class="img-fluid rounded-circle img-profile"
+                        alt="Profile picture" fetchpriority="high">
                 </div>
                 <div class="col-12 col-md-9">
                     <h1 class="hero-title fw-bold mb-3">Hey! I’m Andrea</h1>
@@ -16,17 +16,17 @@
                     <div class="hero-links d-flex flex-wrap">
                         <a href="https://drive.google.com/file/d/1DX-yTtHCVmeSe1dJYeU8f3gXjvwp4_KL/view?usp=sharing"
                             class="btn-link" target="_blank" aria-label="Download CV">
-                            Download CV <img src="/img/icons/arrow-top-right.svg" class="btn-icon lazyload"
+                            Download CV <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon"
                                 alt="Arrow" />
                         </a>
                         <a href="mailto:andrea.salvalaggio95@gmail.com" class="btn-link mx-2 mx-md-3"
                             aria-label="Contact me">
-                            Contact me <img src="/img/icons/arrow-top-right.svg" class="btn-icon lazyload"
+                            Contact me <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon"
                                 alt="Arrow" />
                         </a>
                         <a href="https://linkedin.com/in/andrea-salvalaggio" class="btn-link" target="_blank"
                             aria-label="LinkedIn">
-                            LinkedIn <img src="/img/icons/arrow-top-right.svg" class="btn-icon lazyload" alt="Arrow" />
+                            LinkedIn <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon" alt="Arrow" />
                         </a>
                     </div>
                 </div>

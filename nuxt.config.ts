@@ -10,6 +10,7 @@ export default defineNuxtConfig({
         fallback: 'light'
     },
     css: [
+        'bootstrap/dist/css/bootstrap.min.css',
         '@fortawesome/fontawesome-svg-core/styles.css',
         '~/assets/scss/main.scss'
     ],
@@ -38,7 +39,7 @@ export default defineNuxtConfig({
             ],
             script: [
                 {
-                innerHTML: `(function () {
+                    innerHTML: `(function () {
                     try {
                     const theme = localStorage.getItem('nuxt-color-mode')
                     if (theme === 'dark') {
@@ -48,6 +49,19 @@ export default defineNuxtConfig({
                     }
                     } catch (e) {}
                 })();`
+                }
+            ],
+            link: [
+                {
+                    rel: 'preload',
+                    as: 'image',
+                    href: '/img/profile.png'
+                },
+                { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+                { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+                {
+                    rel: 'stylesheet',
+                    href: 'https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap'
                 }
             ]
         },
