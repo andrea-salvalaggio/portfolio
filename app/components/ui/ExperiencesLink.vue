@@ -6,8 +6,8 @@
             <div class="d-flex align-items-center flex-grow-1">
                 <img :src="experience.logo" :alt="experience.company" class="experience-logo rounded-pill me-3" />
                 <div class="experience-head">
-                    <div class="h6 fw-light mb-1">{{ experience.role }}</div>
-                    <p class="m-0">{{ experience.company }}</p>
+                    <div class="h6 experience-title fw-light mb-1">{{ experience.role }}</div>
+                    <p class="experience-text m-0">{{ experience.company }}</p>
                 </div>
             </div>
             <div>
@@ -31,5 +31,9 @@ defineProps({
     width: 50px;
     height: 50px;
     border: 1px solid $gray-300;
+}
+
+.experience-title {
+    color: $dark;
 }
 </style>
