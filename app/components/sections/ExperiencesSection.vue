@@ -2,7 +2,7 @@
     <section class="experiences-section mt-5 mt-sm-9 reveal">
         <div class="container p-0">
             <div class="row">
-                <h2 class="h6 fw-light col-12 col-md-3 mb-4 mb-md-0">Experiences</h2>
+                <h2 class="h6 fw-regular col-12 col-md-3 mb-4 mb-md-0">Experiences</h2>
                 <div class="col-12 col-md-9 experiences-links">
                     <div class="row">
                         <div v-for="experience in experiences" :key="experience.id">

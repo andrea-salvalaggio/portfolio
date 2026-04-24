@@ -10,7 +10,8 @@
             "PHP",
             "Laravel"
         ],
-        "url": "/deliveboo"
+        "url": "/deliveboo",
+        "target": "_self"
     },
     {
         "id": 2,
@@ -22,6 +23,7 @@
             "CSS",
             "JavaScript"
         ],
-        "url": "https://github.com/andrea-salvalaggio/vue-boolzapp"
+        "url": "https://github.com/andrea-salvalaggio/vue-boolzapp",
+        "target": "_blank"
     }
 ]
