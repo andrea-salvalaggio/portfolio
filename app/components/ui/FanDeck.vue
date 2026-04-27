@@ -69,6 +69,10 @@ onMounted(async () => {
     align-items: center;
     position: relative;
 
+    @media (max-width: 320px) {
+        height: 380px;
+    }
+
     @media (min-width: 768px) {
         margin-bottom: $spacer-9;
     }
@@ -86,6 +90,21 @@ onMounted(async () => {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        @media (max-width: 320px) {
+            width: 160px;
+            height: 220px;
+        }
+
+        @media (min-width: 325px) and (max-width: 576px) {
+            width: 200px;
+            height: 280px;
+        }
+
+        @media(min-width: 576px) and (max-width: 768px) {
+            width: 240px;
+            height: 320px;
         }
     }
 }

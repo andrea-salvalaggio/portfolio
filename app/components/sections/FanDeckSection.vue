@@ -15,7 +15,6 @@ const cards = [
 const mobileCards = [
     { image: '/img/deck/andrea-elisa.jpg', alt: 'Andrea ed Elisa' },
     { image: '/img/deck/andrea.jpg', alt: 'Ritratto di Andrea' },
-    { image: '/img/deck/bici-2.jpg', alt: 'Andrea in bici & company' },
 ]
 
 const desktopFanSettings = {
@@ -29,6 +28,11 @@ const mobileFanSettings = {
     spacing: 80,
     rotationIntensity: 10,
     arcIntensity: 10,
-    scaleDecay: 0.06
+    scaleDecay: 0.06,
+
+    positions: [
+        { x: -65, y: -60, rotate: -5, scale: 1, z: 0 },
+        { x: 55, y: 105, rotate: 5, scale: 1.1, z: 1 },
+    ]
 }
 </script>
