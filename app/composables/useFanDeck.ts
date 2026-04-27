@@ -24,15 +24,37 @@ export function useFanDeck(props) {
     })
 
     const render = () => {
-        const els = cardsRef.value
-        if (!els.length) return
+    const els = cardsRef.value
+    if (!els.length) return
+
+    const settings = activeSettings.value
+
+        if (isMobile.value && settings.positions) {
+            els.forEach((el, idx) => {
+                const pos = settings.positions[idx]
+                if (!pos) return
+
+                let { x = 0, y = 0, rotate = 0, scale = 1, z = 1 } = pos
+
+                gsap.to(el, {
+                    x,
+                    y,
+                    rotate,
+                    scale,
+                    duration: 0.5,
+                    ease: 'power3.out'
+                })
+
+                el.style.zIndex = z
+            })
+
+            return
+        }
 
         const total = els.length
         const centerIndex = Math.floor(total / 2)
 
         els.forEach((el, idx) => {
-            const settings = activeSettings.value
-
             const distCenter = Math.abs(idx - centerIndex)
             const baseScale = 1 - distCenter * settings.scaleDecay
 
