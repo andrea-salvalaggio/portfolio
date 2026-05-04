@@ -1,8 +1,8 @@
 <template>
     <a :href="project.url" class="card-link text-decoration-none" :aria-label="`View ${project.title}`" :target="project.target">
         <div class="card flex-row-reverse align-items-center flex-sm-column h-100 bg-transparent border-0 pb-4 pb-sm-0">
-            <div class="card-image col-4 col-sm-12">
-                <img :src="project.image" :alt="project.title" class="rounded-1 h-100 w-100" fetchpriority="high"/>
+            <div class="card-image col-4 col-sm-12 rounded-1">
+                <img :src="project.image" :alt="project.title" class="h-100 w-100" fetchpriority="high"/>
             </div>
             <div class="card-body d-flex flex-column p-0 mt-sm-3 pe-3 pe-sm-0">
                 <div class="h5 card-title fw-medium mb-1 mb-sm-2">{{ project.title }}</div>
