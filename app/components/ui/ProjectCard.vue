@@ -1,6 +1,6 @@
 <template>
     <a :href="project.url" class="card-link text-decoration-none" :aria-label="`View ${project.title}`" :target="project.target">
-        <div class="card flex-row-reverse align-items-center flex-sm-column h-100 bg-transparent border-0 pb-4 pb-sm-0">
+        <div class="card flex-row-reverse align-items-center flex-sm-column h-100 bg-transparent border-0 pb-4 pb-sm-0" :class="project.title.toLowerCase()">
             <div class="card-image col-4 col-sm-12 rounded-1">
                 <img :src="project.image" :alt="project.title" class="h-100 w-100" fetchpriority="high"/>
             </div>
@@ -30,6 +30,7 @@ defineProps({
 
     .card-image {
         overflow: clip;
+        transition: box-shadow 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 
         img {
             height: fit-content;
