@@ -1,9 +1,9 @@
 <template>
     <section class="hero-section reveal">
         <div class="container p-0">
-            <div class="row">
-                <div class="col-12 col-md-2">
-                    <img src="/img/profile.png" width="180" height="180" class="img-fluid rounded-circle img-profile"
+            <div class="row flex-row-reverse justify-content-between g-md-0">
+                <div class="col-12 col-md-2 text-md-end">
+                    <img src="/img/profile.png" width="90" height="90" class="img-fluid rounded-circle img-profile"
                         alt="Profile picture" fetchpriority="high">
                 </div>
                 <div class="col-12 col-md-9">
