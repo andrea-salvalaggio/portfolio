@@ -32,6 +32,16 @@ const navLinks = [
 
 <style scoped lang="scss">
 .navbar {
+    .navbar-logo,
+    .navbar-actions {
+        transform: scale(1);
+        transition: transform 0.2s ease-in-out;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
     .nav-item {
         .nav-link {
             padding: $spacer-1 $spacer;
@@ -41,6 +51,7 @@ const navLinks = [
         .router-link-active {
             color: $dark;
             background-color: $primary;
+            transition: 0.3s ease-in-out;
         }
     }
 
