@@ -1,7 +1,10 @@
 @mixin link-hover-fade($section) {
     #{$section} :deep(.btn-link) {
         opacity: 1;
-        transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        transition:
+            opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+            background-color 220ms ease-in-out,
+            color 220ms ease-in-out;
     }
 
     #{$section} :deep(.btn-icon) {

@@ -1,6 +1,7 @@
 * {
     font-family: $font-family, system-ui, -apple-system, sans-serif;
     font-display: swap;
+    transition: background-color 220ms ease-in-out, color 220ms ease-in-out;
 }
 
 body {

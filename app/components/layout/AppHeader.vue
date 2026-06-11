@@ -45,13 +45,12 @@ const navLinks = [
     .nav-item {
         .nav-link {
             padding: $spacer-1 $spacer;
-            transition: none;
+            transition: background-color 220ms ease-in-out, color 220ms ease-in-out;
         }
 
         .router-link-active {
             color: $dark;
             background-color: $primary;
-            transition: 0.3s ease-in-out;
         }
     }
 

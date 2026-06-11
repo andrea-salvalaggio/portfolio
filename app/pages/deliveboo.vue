@@ -12,10 +12,10 @@
                     </p>
                 </div>
             </div>
-            <div class="d-flex align-items-center mt-3 reveal">
+            <div class="projects-credits d-flex align-items-center mt-3 reveal">
                 <img src="/img/profile.png" width="100" height="100" class="img-fluid rounded-circle img-profile" alt="Profile picture" fetchpriority="high">
                 <div class="flex-grow-1 ms-3">
-                    <div class="h6 fw-light m-0">Andrea Salvalaggio</div>
+                    <div class="h6 title fw-light m-0">Andrea Salvalaggio</div>
                     <p class="m-0">
                         2022 – <a href="https://github.com/andrea-salvalaggio/laravel-deliveboo" target="_blank" rel="noopener noreferrer" aria-label="Visit project">Visit project</a>
                     </p>
@@ -40,6 +40,12 @@ useReveal()
     .img-profile {
         width: 50px;
         height: 50px;
+    }
+
+    .projects-credits {
+        .title {
+            color: $dark;
+        }
     }
 
     .projects-thumb {
