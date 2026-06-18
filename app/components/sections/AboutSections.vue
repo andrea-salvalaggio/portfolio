@@ -1,5 +1,5 @@
 <template>
-    <div class="about-sections mt-sm-9 reveal">
+    <div class="about-sections mt-5 mt-sm-9 reveal">
         <div class="container p-0">
             <div class="row">
                 <h2 class="h6 fw-regular col-12 col-md-3 mb-4 mb-md-0">About</h2>
@@ -25,11 +25,3 @@
 <script setup>
 useReveal()
 </script>
-
-<style scoped lang="scss">
-@use '@/assets/scss/variables' as *;
-
-.about-sections {
-    margin-top: $spacer-8;
-}
-</style>
