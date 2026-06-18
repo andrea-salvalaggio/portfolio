@@ -13,21 +13,23 @@
                         with a design-first mindset. I focus on building intuitive, responsive,
                         combining aesthetics with clean and maintainable code.
                     </p>
-                    <div class="hero-links d-flex flex-wrap">
-                        <a href="https://drive.google.com/file/d/1DX-yTtHCVmeSe1dJYeU8f3gXjvwp4_KL/view?usp=sharing"
-                            class="btn-link" target="_blank" aria-label="Download CV">
-                            Download CV <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon"
-                                alt="Arrow" />
-                        </a>
-                        <a href="mailto:andrea.salvalaggio95@gmail.com" class="btn-link mx-2 mx-md-3"
-                            aria-label="Contact me">
-                            Contact me <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon"
-                                alt="Arrow" />
-                        </a>
-                        <a href="https://linkedin.com/in/andrea-salvalaggio" class="btn-link" target="_blank"
-                            aria-label="LinkedIn">
-                            LinkedIn <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon" alt="Arrow" />
-                        </a>
+                    <div class="hero-links d-md-flex">
+                        <div class="flex-wrap row gx-1 g-sm-2">
+                            <a href="https://drive.google.com/file/d/1DX-yTtHCVmeSe1dJYeU8f3gXjvwp4_KL/view?usp=sharing"
+                                class="btn-link" target="_blank" aria-label="Download CV">
+                                Download CV <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon"
+                                    alt="Arrow" />
+                            </a>
+                            <a href="mailto:andrea.salvalaggio95@gmail.com" class="btn-link mx-md-2"
+                                aria-label="Contact me">
+                                Contact me <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon"
+                                    alt="Arrow" />
+                            </a>
+                            <a href="https://linkedin.com/in/andrea-salvalaggio" class="btn-link" target="_blank"
+                                aria-label="LinkedIn">
+                                LinkedIn <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon" alt="Arrow" />
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,6 +59,7 @@ useReveal()
 
 .hero-links {
     .btn-link {
+        width: fit-content;
         display: flex;
         align-items: center;
         color: $dark;
@@ -73,6 +76,13 @@ useReveal()
 
         @media (max-width: 576px) {
             margin-bottom: $spacer-2;
+        }
+
+        @media (max-width: 768px) {
+            width: 100%;
+            justify-content: space-between;
+            border-radius: $radius-1;
+            padding: $spacer $spacer-4;
         }
     }
 }
