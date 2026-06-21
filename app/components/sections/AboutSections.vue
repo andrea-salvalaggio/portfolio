@@ -5,7 +5,7 @@
                 <h2 class="h6 fw-regular col-12 col-md-3 mb-4 mb-md-0">About</h2>
                 <div class="col-12 col-md-9">
                     <p>
-                        I’m a Web Designer with a solid background in graphic design and a strong interest in development. I currently work in a software house focused on digital printing, where I combine visual attention and functionality in web projects.
+                        I’m a Web & Frontend Designer with a solid background in graphic design and a strong interest in development. I currently work in a software house focused on digital printing, where I combine visual attention and functionality in web projects.
                     </p>
                     <p>
                         Design is where I started: over the years I’ve developed a sharp eye for detail, visual hierarchy, and user experience. At some point, though, focusing only on visuals wasn’t enough — I wanted to understand how the things I design actually work.
