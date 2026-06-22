@@ -15,7 +15,7 @@
                     </p>
                     <div class="hero-links d-md-flex">
                         <div class="flex-wrap row gx-1 g-sm-2">
-                            <a href="https://drive.google.com/file/d/1DX-yTtHCVmeSe1dJYeU8f3gXjvwp4_KL/view?usp=sharing"
+                            <a href="https://drive.google.com/file/d/1IKwbs_N8WZrnHX9v3Jl8cWi9HPtqZgAC/view?usp=sharing"
                                 class="btn-link" target="_blank" aria-label="Download CV">
                                 Download CV <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon"
                                     alt="Arrow" />
