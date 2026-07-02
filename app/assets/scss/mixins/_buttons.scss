@@ -1,25 +1,27 @@
 @mixin link-hover-fade($section) {
-    #{$section} :deep(.btn-link) {
-        opacity: 1;
-        transition:
-            opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1),
-            background-color 220ms ease-in-out,
-            color 220ms ease-in-out;
-    }
-
-    #{$section} :deep(.btn-icon) {
-        transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-
-    #{$section}:hover :deep(.btn-link) {
-        opacity: 0.5;
-    }
-
-    #{$section} :deep(.btn-link:hover) {
-        opacity: 1;
-    }
-
-    #{$section} :deep(.btn-link:hover .btn-icon) {
-        transform: scale(1.35) rotate(45deg);
+    @media (min-width: 576px) {
+        #{$section} :deep(.btn-link) {
+            opacity: 1;
+            transition:
+                opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+                background-color 220ms ease-in-out,
+                color 220ms ease-in-out;
+        }
+    
+        #{$section} :deep(.btn-icon) {
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+    
+        #{$section}:hover :deep(.btn-link) {
+            opacity: 0.5;
+        }
+    
+        #{$section} :deep(.btn-link:hover) {
+            opacity: 1;
+        }
+    
+        #{$section} :deep(.btn-link:hover .btn-icon) {
+            transform: scale(1.35) rotate(45deg);
+        }
     }
 }

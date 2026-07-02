@@ -8,7 +8,7 @@
 
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item mx-sm-1" v-for="link in navLinks" :key="link.to">
-                        <NuxtLink class="nav-link rounded-pill" :to="link.to">
+                        <NuxtLink class="nav-link btn-link rounded-pill" :to="link.to">
                             {{ link.label }}
                         </NuxtLink>
                     </li>
@@ -31,6 +31,10 @@ const navLinks = [
 </script>
 
 <style scoped lang="scss">
+@use "@/assets/scss/mixins/buttons" as *;
+
+@include link-hover-fade(".navbar-nav");
+
 .navbar {
     .navbar-logo,
     .navbar-actions {
@@ -45,7 +49,6 @@ const navLinks = [
     .nav-item {
         .nav-link {
             padding: $spacer-1 $spacer;
-            transition: background-color 220ms ease-in-out, color 220ms ease-in-out;
         }
 
         .router-link-active {

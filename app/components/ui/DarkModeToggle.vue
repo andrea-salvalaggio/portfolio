@@ -20,3 +20,9 @@ const icon = computed(() =>
     isDark.value ? ['fas', 'bolt'] : ['fas', 'moon']
 )
 </script>
+
+<style scoped lang="scss">
+svg {
+    font-size: $font-size-smaller;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-    <a :href="stack.url" class="btn-link fw-light d-flex align-items-center justify-content-between text-decoration-none rounded-1 w-100" target="_blank" :aria-label="stack.label">
+    <a :href="stack.url" class="btn-link fw-light d-flex align-items-center justify-content-between text-decoration-none rounded-pill w-100" target="_blank" :aria-label="stack.label">
         <div class="d-flex align-items-center">
             <font-awesome-icon :icon="stack.icon" class="fs-5 me-2" /> {{ stack.label }} 
         </div>
@@ -20,7 +20,7 @@ defineProps({
 .btn-link {
     color: $dark;
     background-color: $primary;
-    padding: $spacer;
+    padding: $spacer $spacer-4;
 
     .btn-icon {
         margin-right: $spacer-2;

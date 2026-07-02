@@ -24,31 +24,6 @@ defineProps({
 <style scoped lang="scss">
 @use '@/assets/scss/variables' as *;
 
-.card {
-    opacity: 1;
-    transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-
-    .card-image {
-        overflow: clip;
-        transition: box-shadow 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-
-        img {
-            height: fit-content;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-    }
-
-    &:hover {
-        opacity: 1;
-
-        .card-image {
-            img {
-                transform: scale(1.05);
-            }
-        }
-    }
-}
-
 .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -57,6 +32,47 @@ defineProps({
 }
 
 @media (min-width: 576px) {
+    .card {
+        opacity: 1;
+        transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+
+        .card-image {
+            overflow: clip;
+            transition: box-shadow 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+
+            img {
+                height: fit-content;
+                transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            }
+        }
+
+        &.deliveboo {
+            &:hover {
+                .card-image {
+                    box-shadow: 0 0 3rem rgba($orange, 0.4);
+                }
+            }
+        }
+
+        &.boolzapp {
+            &:hover {
+                .card-image {
+                    box-shadow: 0 0 3rem rgba($green, 0.4);
+                }
+            }
+        }
+
+        &:hover {
+            opacity: 1;
+
+            .card-image {
+                img {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
     .line-clamp-sm-3 {
         display: -webkit-box;
         -webkit-line-clamp: 3;

@@ -17,11 +17,13 @@ useReveal()
 </script>
 
 <style scoped lang="scss">
-.projects-cards:hover :deep(.card) {
-    opacity: 0.4;
-}
+@media (min-width: 576px) {
+    .projects-cards:hover :deep(.card) {
+        opacity: 0.4;
+    }
 
-.projects-cards :deep(.card:hover) {
-    opacity: 1;
+    .projects-cards :deep(.card:hover) {
+        opacity: 1;
+    }
 }
 </style>

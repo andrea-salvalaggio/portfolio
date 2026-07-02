@@ -106,6 +106,10 @@ onMounted(async () => {
             width: 240px;
             height: 320px;
         }
+
+        @media (min-width: 576px) {
+            border-radius: $radius-6;
+        }
     }
 }
 </style>

@@ -14,7 +14,7 @@
                         combining aesthetics with clean and maintainable code.
                     </p>
                     <div class="hero-links d-md-flex">
-                        <div class="flex-wrap row gx-1 g-sm-2">
+                        <div class="flex-wrap row gx-1 gx-sm-2">
                             <a href="https://drive.google.com/file/d/1IKwbs_N8WZrnHX9v3Jl8cWi9HPtqZgAC/view?usp=sharing"
                                 class="btn-link" target="_blank" aria-label="Download CV">
                                 Download CV <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon"
@@ -73,16 +73,12 @@ useReveal()
             margin-left: $spacer-3;
             transform: scale(1.35);
         }
-
-        @media (max-width: 576px) {
-            margin-bottom: $spacer-2;
-        }
-
+        
         @media (max-width: 768px) {
             width: 100%;
             justify-content: space-between;
-            border-radius: $radius-1;
             padding: $spacer $spacer-4;
+            margin-bottom: $spacer;
         }
     }
 }
