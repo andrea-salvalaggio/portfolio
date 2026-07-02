@@ -31,13 +31,16 @@ defineProps({
     overflow: hidden;
 }
 
+.card-image {
+    overflow: clip;
+}
+
 @media (min-width: 576px) {
     .card {
         opacity: 1;
         transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 
         .card-image {
-            overflow: clip;
             transition: box-shadow 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 
             img {
