@@ -7,7 +7,7 @@
                 </NuxtLink>
 
                 <ul ref="navRef" class="navbar-nav align-items-center nav-wrapper">
-                    <span ref="pillRef" class="nav-pill"></span>
+                    <li ref="pillRef" class="nav-pill"></li>
 
                     <li v-for="link in navLinks" :key="link.to" class="nav-item mx-sm-1">
                         <NuxtLink :to="link.to" custom v-slot="{ href, navigate, isActive }">

@@ -10,6 +10,11 @@ body {
     letter-spacing: .2px;
     overflow-x: clip;
 
+    &::selection {
+        background-color: $gray-200;
+        color: $dark;
+    }
+
     @media (min-width: 992px) {
         width: 700px;
         margin: 0 auto;
@@ -28,6 +33,10 @@ body {
     h6 {
         color: $dark;
     }
+}
+
+.bg-image {
+    background-color: $primary;
 }
 
 .fw-regular {

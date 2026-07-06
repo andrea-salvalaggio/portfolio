@@ -49,22 +49,6 @@ defineProps({
             }
         }
 
-        &.deliveboo {
-            &:hover {
-                .card-image {
-                    box-shadow: 0 0 3rem rgba($orange, 0.4);
-                }
-            }
-        }
-
-        &.boolzapp {
-            &:hover {
-                .card-image {
-                    box-shadow: 0 0 3rem rgba($green, 0.4);
-                }
-            }
-        }
-
         &:hover {
             opacity: 1;
 
