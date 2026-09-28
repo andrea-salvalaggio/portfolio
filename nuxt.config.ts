@@ -6,8 +6,8 @@ export default defineNuxtConfig({
     modules: ['@nuxtjs/color-mode'],
     colorMode: {
         classSuffix: '',
-        preference: 'light',
-        fallback: 'light'
+        preference: 'dark',
+        fallback: 'dark'
     },
     css: [
         'bootstrap/dist/css/bootstrap.min.css',

@@ -1,12 +1,12 @@
 <template>
     <section class="hero-section reveal">
         <div class="container p-0">
-            <div class="row flex-row-reverse justify-content-between g-md-0">
-                <div class="col-12 col-md-2 text-md-end">
-                    <img src="/img/profile.png" width="90" height="90" class="img-fluid rounded-circle img-profile"
+            <div class="row g-md-0">
+                <div class="col-12 mb-3">
+                    <img src="/img/profile.png" width="75" height="75" class="img-fluid rounded-circle img-profile"
                         alt="Profile picture" fetchpriority="high">
                 </div>
-                <div class="col-12 col-md-9">
+                <div class="col-12 col-md-11">
                     <h1 class="hero-title fw-bold mb-3">Hey! I’m Andrea</h1>
                     <p class="hero-description mb-4">
                         Web & Frontend Designer based in Padua, Italy
@@ -20,7 +20,7 @@
                                 Download CV <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon"
                                     alt="Arrow" />
                             </a>
-                            <a href="mailto:andrea.salvalaggio95@gmail.com" class="btn-link mx-md-2"
+                            <a href="mailto:andrea.salvalaggio95@gmail.com" class="btn-link mx-md-3"
                                 aria-label="Contact me">
                                 Contact me <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon"
                                     alt="Arrow" />
@@ -48,6 +48,8 @@ useReveal()
 @include link-hover-fade(".hero-links");
 
 .hero-title {
+    font-size: $font-size-biggest;
+
     @media(max-width: 576px) {
         font-size: $font-size-big;
     }
@@ -64,13 +66,13 @@ useReveal()
         align-items: center;
         color: $dark;
         background-color: $gray-100;
-        padding: .35rem 1.25rem;
+        padding: .45rem 1.75rem;
         border-radius: $radius-pill;
         text-decoration: none;
         white-space: nowrap;
 
         .btn-icon {
-            margin-left: $spacer-3;
+            margin-left: $spacer;
             transform: scale(1.35);
         }
         

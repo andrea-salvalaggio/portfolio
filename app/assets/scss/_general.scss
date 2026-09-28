@@ -2,10 +2,16 @@
     font-family: $font-family, system-ui, -apple-system, sans-serif;
     font-display: swap;
     transition: background-color 220ms ease-in-out;
+    font-size: 17px;
+
+    p,
+    h6 {
+        font-size: 17px;
+    }
 }
 
 body {
-    line-height: $line-height-base;
+    line-height: 1.75rem;
     font-weight: $font-weight-light;
     letter-spacing: .2px;
     overflow-x: clip;

@@ -8,6 +8,13 @@ html.dark {
             color: $gray-400;
         }
 
+        a {
+            &:hover {
+                color: $white;
+                transition: color 0.2s ease-in-out;
+            }
+        }
+
         h1,
         h2,
         h3,

@@ -35,7 +35,7 @@ const leave = () => {
         position: relative;
         display: inline-block;
         overflow: clip;
-        border-radius: $radius-1;
+        border-radius: $radius-5;
         
         &:not(:first-child) {
             margin-top: $spacer-1;
