@@ -1,34 +1,38 @@
-* {
-    font-family: $font-family, system-ui, -apple-system, sans-serif;
-    font-display: swap;
-    transition: background-color 220ms ease-in-out;
-    font-size: 17px;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
-    p,
-    h6 {
-        font-size: 17px;
-    }
+html {
+    font-size: 17px;
+    background-color: $dark;
 }
 
 body {
-    line-height: 1.75rem;
-    font-weight: $font-weight-light;
-    letter-spacing: .2px;
+    margin: 0;
     overflow-x: clip;
+    font-family: $font-family, system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    font-weight: $font-weight-light;
+    line-height: 1.75rem;
+    letter-spacing: 0.2px;
+    color: $light;
+    background-color: $dark;
 
     &::selection {
-        background-color: $gray-200;
-        color: $dark;
+        background-color: $gray-700;
+        color: $white;
     }
 
-    @media (min-width: 992px) {
-        width: 700px;
-        margin: 0 auto;
-    }
-
-    p,
-    a {
-        color: $primary-text;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        margin-top: 0;
     }
 
     h1,
@@ -37,20 +41,75 @@ body {
     h4,
     h5,
     h6 {
-        color: $dark;
+        color: $light;
+    }
+
+    p {
+        color: $gray-500;
+    }
+
+    a {
+        color: $gray-500;
+        text-decoration: none;
+        transition: color 0.2s ease-in-out;
+
+        &:hover {
+            color: $white;
+        }
+    }
+
+    @media (min-width: 992px) {
+        width: 750px;
+        margin: 0 auto;
     }
 }
 
+.navbar {
+
+    .nav-wrapper,
+    .navbar-brand {
+        border: 1px solid $gray-800;
+        background-color: $gray-900;
+    }
+
+    .nav-wrapper {
+        padding: $spacer-1 $spacer-3;
+        border-radius: $radius-pill;
+    }
+
+    .nav-pill {
+        background-color: $gray-900;
+    }
+
+    .nav-item {
+        .nav-link {
+            color: $gray-400;
+
+            &.active {
+                color: $white;
+            }
+        }
+    }
+
+    .navbar-brand {
+        img {
+            filter: invert(1);
+        }
+    }
+}
+
+.img-profile {
+    background-color: $gray-900;
+}
+
 .bg-image {
-    background-color: $primary;
+    border: 1px solid $gray-800;
+    border-radius: $radius-5;
+    background-color: $gray-900;
 }
 
 .fw-regular {
     font-weight: $font-weight-regular;
-}
-
-.img-profile {
-    background-color: $primary;
 }
 
 .mt-5 {
@@ -61,11 +120,31 @@ body {
     .mt-sm-9 {
         margin-top: $spacer-9 !important;
     }
-}
 
-@media (min-width: 576px) {
     .py-sm-8 {
         padding-top: $spacer-8 !important;
         padding-bottom: $spacer-8 !important;
+    }
+}
+
+.error-section {
+    a {
+        color: $primary;
+    }
+}
+
+@media (min-width: 576px) {
+    .card {
+        &.deliveboo:hover {
+            .card-image {
+                box-shadow: 0 0 3rem rgba($orange, 0.4);
+            }
+        }
+
+        &.boolzapp:hover {
+            .card-image {
+                box-shadow: 0 0 3rem rgba($green, 0.4);
+            }
+        }
     }
 }

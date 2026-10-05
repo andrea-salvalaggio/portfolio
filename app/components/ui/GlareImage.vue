@@ -38,7 +38,7 @@ const leave = () => {
         border-radius: $radius-5;
         
         &:not(:first-child) {
-            margin-top: $spacer-1;
+            margin-top: $spacer-3;
         }
 
         img {

@@ -2,12 +2,12 @@
     <section class="hero-section reveal">
         <div class="container p-0">
             <div class="row g-md-0">
-                <div class="col-12 mb-3">
+                <div class="col-12 mb-4">
                     <img src="/img/profile.png" width="75" height="75" class="img-fluid rounded-circle img-profile"
                         alt="Profile picture" fetchpriority="high">
                 </div>
                 <div class="col-12 col-md-11">
-                    <h1 class="hero-title fw-bold mb-3">Hey! I’m Andrea</h1>
+                    <h1 class="hero-title fw-bold mb-4">Hey! I’m Andrea</h1>
                     <p class="hero-description mb-4">
                         Web & Frontend Designer based in Padua, Italy
                         with a design-first mindset. I focus on building intuitive, responsive,
@@ -64,8 +64,9 @@ useReveal()
         width: fit-content;
         display: flex;
         align-items: center;
-        color: $dark;
-        background-color: $gray-100;
+        color: $light;
+        border: 1px solid $gray-800;
+        background-color: $gray-900;
         padding: .45rem 1.75rem;
         border-radius: $radius-pill;
         text-decoration: none;
@@ -83,6 +84,10 @@ useReveal()
             margin-bottom: $spacer;
         }
     }
+}
+
+.img-profile {
+    border: 1px solid $gray-800;
 }
 
 @media (max-width: 768px) {

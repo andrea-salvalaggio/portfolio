@@ -18,6 +18,7 @@
     
         #{$section} :deep(.btn-link:hover) {
             opacity: 1;
+            background-color: rgba(#ffff, 0.09);
         }
     
         #{$section} :deep(.btn-link:hover .btn-icon) {

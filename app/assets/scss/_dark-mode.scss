@@ -5,13 +5,14 @@ html.dark {
 
         a,
         p {
-            color: $gray-400;
+            color: $gray-500;
         }
 
         a {
+            transition: 0.2s ease-in-out;
+
             &:hover {
                 color: $white;
-                transition: color 0.2s ease-in-out;
             }
         }
 
@@ -35,17 +36,26 @@ html.dark {
     }
 
     .bg-image {
+        border: 1px solid $gray-800;
         background-color: $gray-900;
+        border-radius: $radius-5;
     }
 
     .navbar {
+        .nav-wrapper,
+        .navbar-actions,
+        .navbar-brand {
+            border: 1px solid $gray-800;
+            background-color: $gray-900;
+        }
+
         .nav-pill {
             background-color: $gray-900;
         }
 
         .nav-item {
             .nav-link {
-                color: $gray-300;
+                color: $gray-400;
 
                 &.active {
                     color: $white;
@@ -55,12 +65,15 @@ html.dark {
     }
 
     .navbar-brand {
-        filter: invert(1);
+        img {
+            filter: invert(1);
+        }
     }
 
     .hero-links {
         .btn-link {
             color: $light;
+            border: 1px solid $gray-800;
             background-color: $gray-900;
         }
     }
@@ -68,6 +81,12 @@ html.dark {
     .projects-section {
         .card-title {
             color: $light;
+        }
+
+        .card {
+            padding: 2rem;
+            border: 1px solid $gray-800;
+            background-color: $gray-900;
         }
     }
 

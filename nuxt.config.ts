@@ -3,12 +3,6 @@ import svgLoader from 'vite-svg-loader'
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: true },
-    modules: ['@nuxtjs/color-mode'],
-    colorMode: {
-        classSuffix: '',
-        preference: 'dark',
-        fallback: 'dark'
-    },
     css: [
         'bootstrap/dist/css/bootstrap.min.css',
         '@fortawesome/fontawesome-svg-core/styles.css',
@@ -36,20 +30,6 @@ export default defineNuxtConfig({
                     name: "description",
                     content: "This is my professional portfolio where I present my projects and skills as a web developer. Explore my work and experience in the field of web development.",
                 },
-            ],
-            script: [
-                {
-                    innerHTML: `(function () {
-                    try {
-                    const theme = localStorage.getItem('nuxt-color-mode')
-                    if (theme === 'dark') {
-                        document.documentElement.classList.add('dark')
-                    } else if (theme === 'light') {
-                        document.documentElement.classList.add('light')
-                    }
-                    } catch (e) {}
-                })();`
-                }
             ],
             link: [
                 {

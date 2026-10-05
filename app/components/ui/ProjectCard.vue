@@ -1,10 +1,10 @@
 <template>
-    <a :href="project.url" class="card-link text-decoration-none" :aria-label="`View ${project.title}`" :target="project.target">
-        <div class="card flex-row-reverse align-items-center flex-sm-column h-100 bg-transparent border-0 pb-4 pb-sm-0" :class="project.title.toLowerCase()">
-            <div class="card-image col-4 col-sm-12">
+    <a :href="project.url" class="card-link text-decoration-none d-block mb-4" :aria-label="`View ${project.title}`" :target="project.target">
+        <div class="card flex-row-reverse align-items-center h-100" :class="project.title.toLowerCase()">
+            <div class="card-image col-4">
                 <img :src="project.image" :alt="project.title" class="h-100 w-100" fetchpriority="high"/>
             </div>
-            <div class="card-body d-flex flex-column p-0 mt-sm-3 pe-3 pe-sm-0">
+            <div class="card-body d-flex flex-column p-0 pe-3">
                 <div class="h5 card-title fw-medium mb-1 mb-sm-2">{{ project.title }}</div>
                 <p class="card-text line-clamp-2 line-clamp-sm-3 fw-light">{{ project.description }}</p>
             </div>
@@ -31,17 +31,28 @@ defineProps({
     overflow: hidden;
 }
 
-.card-text {
-    line-height: $line-height-big;
-}
+.card {
+    padding: $spacer-4;
+    border-radius: $radius-5;
+    border: 1px solid $gray-800;
+    background-color: rgba($white, 0.02);
 
-.card-image {
-    overflow: clip;
-    border-radius: $radius-4;
+    .card-title {
+        color: $primary;
+    }
 
-    img {
-        aspect-ratio: 5 / 3;
-        object-fit: cover;
+    .card-text {
+        line-height: $line-height-big;
+    }
+
+    .card-image {
+        overflow: clip;
+        border-radius: $radius-4;
+    
+        img {
+            aspect-ratio: 5 / 3;
+            object-fit: cover;
+        }
     }
 }
 
@@ -61,9 +72,9 @@ defineProps({
 
         &:hover {
             opacity: 1;
+            background-color: rgba($white, 0.05);
 
             .card-image {
-
                 img {
                     transform: scale(1.05);
                 }
