@@ -1,10 +1,8 @@
 <template>
-    <header class="mt-sm-4">
+    <header class="mt-3 mt-sm-4">
         <nav class="navbar navbar-expand">
             <div class="container justify-content-end p-sm-0">
                 <ul ref="navRef" class="navbar-nav align-items-center nav-wrapper">
-                    <li ref="indicatorRef" class="nav-indicator" aria-hidden="true" />
-
                     <li v-for="link in navLinks" :key="link.to" class="nav-item mx-sm-1">
                         <NuxtLink :to="link.to" custom v-slot="{ href, navigate, isActive }">
                             <a :href="href" :class="[
@@ -17,7 +15,7 @@
                     </li>
                 </ul>
 
-                <NuxtLink to="/" class="navbar-brand d-none d-sm-flex m-0 ms-3 p-0">
+                <NuxtLink to="/" class="navbar-brand d-flex m-0 ms-3 p-0">
                     <img src="/img/icons/logo.svg" class="navbar-logo" alt="Logo" width="22" height="22" />
                 </NuxtLink>
             </div>
@@ -26,86 +24,11 @@
 </template>
 
 <script setup lang="ts">
-import {
-    nextTick,
-    onBeforeUnmount,
-    onMounted,
-    ref,
-    watch
-} from 'vue'
-import { useRoute } from 'vue-router'
-
-const route = useRoute()
-
 const navLinks = [
     { to: '/', label: 'Home' },
     { to: '/about', label: 'About' },
     { to: '/stack', label: 'Stack' }
 ]
-
-const navRef = ref<HTMLElement | null>(null)
-const indicatorRef = ref<HTMLElement | null>(null)
-
-function updateIndicator(animate = true) {
-    nextTick(() => {
-        const nav = navRef.value
-        const indicator = indicatorRef.value
-        const activeLink = nav?.querySelector('.nav-link.active') as HTMLElement | null
-
-        if (!nav || !indicator || !activeLink) return
-
-        const navRect = nav.getBoundingClientRect()
-        const activeRect = activeLink.getBoundingClientRect()
-
-        const indicatorWidth = 45
-        const indicatorHeight = 1
-
-        const x =
-            activeRect.left -
-            navRect.left +
-            (activeRect.width - indicatorWidth) / 2
-
-        const y =
-            activeRect.bottom -
-            navRect.top +
-            2
-
-        if (!animate) {
-            indicator.style.transition = 'none'
-        }
-
-        indicator.style.width = `${indicatorWidth}px`
-        indicator.style.height = `${indicatorHeight}px`
-        indicator.style.transform = `translate(${x}px, ${y}px)`
-
-        if (!animate) {
-            indicator.offsetHeight
-            indicator.style.transition =
-                'transform 0.3s cubic-bezier(.22,1,.36,1)'
-        }
-
-        indicator.classList.add('is-visible')
-    })
-}
-
-const onResize = () => {
-    updateIndicator(false)
-}
-
-onMounted(() => {
-    updateIndicator(false)
-
-    window.addEventListener('resize', onResize)
-})
-
-onBeforeUnmount(() => {
-    window.removeEventListener('resize', onResize)
-})
-
-watch(
-    () => route.fullPath,
-    () => updateIndicator()
-)
 </script>
 
 <style scoped lang="scss">
@@ -124,9 +47,11 @@ watch(
         transform: scale(1);
         transition: transform 0.2s ease-in-out;
 
-        &:hover {
-            transform: scale(1.2);
-            background-color: rgba($white, 0.09);
+        @media (min-width: 768px) {
+            &:hover {
+                transform: scale(1.2);
+                background-color: rgba($white, 0.09);
+            }
         }
     }
 
@@ -134,24 +59,36 @@ watch(
         position: relative;
         display: flex;
         align-items: center;
-    }
 
-    .nav-indicator {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 24px;
-        height: 2px;
-        background-color: $white;
-        border-radius: $radius-pill;
-        pointer-events: none;
-        z-index: 0;
-        opacity: 0;
-        will-change: transform;
-        transition: transform 0.3s cubic-bezier(.22, 1, .36, 1);
+        &::before {
+            content: "";
+            display: none;
+            position: absolute;
+            position-anchor: --nav-active;
+            width: 70px;
+            height: 1.5px;
+            left: anchor(center);
+            top: anchor(bottom);
+            transform: translateX(-50%) translateY(2px);
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                $white 30%,
+                $white 60%,
+                transparent 100%
+            );
+            border-radius: $radius-pill;
+            pointer-events: none;
+            z-index: 0;
+            transition:
+                left 0.3s cubic-bezier(.22, 1, .36, 1),
+                top 0.3s cubic-bezier(.22, 1, .36, 1);
+        }
 
-        &.is-visible {
-            opacity: 1;
+        &:has(.nav-link.active) {
+            &::before {
+                display: block;
+            }
         }
     }
 
@@ -169,6 +106,10 @@ watch(
             &.active,
             &:hover {
                 color: $white;
+            }
+
+            &.active {
+                anchor-name: --nav-active;
             }
         }
     }

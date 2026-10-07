@@ -113,23 +113,24 @@ body {
 }
 
 .mt-5 {
-    margin-top: $spacer-8 !important;
+    margin-top: $spacer-8;
 }
 
 @media (min-width: 576px) {
     .mt-sm-9 {
-        margin-top: $spacer-9 !important;
+        margin-top: $spacer-9;
     }
 
     .py-sm-8 {
-        padding-top: $spacer-8 !important;
-        padding-bottom: $spacer-8 !important;
+        padding-top: $spacer-8;
+        padding-bottom: $spacer-8;
     }
 }
 
 .error-section {
     a {
-        color: $primary;
+        color: $white !important;
+        text-decoration: underline;
     }
 }
 

@@ -6,8 +6,8 @@
                     <img src="/img/profile.png" width="75" height="75" class="img-fluid rounded-circle img-profile"
                         alt="Profile picture" fetchpriority="high">
                 </div>
-                <div class="col-12 col-md-11">
-                    <h1 class="hero-title fw-bold mb-4">Hey! I’m Andrea</h1>
+                <div class="col-12 col-md-10">
+                    <h1 class="hero-title fw-bold mb-3">Hey! I’m Andrea</h1>
                     <p class="hero-description mb-4">
                         Web & Frontend Designer based in Padua, Italy
                         with a design-first mindset. I focus on building intuitive, responsive,
@@ -48,10 +48,57 @@ useReveal()
 @include link-hover-fade(".hero-links");
 
 .hero-title {
+    position: relative;
+    display: inline-block;
     font-size: $font-size-biggest;
+    width: 11ch;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: type 1.8s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 2px;
+        height: 1em;
+        background-color: $gray-300;
+        transform: translateY(-50%);
+        animation:
+            cursor-blink 0.8s ease-in-out infinite,
+            cursor-hide 0s 1.8s forwards;
+    }
 
     @media(max-width: 576px) {
-        font-size: $font-size-big;
+        font-size: 2.75rem;
+    }
+
+    @keyframes type {
+        from {
+            width: 0;
+        }
+
+        to {
+            width: 11ch;
+        }
+    }
+
+    @keyframes cursor-blink {
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes cursor-hide {
+        to {
+            opacity: 0;
+        }
     }
 }
 

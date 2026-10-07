@@ -8,7 +8,7 @@
             </div>
         </div>
         <div>
-            <p class="m-0 text-end">{{ experience.period }}</p>
+            <p class="experience-period m-0 text-end">{{ experience.period }}</p>
         </div>
     </div>
 </template>
@@ -32,5 +32,9 @@ defineProps({
 
 .experience-title {
     color: $primary;
+}
+
+.experience-period {
+    line-height: normal;
 }
 </style>
