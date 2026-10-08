@@ -53,6 +53,10 @@ defineProps({
             aspect-ratio: 5 / 3;
             object-fit: cover;
         }
+
+        @media (max-width: 576px) {
+            border-radius: 1.25rem;
+        }
     }
 }
 

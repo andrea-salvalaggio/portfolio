@@ -54,7 +54,7 @@ useReveal()
     width: 11ch;
     white-space: nowrap;
     overflow: hidden;
-    animation: type 1.8s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+    animation: type 2.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 
     &::after {
         content: "";

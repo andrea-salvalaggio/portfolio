@@ -1,7 +1,7 @@
 <template>
     <header class="mt-3 mt-sm-4">
-        <nav class="navbar navbar-expand">
-            <div class="container justify-content-end p-sm-0">
+        <nav class="navbar navbar-expand p-0 pt-2">
+            <div class="container justify-content-end justify-content-sm-center p-sm-0">
                 <ul ref="navRef" class="navbar-nav align-items-center nav-wrapper">
                     <li v-for="link in navLinks" :key="link.to" class="nav-item mx-sm-1">
                         <NuxtLink :to="link.to" custom v-slot="{ href, navigate, isActive }">
@@ -36,10 +36,20 @@ const navLinks = [
 
 @include link-hover-fade(".navbar-nav");
 
+header {
+    position: sticky;
+    top: 1.5rem;
+    z-index: 999;
+
+    @media (max-width: 576px) {
+        top: 1rem;
+    }
+}
+
 .navbar {
     .navbar-brand {
-        width: 52px;
-        height: 52px;
+        width: 54px;
+        height: 54px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -69,7 +79,7 @@ const navLinks = [
             height: 1.5px;
             left: anchor(center);
             top: anchor(bottom);
-            transform: translateX(-50%) translateY(2px);
+            transform: translateX(-50%) translateY(5px);
             background: linear-gradient(
                 to right,
                 transparent 0%,
