@@ -65,25 +65,14 @@ body {
 }
 
 .navbar {
-
-    .nav-wrapper,
-    .navbar-brand {
-        border: 1px solid $gray-800;
-        background-color: $gray-900;
-    }
-
     .nav-wrapper {
-        padding: .35rem $spacer;
+        padding: $spacer-2 $spacer;
         border-radius: $radius-pill;
-    }
-
-    .nav-pill {
-        background-color: $gray-900;
     }
 
     .nav-item {
         .nav-link {
-            color: $gray-400;
+            color: $gray-300;
 
             &.active {
                 color: $white;

@@ -3,6 +3,8 @@
         <nav class="navbar navbar-expand p-0 pt-2">
             <div class="container justify-content-end justify-content-sm-center p-sm-0">
                 <ul ref="navRef" class="navbar-nav align-items-center nav-wrapper">
+                    <UiLiquidGlass />
+
                     <li v-for="link in navLinks" :key="link.to" class="nav-item mx-sm-1">
                         <NuxtLink :to="link.to" custom v-slot="{ href, navigate, isActive }">
                             <a :href="href" :class="[
@@ -16,6 +18,7 @@
                 </ul>
 
                 <NuxtLink to="/" class="navbar-brand d-flex m-0 ms-3 p-0">
+                    <UiLiquidGlass />
                     <img src="/img/icons/logo.svg" class="navbar-logo" alt="Logo" width="22" height="22" />
                 </NuxtLink>
             </div>
@@ -47,9 +50,17 @@ header {
 }
 
 .navbar {
+    position: relative;
+    isolation: isolate;
+
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+
     .navbar-brand {
-        width: 54px;
-        height: 54px;
+        width: 57px;
+        height: 57px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -60,7 +71,7 @@ header {
         @media (min-width: 768px) {
             &:hover {
                 transform: scale(1.2);
-                background-color: rgba($white, 0.09);
+                background-color: rgba($white, 0.07);
             }
         }
     }
@@ -79,7 +90,7 @@ header {
             height: 1.5px;
             left: anchor(center);
             top: anchor(bottom);
-            transform: translateX(-50%) translateY(5px);
+            transform: translateX(-50%) translateY(7px);
             background: linear-gradient(
                 to right,
                 transparent 0%,
@@ -89,7 +100,7 @@ header {
             );
             border-radius: $radius-pill;
             pointer-events: none;
-            z-index: 0;
+            z-index: 1;
             transition:
                 left 0.3s cubic-bezier(.22, 1, .36, 1),
                 top 0.3s cubic-bezier(.22, 1, .36, 1);
@@ -120,6 +131,7 @@ header {
 
             &.active {
                 anchor-name: --nav-active;
+                font-weight: $font-weight-regular;
             }
         }
     }
