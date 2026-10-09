@@ -66,7 +66,7 @@ header {
         justify-content: center;
         border-radius: $radius-pill;
         transform: scale(1);
-        transition: transform 0.2s ease-in-out;
+        transition: transform 0.25s ease-in-out;
 
         @media (min-width: 768px) {
             &:hover {

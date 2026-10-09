@@ -3,7 +3,8 @@
         <svg class="liquid-glass__filters" aria-hidden="true">
             <defs>
                 <filter id="liquid-glass-filter" x="-20%" y="-20%" width="140%" height="140%">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.008 0.025" numOctaves="2" seed="8" result="noise" />
+                    <feTurbulence type="fractalNoise" baseFrequency="0.008 0.025" numOctaves="2" seed="8"
+                        result="noise" />
 
                     <feDisplacementMap in="SourceGraphic" in2="noise" scale="16" xChannelSelector="R"
                         yChannelSelector="G" />
@@ -36,7 +37,10 @@
     inset: 0;
     border: 1px solid rgba($white, 0.12);
     border-radius: inherit;
-    background: rgba($white, 0.05);
+    background: linear-gradient(135deg,
+            rgba($dark, 0.82) 0%,
+            rgba($dark, 0.68) 50%,
+            rgba($dark, 0.78) 100%);
     backdrop-filter:
         url("#liquid-glass-filter") blur(3px) saturate(150%);
 
@@ -46,6 +50,6 @@
     box-shadow:
         inset 0 1px 0 rgba($white, 0.16),
         inset 0 -1px 0 rgba($black, 0.08),
-        0 8px 30px rgba($black, 0.15);
+        0 8px 30px rgba($black, 0.2);
 }
 </style>
