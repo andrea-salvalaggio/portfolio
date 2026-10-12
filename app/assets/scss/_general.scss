@@ -81,6 +81,8 @@ body {
     }
 
     .navbar-brand {
+        z-index: 1002;
+        
         img {
             filter: invert(1);
         }

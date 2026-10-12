@@ -2,7 +2,9 @@
     <header class="mt-3 mt-sm-4">
         <nav class="navbar navbar-expand p-0 pt-2">
             <div class="container justify-content-end justify-content-sm-center p-sm-0">
-                <ul ref="navRef" class="navbar-nav align-items-center nav-wrapper">
+                <UiMobileMenu />
+
+                <ul ref="navRef" class="navbar-nav d-none d-sm-flex align-items-center nav-wrapper">
                     <UiLiquidGlass />
 
                     <li v-for="link in navLinks" :key="link.to" class="nav-item mx-sm-1">
