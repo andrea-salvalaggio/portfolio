@@ -56,6 +56,10 @@ defineProps({
 
         @media (max-width: 576px) {
             border-radius: 1.25rem;
+
+            img {
+                aspect-ratio: 1 / 1;
+            }
         }
     }
 }

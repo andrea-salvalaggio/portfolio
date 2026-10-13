@@ -2,7 +2,7 @@
     <section class="hero-section reveal">
         <div class="container p-0">
             <div class="row g-md-0">
-                <div class="col-12 mb-4">
+                <div class="col-12 mb-2 mb-sm-4">
                     <img src="/img/profile.png" width="75" height="75" class="img-fluid rounded-circle img-profile"
                         alt="Profile picture" fetchpriority="high">
                 </div>

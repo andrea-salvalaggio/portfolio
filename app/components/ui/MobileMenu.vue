@@ -93,7 +93,7 @@ function enter(el: Element, done: () => void) {
             },
         ],
         {
-            duration: 500,
+            duration: 900,
             easing: 'cubic-bezier(0.76, 0, 0.24, 1)',
             fill: 'forwards',
         },
@@ -125,7 +125,7 @@ function leave(el: Element, done: () => void) {
             },
         ],
         {
-            duration: 900,
+            duration: 1000,
             easing: 'cubic-bezier(0.76, 0, 0.24, 1)',
             fill: 'forwards',
         },
@@ -201,8 +201,7 @@ onBeforeUnmount(() => {
     inset: 0;
     z-index: 1001;
     overflow-y: auto;
-    background: rgba($dark, 0.85);
-    backdrop-filter: blur(10px);
+    background: $dark;
     clip-path: circle(0 at var(--origin-x) var(--origin-y));
 }
 
@@ -211,7 +210,7 @@ onBeforeUnmount(() => {
     height: 100dvh;
     min-height: 100%;
     flex-direction: column;
-    padding: $spacer-8 $spacer-4;
+    padding: $spacer-8 $spacer;
 }
 
 .menu-top,
@@ -231,7 +230,7 @@ onBeforeUnmount(() => {
 
 .menu-link {
     display: grid;
-    grid-template-columns: 30px 1fr 24px;
+    grid-template-columns: 1fr;
     align-items: center;
     gap: $spacer-2;
     padding: $spacer $spacer-0;
@@ -247,27 +246,15 @@ onBeforeUnmount(() => {
     line-height: $line-height-base;
 }
 
-.menu-overlay.is-entering .menu-link {
-    animation: link-in 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-    animation-delay: calc(0.35s + var(--i) * 0.09s);
-}
-
 @keyframes link-in {
     from {
         opacity: 0;
-        transform: translateY(24px);
+        transform: translate3d(0, 12px, 0);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .menu-overlay.is-entering .menu-link {
-        animation-duration: 0.01ms;
-        animation-delay: 0ms;
+        transform: translate3d(0, 0, 0);
     }
 }
 </style>
