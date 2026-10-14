@@ -3,7 +3,7 @@
         <div class="container p-0">
             <div class="row reveal">
                 <div class="col">
-                    <h1 class="h2 fw-bold">Deliveboo</h1>
+                    <h1 class="fw-bold">Deliveboo</h1>
                     <p>
                         Food delivery web app that allows customers to order food from their favorite restaurant without
                         registration, but entering only the data necessary for delivery (Credit card number, name,
@@ -56,7 +56,7 @@ useReveal()
 
     .projects-credits {
         .title {
-            color: $dark;
+            color: $primary;
         }
     }
 
