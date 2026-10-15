@@ -52,13 +52,13 @@ defineProps({
 
     .experience-bottom {
         margin-left: 3.75rem;
-        margin-top: 0.75rem;
+        margin-top: $spacer-3;
 
         .experience-period {
             color: $gray-400;
             background-color: rgba($white, 0.1);
             border-radius: $radius-pill;
-            padding: .25rem 1rem;
+            padding: $spacer-1 $spacer;
         }
     }
 }
