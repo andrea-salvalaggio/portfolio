@@ -30,6 +30,14 @@ const leave = () => {
 </script>
 
 <style lang="scss">
+@media (max-width: 576px) {
+    .glare-wrap {
+        &:not(:first-child) {
+            margin-top: $spacer;
+        }
+    }
+}
+
 @media (min-width: 576px) {
     .glare-wrap {
         position: relative;

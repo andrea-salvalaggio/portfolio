@@ -98,8 +98,8 @@ onMounted(async () => {
         }
 
         @media (min-width: 325px) and (max-width: 576px) {
-            width: 200px;
-            height: 280px;
+            width: 220px;
+            height: 300px;
         }
 
         @media(min-width: 576px) and (max-width: 768px) {

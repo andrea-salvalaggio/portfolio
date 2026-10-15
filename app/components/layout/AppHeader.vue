@@ -45,9 +45,11 @@ const navLinks = [
 header {
     position: sticky;
     top: 1.5rem;
-    z-index: 999;
+    z-index: 1000;
+    width: 100%;
 
     @media (max-width: 576px) {
+        position: fixed;
         top: 1rem;
     }
 }

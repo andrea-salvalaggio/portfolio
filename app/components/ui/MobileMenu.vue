@@ -34,7 +34,7 @@ import { ref, watch, onBeforeUnmount } from 'vue'
 const isOpen = ref(false)
 
 const links = [
-    { label: 'Home', to: '/home' },
+    { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
     { label: 'Stack', to: '/stack' },
 ]

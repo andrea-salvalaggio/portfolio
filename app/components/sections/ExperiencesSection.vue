@@ -9,7 +9,7 @@
                             <UiExperiencesLink :experience="experience" />
                         </div>
                         <a class="btn-link fw-light d-flex align-items-center justify-content-center text-decoration-none rounded-pill w-100 mt-2" target="_blank" href="https://linkedin.com/in/andrea-salvalaggio">
-                            View Linkedin
+                            View LinkedIn
                         </a>
                     </div>
                 </div>
@@ -41,9 +41,13 @@ useReveal()
     border: 1px solid $gray-800;
     padding: $spacer-2 $spacer-4;
     transition: background-color 0.3s ease-in-out;
+}
 
-    &:hover {
-        background-color: rgba($white, 0.09);
+@media (min-width: 576px) {
+    .btn-link {
+        &:hover {
+            background-color: rgba($white, 0.09);
+        }
     }
 }
 </style>
