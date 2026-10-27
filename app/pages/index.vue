@@ -7,6 +7,7 @@
 
 <script setup>
 useHead({
-    title: 'Andrea Salvalaggio'
+    title: 'Andrea Salvalaggio',
+    link: [{ rel: 'preload', as: 'image', href: '/img/profile.png' }]
 })
 </script>

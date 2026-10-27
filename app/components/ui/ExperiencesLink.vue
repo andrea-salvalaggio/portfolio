@@ -1,7 +1,7 @@
 <template>
     <div class="experience-content d-flex justify-content-between">
         <div class="d-flex flex-grow-1">
-            <img :src="experience.logo" :alt="experience.company" class="experience-logo rounded-pill me-sm-3" />
+            <img :src="experience.logo" :alt="experience.company" class="experience-logo rounded-pill me-sm-3" width="50" height="50" loading="lazy" decoding="async" />
             <div class="experience-head">
                 <div class="h6 experience-title fw-light mb-1">{{ experience.role }}</div>
                 <p class="experience-text m-0">{{ experience.company }}</p>
@@ -16,7 +16,7 @@
 <script setup>
 defineProps({
     experience: {
-        type: String,
+        type: Object,
         required: true
     }
 })

@@ -1,5 +1,5 @@
 <template>
-    <section class="hero-section reveal">
+    <section class="hero-section">
         <div class="container p-0">
             <div class="row g-md-0">
                 <div class="col-12 mb-2 mb-sm-4">
@@ -16,18 +16,18 @@
                     <div class="hero-links d-md-flex">
                         <div class="flex-wrap row gx-1 gx-sm-2">
                             <a href="https://drive.google.com/file/d/1IKwbs_N8WZrnHX9v3Jl8cWi9HPtqZgAC/view?usp=sharing"
-                                class="btn-link" target="_blank" aria-label="Download CV">
+                                class="btn-link" target="_blank" rel="noopener noreferrer" aria-label="Download CV">
                                 Download CV <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon"
-                                    alt="Arrow" />
+                                    alt="" aria-hidden="true" />
                             </a>
                             <a href="mailto:andrea.salvalaggio95@gmail.com" class="btn-link mx-md-3"
                                 aria-label="Contact me">
                                 Contact me <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon"
-                                    alt="Arrow" />
+                                    alt="" aria-hidden="true" />
                             </a>
-                            <a href="https://linkedin.com/in/andrea-salvalaggio" class="btn-link" target="_blank"
+                            <a href="https://linkedin.com/in/andrea-salvalaggio" class="btn-link" target="_blank" rel="noopener noreferrer"
                                 aria-label="LinkedIn">
-                                LinkedIn <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon" alt="Arrow" />
+                                LinkedIn <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon" alt="" aria-hidden="true" />
                             </a>
                         </div>
                     </div>
@@ -36,10 +36,6 @@
         </div>
     </section>
 </template>
-
-<script setup>
-useReveal()
-</script>
 
 <style scoped lang="scss">
 @use '@/assets/scss/variables' as *;

@@ -1,24 +1,33 @@
 <template>
-    <a :href="project.url" class="card-link text-decoration-none d-block mb-4" :aria-label="`View ${project.title}`" :target="project.target">
+    <component :is="isExternal ? 'a' : NuxtLink" v-bind="linkProps" class="card-link text-decoration-none d-block mb-4"
+        :aria-label="`View ${project.title}`">
         <div class="card flex-row-reverse align-items-center h-100" :class="project.title.toLowerCase()">
             <div class="card-image col-4">
-                <img :src="project.image" :alt="project.title" class="h-100 w-100" fetchpriority="high"/>
+                <img :src="project.image" :alt="project.title" class="h-100 w-100" width="500" height="300" loading="lazy" decoding="async" />
             </div>
             <div class="card-body d-flex flex-column p-0 pe-3">
                 <div class="h5 card-title fw-medium mb-1 mb-sm-2">{{ project.title }}</div>
                 <p class="card-text line-clamp-2 line-clamp-sm-3 fw-light">{{ project.description }}</p>
             </div>
         </div>
-    </a>
+    </component>
 </template>
 
 <script setup>
-defineProps({
+import { NuxtLink } from '#components'
+
+const props = defineProps({
     project: {
         type: Object,
         required: true
     }
 })
+
+const isExternal = computed(() => /^(https?:)?\/\//.test(props.project.url))
+
+const linkProps = computed(() => isExternal.value
+    ? { href: props.project.url, target: props.project.target, rel: 'noopener noreferrer' }
+    : { to: props.project.url })
 </script>
 
 <style scoped lang="scss">

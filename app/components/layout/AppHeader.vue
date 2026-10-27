@@ -60,6 +60,7 @@ header {
     left: 0;
     width: 100%;
     height: 200px;
+    pointer-events: none;
     background: linear-gradient(180deg,rgba($dark, 1) 25%, rgba($dark, 0) 100%);
 }
 

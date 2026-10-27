@@ -15,7 +15,7 @@
             <nav v-if="isOpen" id="mobile-navigation" class="menu-overlay" aria-label="Main navigation">
                 <div class="menu-content container-fluid">
                     <div class="menu-links">
-                        <NuxtLink v-for="(link, index) in links" :key="link.number" :to="link.to" class="menu-link"
+                        <NuxtLink v-for="(link, index) in links" :key="link.to" :to="link.to" class="menu-link"
                             :style="{ '--i': index }" @click="closeMenu">
                             <span class="menu-label">
                                 {{ link.label }}

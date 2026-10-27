@@ -3,6 +3,9 @@ import svgLoader from 'vite-svg-loader'
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: true },
+    build: {
+        transpile: ['@fortawesome/vue-fontawesome', '@fortawesome/fontawesome-svg-core']
+    },
     css: [
         'bootstrap/dist/css/bootstrap.min.css',
         '@fortawesome/fontawesome-svg-core/styles.css',
@@ -33,11 +36,6 @@ export default defineNuxtConfig({
             ],
             link: [
                 {
-                    rel: 'preload',
-                    as: 'image',
-                    href: '/img/profile.png'
-                },
-                {
                     rel: 'icon',
                     type: 'image/x-icon',
                     href: '/favicon.ico'
@@ -49,6 +47,11 @@ export default defineNuxtConfig({
                     href: 'https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap',
                     media: 'print',
                     onload: "this.media='all'"
+                }
+            ],
+            noscript: [
+                {
+                    innerHTML: '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap">'
                 }
             ]
         },

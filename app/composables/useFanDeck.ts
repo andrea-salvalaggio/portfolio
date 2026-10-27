@@ -42,7 +42,8 @@ export function useFanDeck(props) {
                     rotate,
                     scale,
                     duration: 0.5,
-                    ease: 'power3.out'
+                    ease: 'power3.out',
+                    overwrite: 'auto'
                 })
 
                 el.style.zIndex = z
@@ -86,7 +87,8 @@ export function useFanDeck(props) {
                 rotate,
                 scale,
                 duration: 0.5,
-                ease: 'power3.out'
+                ease: 'power3.out',
+                overwrite: 'auto'
             })
 
             el.style.zIndex = 100 - distCenter

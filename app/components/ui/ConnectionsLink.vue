@@ -1,16 +1,16 @@
 <template>
-    <a :href="connection.url" class="btn-link fw-light d-flex align-items-center justify-content-between text-decoration-none rounded-pill w-100" target="_blank" :aria-label="connection.label">
+    <a :href="connection.url" class="btn-link fw-light d-flex align-items-center justify-content-between text-decoration-none rounded-pill w-100" target="_blank" rel="noopener noreferrer" :aria-label="connection.label">
         <div class="d-flex align-items-center">
             <font-awesome-icon :icon="connection.icon" class="fs-5 me-2" /> {{ connection.label }} 
         </div>
-        <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon" alt="Arrow" />
+        <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon" alt="" aria-hidden="true" />
     </a>
 </template>
 
 <script setup>
 defineProps({
     connection: {
-        type: String,
+        type: Object,
         required: true
     }
 })

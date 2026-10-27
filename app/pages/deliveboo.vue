@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="projects-credits d-flex align-items-center mt-3 reveal">
-                <img src="/img/profile.png" width="100" height="100" class="img-fluid rounded-circle img-profile" alt="Profile picture" fetchpriority="high">
+                <img src="/img/profile.png" width="100" height="100" class="img-fluid rounded-circle img-profile" alt="Profile picture">
                 <div class="flex-grow-1 ms-3">
                     <div class="h6 title fw-light m-0">Andrea Salvalaggio</div>
                     <p class="m-0">
@@ -22,19 +22,10 @@
                 </div>
             </div>
             <div class="projects-thumb mt-5 mt-sm-9 reveal">
-                <UiGlareImage>
+                <UiGlareImage v-for="shot in screenshots" :key="shot.src">
                     <div class="bg-image">
-                        <img src="/img/projects/deliveboo-1.png" alt="Deliveboo project desktop" class="img-fluid">
-                    </div>
-                </UiGlareImage>
-                <UiGlareImage>
-                    <div class="bg-image">
-                        <img src="/img/projects/deliveboo-2.png" alt="Deliveboo project backoffice" class="img-fluid">
-                    </div>
-                </UiGlareImage>
-                <UiGlareImage>
-                    <div class="bg-image">
-                        <img src="/img/projects/deliveboo-3.png" alt="Deliveboo project mobile" class="img-fluid">
+                        <img :src="shot.src" :alt="shot.alt" width="1660" :height="shot.height" class="img-fluid"
+                            loading="lazy" decoding="async">
                     </div>
                 </UiGlareImage>
             </div>
@@ -43,6 +34,12 @@
 </template>
 
 <script setup>
+const screenshots = [
+    { src: '/img/projects/deliveboo-1.png', alt: 'Deliveboo project desktop', height: 923 },
+    { src: '/img/projects/deliveboo-2.png', alt: 'Deliveboo project backoffice', height: 1730 },
+    { src: '/img/projects/deliveboo-3.png', alt: 'Deliveboo project mobile', height: 923 }
+]
+
 useReveal()
 </script>
 

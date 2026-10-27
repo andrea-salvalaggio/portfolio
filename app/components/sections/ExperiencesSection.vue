@@ -8,7 +8,7 @@
                         <div v-for="experience in experiences" :key="experience.id">
                             <UiExperiencesLink :experience="experience" />
                         </div>
-                        <a class="btn-link fw-light d-flex align-items-center justify-content-center text-decoration-none rounded-pill w-100 mt-2" target="_blank" href="https://linkedin.com/in/andrea-salvalaggio">
+                        <a class="btn-link fw-light d-flex align-items-center justify-content-center text-decoration-none rounded-pill w-100 mt-2" target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/andrea-salvalaggio">
                             View LinkedIn
                         </a>
                     </div>

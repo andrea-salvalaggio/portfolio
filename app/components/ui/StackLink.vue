@@ -1,16 +1,16 @@
 <template>
-    <a :href="stack.url" class="btn-link fw-light d-flex align-items-center justify-content-between text-decoration-none rounded-pill w-100" target="_blank" :aria-label="stack.label">
+    <a :href="stack.url" class="btn-link fw-light d-flex align-items-center justify-content-between text-decoration-none rounded-pill w-100" target="_blank" rel="noopener noreferrer" :aria-label="stack.label">
         <div class="d-flex align-items-center">
             <font-awesome-icon :icon="stack.icon" class="fs-5 me-2" /> {{ stack.label }} 
         </div>
-        <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon" alt="Arrow" />
+        <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon" alt="" aria-hidden="true" />
     </a>
 </template>
 
 <script setup>
 defineProps({
     stack: {
-        type: String,
+        type: Object,
         required: true
     }
 })

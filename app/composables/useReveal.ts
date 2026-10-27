@@ -1,27 +1,36 @@
+let observer: IntersectionObserver | null = null
+
+const getObserver = () => {
+    if (observer) return observer
+
+    observer = new IntersectionObserver((entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting)
+
+        visible.forEach((entry, i) => {
+            const el = entry.target as HTMLElement
+            el.style.setProperty('--delay', `${i * 100}ms`)
+            el.classList.add('visible')
+            observer?.unobserve(el)
+        })
+    }, { threshold: 0.2 })
+
+    return observer
+}
+
 export const useReveal = () => {
+    const observed: Element[] = []
+
     onMounted(() => {
-        const elements = document.querySelectorAll('.reveal')
+        const io = getObserver()
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const siblings = Array.from(entry.target.parentElement.children)
+        document.querySelectorAll<HTMLElement>('.reveal:not([data-reveal])').forEach((el) => {
+            el.dataset.reveal = ''
+            observed.push(el)
+            io.observe(el)
+        })
+    })
 
-                    siblings.forEach((el, i) => {
-                        if (el.classList.contains('reveal')) {
-                            el.style.setProperty('--delay', `${i * 100}ms`)
-
-                            setTimeout(() => {
-                                el.classList.add('visible')
-                            }, i * 100)
-                        }
-                    })
-
-                    observer.unobserve(entry.target)
-                }
-            })
-        }, { threshold: 0.2 })
-
-        elements.forEach((el) => observer.observe(el))
+    onBeforeUnmount(() => {
+        observed.forEach((el) => observer?.unobserve(el))
     })
 }

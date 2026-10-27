@@ -2,13 +2,13 @@
     <div ref="container" class="fan reveal">
         <div v-for="(card, i) in activeCards" :key="i" :ref="el => setCardRef(el, i)" class="card border-0"
             @mouseenter="onEnter(i)" @mouseleave="onLeave">
-            <img :src="card.image" :alt="card.alt" fetchpriority="high"/>
+            <img :src="card.image" :alt="card.alt" width="280" height="380" decoding="async" />
         </div>
     </div>
 </template>
 
 <script setup>
-import { onMounted, nextTick, onBeforeUpdate } from 'vue'
+import { onMounted, onBeforeUnmount, nextTick, onBeforeUpdate } from 'vue'
 import { useFanDeck } from '~/composables/useFanDeck'
 useReveal()
 
@@ -46,16 +46,27 @@ const onLeave = () => {
     render()
 }
 
-onMounted(async () => {
-    updateBreakpoint()
+let resizeFrame = 0
 
-    window.addEventListener('resize', () => {
+const onResize = () => {
+    cancelAnimationFrame(resizeFrame)
+    resizeFrame = requestAnimationFrame(() => {
         updateBreakpoint()
         render()
     })
+}
+
+onMounted(async () => {
+    updateBreakpoint()
+    window.addEventListener('resize', onResize, { passive: true })
 
     await nextTick()
     render()
+})
+
+onBeforeUnmount(() => {
+    cancelAnimationFrame(resizeFrame)
+    window.removeEventListener('resize', onResize)
 })
 </script>
 
