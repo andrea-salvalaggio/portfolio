@@ -7,7 +7,7 @@ interface PageSeoOptions {
 }
 
 const SITE_NAME = 'Andrea Salvalaggio'
-const SHARE_IMAGE = '/img/profile.png'
+const SHARE_IMAGE = '/img/og.png'
 
 export function usePageSeo({ title, description, path, noindex }: PageSeoOptions) {
     // Absolute URLs (canonical, og:url, og:image) need the real domain: set NUXT_PUBLIC_SITE_URL
@@ -21,13 +21,16 @@ export function usePageSeo({ title, description, path, noindex }: PageSeoOptions
         ogSiteName: SITE_NAME,
         ogType: 'website',
         ogLocale: 'en_US',
-        twitterCard: 'summary',
+        twitterCard: 'summary_large_image',
         twitterTitle: title,
         twitterDescription: description,
         robots: noindex ? 'noindex' : undefined,
         ...(siteUrl && {
             ogUrl: siteUrl + (path ?? ''),
             ogImage: siteUrl + SHARE_IMAGE,
+            ogImageWidth: 1200,
+            ogImageHeight: 630,
+            ogImageAlt: `${SITE_NAME}, Web & Frontend Developer`,
             twitterImage: siteUrl + SHARE_IMAGE
         })
     })
