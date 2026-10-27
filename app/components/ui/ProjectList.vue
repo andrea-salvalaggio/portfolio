@@ -161,17 +161,17 @@ onBeforeUnmount(() => {
     align-items: center;
     justify-content: space-between;
     gap: $spacer-4;
-    padding: $spacer-4 0;
+    padding: $spacer 0;
     color: $primary;
     text-decoration: none;
 }
 
 .project-title {
     margin: 0;
-    font-size: $font-size-medium;
-    font-weight: $font-weight-light;
+    font-size: $font-size-small;
+    font-weight: $font-weight-bold;
     line-height: $line-height-small;
-    color: inherit;
+    color: $light;
 }
 
 .project-arrow {
@@ -185,11 +185,11 @@ onBeforeUnmount(() => {
 
 @include up($bp-sm) {
     .project-title {
-        font-size: $font-size-big;
+        font-size: $font-size-medium;
     }
 
     .project-link {
-        padding: $spacer-5 0;
+        padding: $spacer-4 0;
     }
 }
 
