@@ -62,7 +62,7 @@ const { hoveredIndex, cardStyles } = useFanDeck(props)
             object-fit: cover;
         }
 
-        // Card size steps down with the viewport, later rules win
+        /* Card size steps down with the viewport, later rules win */
         @include down($bp-md) {
             width: 240px;
             height: 320px;

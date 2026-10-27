@@ -43,14 +43,14 @@
 
 @include link-hover-fade(".hero-links");
 
+/* Typing: clip-path and transform are composited, unlike an animated width.
+   The cursor starts at -2px so its right edge follows the clip-path edge. */
 .hero-title {
     position: relative;
     display: inline-block;
     font-size: $font-size-biggest;
     width: 11ch;
     white-space: nowrap;
-    // clip-path and transform are composited, unlike an animated width;
-    // the cursor starts at -2px so its right edge follows the clip-path edge
     animation: type 2.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 
     &::after {
