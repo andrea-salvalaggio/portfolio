@@ -244,7 +244,10 @@ onBeforeUnmount(() => {
             &.is-visible {
                 opacity: 1;
                 transform: scale(1);
-                box-shadow: 0 0 3rem color-mix(in srgb, var(--accent, transparent) 40%, transparent);
+                box-shadow:
+                    0 0 2.5rem 0 color-mix(in srgb, var(--accent, transparent) 45%, transparent),
+                    0 0 6rem 1rem color-mix(in srgb, var(--accent, transparent) 30%, transparent),
+                    0 0 12rem 3rem color-mix(in srgb, var(--accent, transparent) 18%, transparent);
             }
         }
 
