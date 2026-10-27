@@ -13,7 +13,8 @@
                 </div>
             </div>
             <div class="projects-credits d-flex align-items-center mt-3 reveal">
-                <img src="/img/profile.png" width="100" height="100" class="img-fluid rounded-circle img-profile" alt="Profile picture">
+                <NuxtImg format="webp" src="/img/profile.png" width="100" height="100" densities="x1 x2" class="img-fluid rounded-circle img-profile"
+                    alt="Profile picture" />
                 <div class="flex-grow-1 ms-3">
                     <div class="h6 title fw-light m-0">Andrea Salvalaggio</div>
                     <p class="m-0">
@@ -22,12 +23,12 @@
                 </div>
             </div>
             <div class="projects-thumb mt-5 mt-sm-9 reveal">
-                <UiGlareImage v-for="shot in screenshots" :key="shot.src">
+                <LazyUiGlareImage v-for="shot in screenshots" :key="shot.src" hydrate-on-visible>
                     <div class="bg-image">
-                        <img :src="shot.src" :alt="shot.alt" width="1660" :height="shot.height" class="img-fluid"
-                            loading="lazy" decoding="async">
+                        <NuxtImg format="webp" :src="shot.src" :alt="shot.alt" width="1660" :height="shot.height" class="img-fluid"
+                            sizes="100vw md:750px" loading="lazy" decoding="async" />
                     </div>
-                </UiGlareImage>
+                </LazyUiGlareImage>
             </div>
         </div>
     </div>

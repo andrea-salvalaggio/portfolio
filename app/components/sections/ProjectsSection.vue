@@ -13,7 +13,6 @@
 
 <script setup>
 import projects from '~/data/projects.json'
-useReveal()
 </script>
 
 <style scoped lang="scss">

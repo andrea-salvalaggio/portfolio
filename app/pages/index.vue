@@ -1,13 +1,14 @@
 <template>
     <div class="p-3 py-5 py-sm-8">
-        <SectionsHeroSections />
-        <SectionsProjectsSection />
+        <LazySectionsHeroSections hydrate-never />
+        <LazySectionsProjectsSection hydrate-on-visible />
     </div>
 </template>
 
 <script setup>
+useReveal()
+
 useHead({
-    title: 'Andrea Salvalaggio',
-    link: [{ rel: 'preload', as: 'image', href: '/img/profile.png' }]
+    title: 'Andrea Salvalaggio'
 })
 </script>

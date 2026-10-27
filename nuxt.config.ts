@@ -28,6 +28,7 @@ export default defineNuxtConfig({
         plugins: [svgLoader()],
     },
     app: {
+        pageTransition: { name: 'page', mode: 'out-in' },
         head: {
             htmlAttrs: {
                 lang: "en",

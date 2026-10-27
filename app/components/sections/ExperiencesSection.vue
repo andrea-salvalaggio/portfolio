@@ -20,7 +20,6 @@
 
 <script setup>
 import experiences from '~/data/experiences.json'
-useReveal()
 </script>
 
 <style scoped lang="scss">

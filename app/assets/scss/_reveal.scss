@@ -12,10 +12,25 @@
     transform: translateY(0);
 }
 
+.page-enter-active,
+.page-leave-active {
+    transition: opacity 0.25s ease;
+}
+
+.page-enter-from,
+.page-leave-to {
+    opacity: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .reveal {
         opacity: 1;
         transform: none;
+        transition: none;
+    }
+
+    .page-enter-active,
+    .page-leave-active {
         transition: none;
     }
 }

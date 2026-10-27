@@ -10,10 +10,10 @@
                 </div>
             </div>
         </div>
-        <SectionsFanDeckSection />
-        <SectionsAboutSections />
-        <SectionsConnectionsSection />
-        <SectionsExperiencesSection />
+        <LazySectionsFanDeckSection hydrate-on-visible />
+        <LazySectionsAboutSections hydrate-never />
+        <LazySectionsConnectionsSection hydrate-never />
+        <LazySectionsExperiencesSection hydrate-never />
     </div>
 </template>
 
