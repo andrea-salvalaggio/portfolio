@@ -103,6 +103,15 @@ body {
     background-color: $gray-900;
 }
 
+/* A quiet label for section titles, so they do not compete with the content */
+.section-label {
+    font-size: $font-size-tiny;
+    font-weight: $font-weight-regular;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $gray-500;
+}
+
 .fw-regular {
     font-weight: $font-weight-regular;
 }
