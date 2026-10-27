@@ -33,7 +33,8 @@
                 "alt": "Deliveboo project mobile",
                 "height": 923
             }
-        ]
+        ],
+        "accent": "#FF8E00"
     },
     {
         "id": 2,
@@ -46,6 +47,17 @@
             "JavaScript"
         ],
         "url": "https://github.com/andrea-salvalaggio/vue-boolzapp",
+        "target": "_blank",
+        "accent": "#00B35C"
+    },
+    {
+        "id": 3,
+        "title": "Bento Portfolio",
+        "description": "A bento grid take on my portfolio, built with Nuxt and Tailwind to present projects, links and availability in a single view.",
+        "image": "/img/projects/bento-portfolio.jpg",
+        "accent": "#3B6BFF",
+        "tags": [],
+        "url": "https://andreasalvalaggio-bento-portfolio.vercel.app/",
         "target": "_blank"
     }
 ]
