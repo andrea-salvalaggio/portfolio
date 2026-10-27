@@ -41,6 +41,12 @@ const screenshots = [
     { src: '/img/projects/deliveboo-3.png', alt: 'Deliveboo project mobile', height: 923 }
 ]
 
+usePageSeo({
+    title: 'Deliveboo | Andrea Salvalaggio',
+    description: 'Deliveboo is a food delivery web app built with Vue, Sass, PHP and Laravel: customers order without registration, restaurateurs manage dishes and orders.',
+    path: '/deliveboo'
+})
+
 useReveal()
 </script>
 

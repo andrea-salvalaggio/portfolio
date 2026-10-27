@@ -6,7 +6,9 @@
 </template>
 
 <script setup>
-useHead({
-    title: '404 | Andrea Salvalaggio'
+usePageSeo({
+    title: '404 | Andrea Salvalaggio',
+    description: "The page you are looking for doesn't exist.",
+    noindex: true
 })
 </script>

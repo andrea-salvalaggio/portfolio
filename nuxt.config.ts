@@ -1,5 +1,11 @@
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
+    runtimeConfig: {
+        public: {
+            // Production domain, e.g. https://example.com (NUXT_PUBLIC_SITE_URL)
+            siteUrl: ''
+        }
+    },
     modules: ['@nuxt/image'],
     image: {
         format: ['webp'],
@@ -36,6 +42,8 @@ export default defineNuxtConfig({
                     name: "description",
                     content: "This is my professional portfolio where I present my projects and skills as a web developer. Explore my work and experience in the field of web development.",
                 },
+                { name: 'theme-color', content: '#0B0B0B' },
+                { name: 'color-scheme', content: 'dark' },
             ],
             link: [
                 {
@@ -43,6 +51,7 @@ export default defineNuxtConfig({
                     type: 'image/x-icon',
                     href: '/favicon.ico'
                 },
+                { rel: 'apple-touch-icon', href: '/img/profile.png' },
                 { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
                 { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
                 {

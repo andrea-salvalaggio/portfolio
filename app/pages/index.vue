@@ -8,7 +8,9 @@
 <script setup>
 useReveal()
 
-useHead({
-    title: 'Andrea Salvalaggio'
+usePageSeo({
+    title: 'Andrea Salvalaggio',
+    description: 'Web & Frontend Designer based in Padua, Italy. Portfolio with projects, skills and experience in web development.',
+    path: '/'
 })
 </script>

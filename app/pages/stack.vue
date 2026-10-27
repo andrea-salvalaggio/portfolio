@@ -5,7 +5,9 @@
 <script setup>
 useReveal()
 
-useHead({
-    title: 'Stack | Andrea Salvalaggio'
+usePageSeo({
+    title: 'Stack | Andrea Salvalaggio',
+    description: 'The languages and tools I work with: HTML, CSS, SCSS, Bootstrap, JavaScript, Vue.js, PHP and Laravel.',
+    path: '/stack'
 })
 </script>

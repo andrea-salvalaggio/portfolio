@@ -18,8 +18,10 @@
 </template>
 
 <script setup>
-useHead({
-    title: 'About | Andrea Salvalaggio'
+usePageSeo({
+    title: 'About | Andrea Salvalaggio',
+    description: 'A little bit of my life: my path from graphic design to web development, my experience and how to get in touch.',
+    path: '/about'
 })
 useReveal()
 </script>
