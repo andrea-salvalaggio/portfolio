@@ -1,67 +1,45 @@
 import { ref, computed } from 'vue'
-import { gsap } from 'gsap'
 import { defaultFanSettings, hoverConfig } from '@/config/fanDeck.config'
 
-export function useFanDeck(props) {
-    const cardsRef = ref([])
-    const hoveredIndex = ref(null)
-    const isMobile = ref(false)
+export interface FanCardPosition {
+    x?: number
+    y?: number
+    rotate?: number
+    scale?: number
+    z?: number
+}
 
-    const updateBreakpoint = () => {
-        isMobile.value = window.innerWidth < 768
-    }
+export interface FanCard {
+    image: string
+    alt: string
+    // Position on mobile; cards without it are hidden below the md breakpoint
+    mobile?: FanCardPosition
+}
 
-    const activeCards = computed(() => {
-        return isMobile.value && props.mobileCards?.length
-            ? props.mobileCards
-            : props.cards
-    })
+export interface FanDeckProps {
+    cards: FanCard[]
+    desktopFanSettings?: Partial<typeof defaultFanSettings>
+}
 
-    const activeSettings = computed(() => {
-        return isMobile.value
-            ? { ...defaultFanSettings, ...props.mobileFanSettings }
-            : { ...defaultFanSettings, ...props.desktopFanSettings }
-    })
+export function useFanDeck(props: FanDeckProps) {
+    const hoveredIndex = ref<number | null>(null)
 
-    const render = () => {
-    const els = cardsRef.value
-    if (!els.length) return
+    const settings = computed(() => ({ ...defaultFanSettings, ...props.desktopFanSettings }))
 
-    const settings = activeSettings.value
-
-        if (isMobile.value && settings.positions) {
-            els.forEach((el, idx) => {
-                const pos = settings.positions[idx]
-                if (!pos) return
-
-                let { x = 0, y = 0, rotate = 0, scale = 1, z = 1 } = pos
-
-                gsap.to(el, {
-                    x,
-                    y,
-                    rotate,
-                    scale,
-                    duration: 0.5,
-                    ease: 'power3.out',
-                    overwrite: 'auto'
-                })
-
-                el.style.zIndex = z
-            })
-
-            return
-        }
-
-        const total = els.length
+    // Transforms are exposed as CSS variables: the browser animates them
+    // through a CSS transition, and SSR already renders the fanned layout
+    const cardStyles = computed(() => {
+        const total = props.cards.length
         const centerIndex = Math.floor(total / 2)
+        const s = settings.value
 
-        els.forEach((el, idx) => {
+        return props.cards.map((card, idx) => {
             const distCenter = Math.abs(idx - centerIndex)
-            const baseScale = 1 - distCenter * settings.scaleDecay
+            const baseScale = 1 - distCenter * s.scaleDecay
 
-            let x = (idx - centerIndex) * settings.spacing
-            let y = Math.pow(distCenter, 2) * settings.arcIntensity
-            let rotate = (idx - centerIndex) * settings.rotationIntensity
+            let x = (idx - centerIndex) * s.spacing
+            let y = Math.pow(distCenter, 2) * s.arcIntensity
+            let rotate = (idx - centerIndex) * s.rotationIntensity
             let scale = baseScale
 
             if (hoveredIndex.value !== null) {
@@ -81,26 +59,25 @@ export function useFanDeck(props) {
                 }
             }
 
-            gsap.to(el, {
-                x,
-                y,
-                rotate,
-                scale,
-                duration: 0.5,
-                ease: 'power3.out',
-                overwrite: 'auto'
-            })
+            const m = card.mobile ?? {}
 
-            el.style.zIndex = 100 - distCenter
+            return {
+                '--x': `${x}px`,
+                '--y': `${y}px`,
+                '--r': `${rotate}deg`,
+                '--s': scale,
+                '--z': 100 - distCenter,
+                '--mx': `${m.x ?? 0}px`,
+                '--my': `${m.y ?? 0}px`,
+                '--mr': `${m.rotate ?? 0}deg`,
+                '--ms': m.scale ?? 1,
+                '--mz': m.z ?? 1
+            }
         })
-    }
+    })
 
     return {
-        cardsRef,
         hoveredIndex,
-        isMobile,
-        activeCards,
-        updateBreakpoint,
-        render
+        cardStyles
     }
 }

@@ -1,73 +1,20 @@
 <template>
-    <div ref="container" class="fan reveal">
-        <div v-for="(card, i) in activeCards" :key="i" :ref="el => setCardRef(el, i)" class="card border-0"
-            @mouseenter="onEnter(i)" @mouseleave="onLeave">
-            <img :src="card.image" :alt="card.alt" width="280" height="380" decoding="async" />
+    <div class="fan reveal">
+        <div v-for="(card, i) in cards" :key="card.image" class="card border-0"
+            :class="{ 'is-desktop-only': !card.mobile }" :style="cardStyles[i]" @mouseenter="hoveredIndex = i"
+            @mouseleave="hoveredIndex = null">
+            <NuxtImg format="webp" :src="card.image" :alt="card.alt" width="280" height="380" densities="x1 x2"
+                fit="cover" decoding="async" />
         </div>
     </div>
 </template>
 
-<script setup>
-import { onMounted, onBeforeUnmount, nextTick, onBeforeUpdate } from 'vue'
-import { useFanDeck } from '~/composables/useFanDeck'
-useReveal()
+<script setup lang="ts">
+import type { FanDeckProps } from '~/composables/useFanDeck'
 
-const props = defineProps({
-    cards: Array,
-    mobileCards: Array,
-    desktopFanSettings: Object,
-    mobileFanSettings: Object
-})
+const props = defineProps<FanDeckProps>()
 
-const {
-    cardsRef,
-    hoveredIndex,
-    activeCards,
-    updateBreakpoint,
-    render
-} = useFanDeck(props)
-
-const setCardRef = (el, i) => {
-    if (!el) return
-    cardsRef.value[i] = el
-}
-
-onBeforeUpdate(() => {
-    cardsRef.value = []
-})
-
-const onEnter = (i) => {
-    hoveredIndex.value = i
-    render()
-}
-
-const onLeave = () => {
-    hoveredIndex.value = null
-    render()
-}
-
-let resizeFrame = 0
-
-const onResize = () => {
-    cancelAnimationFrame(resizeFrame)
-    resizeFrame = requestAnimationFrame(() => {
-        updateBreakpoint()
-        render()
-    })
-}
-
-onMounted(async () => {
-    updateBreakpoint()
-    window.addEventListener('resize', onResize, { passive: true })
-
-    await nextTick()
-    render()
-})
-
-onBeforeUnmount(() => {
-    cancelAnimationFrame(resizeFrame)
-    window.removeEventListener('resize', onResize)
-})
+const { hoveredIndex, cardStyles } = useFanDeck(props)
 </script>
 
 <style scoped lang="scss">
@@ -94,8 +41,20 @@ onBeforeUnmount(() => {
         height: 380px;
         border-radius: $radius-5;
         overflow: clip;
+        z-index: var(--z);
+        transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(var(--s));
+        transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
         will-change: transform;
         backface-visibility: hidden;
+
+        @media (max-width: 767.98px) {
+            z-index: var(--mz);
+            transform: translate(var(--mx), var(--my)) rotate(var(--mr)) scale(var(--ms));
+
+            &.is-desktop-only {
+                display: none;
+            }
+        }
 
         img {
             width: 100%;
