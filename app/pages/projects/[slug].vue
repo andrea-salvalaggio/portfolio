@@ -48,7 +48,7 @@ if (!project || !('screenshots' in project)) {
 
 usePageSeo({
     title: `${project.title} | Andrea Salvalaggio`,
-    description: project.seoDescription,
+    description: project.seoDescription ?? project.description,
     path: `/projects/${project.slug}`
 })
 

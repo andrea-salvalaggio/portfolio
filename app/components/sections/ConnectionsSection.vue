@@ -5,7 +5,7 @@
                 <h2 class="h6 fw-regular col-12 col-md-3 mb-4 mb-md-0">Connections</h2>
                 <div class="col-12 col-md-9 connections-links">
                     <div class="row flex-wrap g-3">
-                        <div class="col-12 col-md-6" v-for="connection in connections" :key="connection.id">
+                        <div v-for="connection in connections" :key="connection.id" class="col-12 col-md-6">
                             <UiLinkButton :href="connection.url" :label="connection.label" :icon="connection.icon" />
                         </div>
                     </div>

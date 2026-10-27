@@ -1,6 +1,6 @@
 <template>
     <header class="mt-3 mt-sm-4">
-        <div class="gradient"></div>
+        <div class="gradient"/>
         <nav class="navbar navbar-expand p-0 pt-2">
             <div class="container justify-content-end justify-content-sm-center p-sm-0">
                 <UiMobileMenu />
@@ -9,7 +9,7 @@
                     <UiLiquidGlass />
 
                     <li v-for="link in navLinks" :key="link.to" class="nav-item mx-sm-1">
-                        <NuxtLink :to="link.to" custom v-slot="{ href, navigate, isActive }">
+                        <NuxtLink v-slot="{ href, navigate, isActive }" :to="link.to" custom>
                             <a :href="href" :class="[
                                 'nav-link',
                                 { active: isActive }
@@ -22,7 +22,7 @@
 
                 <NuxtLink to="/" class="navbar-brand d-flex m-0 ms-3 p-0">
                     <UiLiquidGlass />
-                    <img src="/img/icons/logo.svg" class="navbar-logo" alt="Logo" width="22" height="22" />
+                    <img src="/img/icons/logo.svg" class="navbar-logo" alt="Logo" width="22" height="22" >
                 </NuxtLink>
             </div>
         </nav>

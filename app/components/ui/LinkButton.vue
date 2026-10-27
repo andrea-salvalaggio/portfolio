@@ -4,7 +4,7 @@
         <div class="d-flex align-items-center">
             <font-awesome-icon v-if="icon" :icon="icon" class="fs-5 me-2" /> {{ label }}
         </div>
-        <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon" alt="" aria-hidden="true" />
+        <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon" alt="" aria-hidden="true" >
     </a>
 </template>
 

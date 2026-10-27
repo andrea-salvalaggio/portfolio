@@ -6,7 +6,7 @@ export default defineNuxtConfig({
             siteUrl: ''
         }
     },
-    modules: ['@nuxt/image'],
+    modules: ['@nuxt/image', '@nuxt/eslint'],
     image: {
         format: ['webp'],
         quality: 75

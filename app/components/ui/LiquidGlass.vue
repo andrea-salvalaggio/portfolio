@@ -1,6 +1,6 @@
 <template>
     <div class="liquid-glass">
-        <div class="liquid-glass__surface"></div>
+        <div class="liquid-glass__surface"/>
     </div>
 </template>
 
