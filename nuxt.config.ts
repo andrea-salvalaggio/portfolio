@@ -6,7 +6,12 @@ export default defineNuxtConfig({
             siteUrl: ''
         }
     },
-    modules: ['@nuxt/image', '@nuxt/eslint'],
+    modules: ['@nuxt/image', '@nuxt/eslint', '@nuxt/fonts'],
+    fonts: {
+        families: [
+            { name: 'DM Sans', provider: 'google', weights: [300, 400, 500, 700], styles: ['normal'] }
+        ]
+    },
     image: {
         format: ['webp'],
         quality: 75
@@ -56,19 +61,6 @@ export default defineNuxtConfig({
                     href: '/favicon.ico'
                 },
                 { rel: 'apple-touch-icon', href: '/img/profile.png' },
-                { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-                { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-                {
-                    rel: 'stylesheet',
-                    href: 'https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap',
-                    media: 'print',
-                    onload: "this.media='all'"
-                }
-            ],
-            noscript: [
-                {
-                    innerHTML: '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap">'
-                }
             ]
         },
     },

@@ -12,7 +12,7 @@ html {
 body {
     margin: 0;
     overflow-x: clip;
-    font-family: $font-family, system-ui, -apple-system, sans-serif;
+    font-family: $font-sans;
     font-size: 17px;
     font-weight: $font-weight-light;
     line-height: 1.75rem;
@@ -66,6 +66,12 @@ body {
     @include down($bp-sm) {
         padding-top: $spacer-9;
     }
+}
+
+/* Page and hero titles: tighter tracking and leading than the body text */
+h1 {
+    letter-spacing: -0.03em;
+    line-height: $line-height-tiny;
 }
 
 .navbar {

@@ -35,6 +35,13 @@ const { hoveredIndex, cardStyles } = useFanDeck(props)
         margin-bottom: $spacer-9;
     }
 
+    /* The fan is about 830px wide: shrink it so it fits the viewport just above md */
+    @include up($bp-md) {
+        @media (max-width: 829.98px) {
+            --fan-scale: 0.88;
+        }
+    }
+
     .card {
         position: absolute;
         width: 280px;
@@ -42,7 +49,10 @@ const { hoveredIndex, cardStyles } = useFanDeck(props)
         border-radius: $radius-5;
         overflow: clip;
         z-index: var(--z);
-        transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(var(--s));
+        transform:
+            translate(calc(var(--x) * var(--fan-scale, 1)), calc(var(--y) * var(--fan-scale, 1)))
+            rotate(var(--r))
+            scale(calc(var(--s) * var(--fan-scale, 1)));
         transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
         will-change: transform;
         backface-visibility: hidden;

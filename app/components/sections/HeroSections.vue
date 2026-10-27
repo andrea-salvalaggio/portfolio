@@ -54,7 +54,8 @@
     position: relative;
     display: inline-block;
     font-size: $font-size-biggest;
-    width: 11ch;
+    --title-width: 10.5ch;
+    width: var(--title-width);
     white-space: nowrap;
     animation: type 2.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 
@@ -73,8 +74,9 @@
             cursor-hide 0s 1.8s forwards;
     }
 
+    /* The title is about 7.4em wide: scale it down on narrow screens so it always fits */
     @include down($bp-sm) {
-        font-size: 2.75rem;
+        font-size: min(2.75rem, calc((100vw - 2.5rem) / 7.6));
     }
 
     @keyframes type {
@@ -93,7 +95,7 @@
         }
 
         to {
-            transform: translateX(calc(11ch - 2px));
+            transform: translateX(calc(var(--title-width) - 2px));
         }
     }
 
