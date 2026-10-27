@@ -9,7 +9,7 @@
                 <div class="col-12 col-md-10">
                     <h1 class="hero-title fw-bold mb-3">Hey! I’m Andrea</h1>
                     <p class="hero-description mb-4">
-                        Web & Frontend Designer based in Padua, Italy
+                        Web & Frontend Developer based in Padua, Italy
                         with a design-first mindset. I focus on building intuitive, responsive,
                         combining aesthetics with clean and maintainable code.
                     </p>
