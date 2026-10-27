@@ -1,12 +1,8 @@
 <template>
     <section class="projects-section mt-5 mt-sm-9 reveal">
         <div class="container p-0">
-            <h2 class="h6 projects-title fw-regular m-0">Projects</h2>
-            <div class="row mt-4 projects-cards">
-                <div v-for="project in projects" :key="project.id">
-                    <UiProjectCard :project="project" />
-                </div>
-            </div>
+            <h2 class="h6 projects-title fw-regular mb-4">Projects</h2>
+            <UiProjectList :projects="projects" />
         </div>
     </section>
 </template>
@@ -14,15 +10,3 @@
 <script setup>
 import projects from '~/data/projects.json'
 </script>
-
-<style scoped lang="scss">
-@include up($bp-sm) {
-    .projects-cards:hover :deep(.card) {
-        opacity: 0.4;
-    }
-
-    .projects-cards :deep(.card:hover) {
-        opacity: 1;
-    }
-}
-</style>
