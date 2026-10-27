@@ -7,7 +7,7 @@ export default defineNuxtConfig({
         transpile: ['@fortawesome/vue-fontawesome', '@fortawesome/fontawesome-svg-core']
     },
     css: [
-        'bootstrap/dist/css/bootstrap.min.css',
+        '~/assets/scss/bootstrap.scss',
         '@fortawesome/fontawesome-svg-core/styles.css',
         '~/assets/scss/main.scss'
     ],
