@@ -169,7 +169,7 @@ onBeforeUnmount(() => {
 .project-title {
     margin: 0;
     font-size: $font-size-small;
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight-medium;
     line-height: $line-height-small;
     color: $light;
 }
