@@ -3,8 +3,8 @@
         <div class="container p-0">
             <div class="row g-md-0">
                 <div class="col-12 mb-2 mb-sm-4">
-                    <img src="/img/profile.png" width="75" height="75" class="img-fluid rounded-circle img-profile"
-                        alt="Profile picture" fetchpriority="high">
+                    <NuxtImg format="webp" src="/img/profile.png" width="90" height="90" densities="x1 x2" class="img-fluid rounded-circle img-profile"
+                        alt="Profile picture" fetchpriority="high" preload />
                 </div>
                 <div class="col-12 col-md-10">
                     <h1 class="hero-title fw-bold mb-3">Hey! I’m Andrea</h1>
@@ -49,19 +49,21 @@
     font-size: $font-size-biggest;
     width: 11ch;
     white-space: nowrap;
-    overflow: hidden;
+    // clip-path and transform are composited, unlike an animated width;
+    // the cursor starts at -2px so its right edge follows the clip-path edge
     animation: type 2.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 
     &::after {
         content: "";
         position: absolute;
         top: 50%;
-        right: 0;
+        left: 0;
         width: 2px;
         height: 1em;
         background-color: $gray-300;
-        transform: translateY(-50%);
+        translate: 0 -50%;
         animation:
+            cursor-move 2.2s cubic-bezier(0.65, 0, 0.35, 1) forwards,
             cursor-blink 0.8s ease-in-out infinite,
             cursor-hide 0s 1.8s forwards;
     }
@@ -72,11 +74,21 @@
 
     @keyframes type {
         from {
-            width: 0;
+            clip-path: inset(0 100% 0 0);
         }
 
         to {
-            width: 11ch;
+            clip-path: inset(0 0 0 0);
+        }
+    }
+
+    @keyframes cursor-move {
+        from {
+            transform: translateX(-2px);
+        }
+
+        to {
+            transform: translateX(calc(11ch - 2px));
         }
     }
 
