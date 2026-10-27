@@ -1,3 +1,5 @@
+import { onMounted, onBeforeUnmount } from 'vue'
+
 let observer: IntersectionObserver | null = null
 
 const getObserver = () => {
