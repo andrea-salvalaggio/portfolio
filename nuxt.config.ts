@@ -1,5 +1,3 @@
-import svgLoader from 'vite-svg-loader'
-
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     modules: ['@nuxt/image'],
@@ -25,7 +23,6 @@ export default defineNuxtConfig({
                 }
             }
         },
-        plugins: [svgLoader()],
     },
     app: {
         pageTransition: { name: 'page', mode: 'out-in' },
