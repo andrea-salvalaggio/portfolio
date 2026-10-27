@@ -6,7 +6,7 @@
                 <div class="col-12 col-md-9 connections-links">
                     <div class="row flex-wrap g-3">
                         <div class="col-12 col-md-6" v-for="connection in connections" :key="connection.id">
-                            <UiConnectionsLink :connection="connection" />
+                            <UiLinkButton :href="connection.url" :label="connection.label" :icon="connection.icon" />
                         </div>
                     </div>
                 </div>
@@ -17,7 +17,6 @@
 
 <script setup>
 import connections from '~/data/connections.json'
-useReveal()
 </script>
 
 <style scoped lang="scss">

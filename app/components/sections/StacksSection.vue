@@ -13,7 +13,7 @@
                     <div class="col-12 col-md-9 stacks-links">
                         <div class="row flex-wrap g-3">
                             <div class="col-12 col-md-6" v-for="stack in stacks" :key="stack.id">
-                                <UiStackLink :stack="stack" />
+                                <UiLinkButton :href="stack.url" :label="stack.label" :icon="stack.icon" />
                             </div>
                         </div>
                     </div>
@@ -25,7 +25,6 @@
 
 <script setup>
 import stacks from '~/data/stacks.json'
-useReveal()
 </script>
 
 <style scoped lang="scss">
