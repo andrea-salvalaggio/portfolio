@@ -7,26 +7,48 @@
 <script setup lang="ts">
 const root = ref<HTMLElement | null>(null)
 
-const move = (e: MouseEvent) => {
+let rect: DOMRect | null = null
+let frame = 0
+let pointerX = 0
+let pointerY = 0
+
+const update = () => {
+    frame = 0
     const el = root.value
     if (!el) return
 
-    const rect = el.getBoundingClientRect()
+    rect ??= el.getBoundingClientRect()
 
-    const x = ((e.clientX - rect.left) / rect.width) * 100
-    const y = ((e.clientY - rect.top) / rect.height) * 100
+    el.style.setProperty('--gx', `${((pointerX - rect.left) / rect.width) * 100}%`)
+    el.style.setProperty('--gy', `${((pointerY - rect.top) / rect.height) * 100}%`)
+}
 
-    el.style.setProperty('--gx', `${x}%`)
-    el.style.setProperty('--gy', `${y}%`)
+// The cached rect is stale after a scroll
+const invalidateRect = () => {
+    rect = null
+}
+
+const move = (e: MouseEvent) => {
+    pointerX = e.clientX
+    pointerY = e.clientY
+
+    if (!frame) frame = requestAnimationFrame(update)
 }
 
 const enter = () => {
+    rect = root.value?.getBoundingClientRect() ?? null
+    window.addEventListener('scroll', invalidateRect, { passive: true })
     root.value?.classList.add('is-hover')
 }
 
 const leave = () => {
+    cancelAnimationFrame(frame)
+    frame = 0
+    window.removeEventListener('scroll', invalidateRect)
     root.value?.classList.remove('is-hover')
 }
+
+onBeforeUnmount(leave)
 </script>
 
 <style lang="scss">
@@ -64,24 +86,17 @@ const leave = () => {
             inset: 0;
             pointer-events: none;
             opacity: 0;
-            mix-blend-mode: screen;
             background:
                 radial-gradient(circle 180px at var(--gx, 50%) var(--gy, 50%),
                     rgba(255, 255, 255, .16),
                     rgba(255, 255, 255, .06) 35%,
                     rgba(255, 255, 255, .02) 65%,
                     transparent 85%),
-                radial-gradient(circle 360px at var(--gx, 50%) var(--gy, 50%),
-                    rgba(255, 255, 255, .08),
-                    rgba(255, 255, 255, .03) 45%,
-                    transparent 80%),
-                radial-gradient(circle 600px at var(--gx, 50%) var(--gy, 50%),
-                    rgba(255, 255, 255, .035),
-                    transparent 85%),
-                radial-gradient(circle 900px at var(--gx, 50%) var(--gy, 50%),
-                    rgba(255, 255, 255, .015),
-                    transparent 90%);
-        
+                radial-gradient(circle 500px at var(--gx, 50%) var(--gy, 50%),
+                    rgba(255, 255, 255, .06),
+                    rgba(255, 255, 255, .02) 50%,
+                    transparent 85%);
+
             transition: opacity .25s ease;
         }
     }
