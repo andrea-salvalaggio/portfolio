@@ -19,10 +19,16 @@ const getObserver = () => {
     return observer
 }
 
+// The scroll-driven reveal in _reveal.scss needs no observer
+const hasScrollDrivenReveal = () =>
+    typeof CSS !== 'undefined' && typeof CSS.supports === 'function' && CSS.supports('animation-timeline: view()')
+
 export const useReveal = () => {
     const observed: Element[] = []
 
     onMounted(() => {
+        if (hasScrollDrivenReveal()) return
+
         const io = getObserver()
 
         document.querySelectorAll<HTMLElement>('.reveal:not([data-reveal])').forEach((el) => {

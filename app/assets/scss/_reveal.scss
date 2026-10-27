@@ -12,6 +12,32 @@
     transform: translateY(0);
 }
 
+/* Where scroll-driven animations exist the reveal needs no JavaScript, so
+   content in the first viewport is not hidden while the bundle loads
+   (useReveal skips the observer in that case) */
+@supports (animation-timeline: view()) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        animation: reveal-in linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 40%;
+    }
+
+    @keyframes reveal-in {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+}
+
 .page-enter-active,
 .page-leave-active {
     transition: opacity 0.25s ease;
@@ -27,6 +53,7 @@
         opacity: 1;
         transform: none;
         transition: none;
+        animation: none;
     }
 
     .page-enter-active,

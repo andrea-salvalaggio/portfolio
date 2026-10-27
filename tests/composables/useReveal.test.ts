@@ -49,6 +49,7 @@ describe('useReveal', () => {
         vi.resetModules()
         vi.clearAllMocks()
         vi.stubGlobal('IntersectionObserver', FakeIntersectionObserver)
+        vi.stubGlobal('CSS', { supports: () => false })
         document.body.innerHTML = ''
     })
 
@@ -99,6 +100,15 @@ describe('useReveal', () => {
 
         expect(el!.classList.contains('visible')).toBe(false)
         expect(unobserve).not.toHaveBeenCalled()
+    })
+
+    it('leaves the reveal to CSS when scroll-driven animations are supported', async () => {
+        vi.stubGlobal('CSS', { supports: () => true })
+        addRevealElements(2)
+        mountWithReveal(await loadUseReveal())
+
+        expect(constructed).not.toHaveBeenCalled()
+        expect(observe).not.toHaveBeenCalled()
     })
 
     it('stops observing the elements when the component unmounts', async () => {

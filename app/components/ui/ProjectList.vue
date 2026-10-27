@@ -22,7 +22,7 @@
                         <div class="preview-card" :class="{ 'is-visible': activeIndex !== null }"
                             :style="{ '--accent': activeProject?.accent }">
                             <NuxtImg v-for="(project, i) in projects" :key="project.id" format="webp"
-                                :src="project.image" alt="" width="680" height="408" decoding="async"
+                                :src="project.image" alt="" :width="PREVIEW.width" :height="PREVIEW.height" decoding="async"
                                 class="preview-image" :class="{ 'is-active': i === activeIndex }" />
                         </div>
                     </div>
@@ -45,6 +45,22 @@ interface Project {
 }
 
 const props = defineProps<{ projects: Project[] }>()
+
+const $img = useImage()
+/* quality matches image.quality in nuxt.config, so the URLs are identical */
+const PREVIEW = { width: 680, height: 408, format: 'webp', quality: 75 }
+
+/* Fetch the previews during the page load (not after hydration), only where
+   they can be shown; the URLs match the ones NuxtImg renders in the preview */
+useHead({
+    link: props.projects.map((project) => ({
+        rel: 'preload',
+        as: 'image',
+        href: $img(project.image, PREVIEW),
+        media: '(min-width: 576px) and (hover: hover) and (pointer: fine)',
+        fetchpriority: 'low'
+    }))
+})
 
 const previewRef = ref<HTMLElement | null>(null)
 const activeIndex = ref<number | null>(null)
