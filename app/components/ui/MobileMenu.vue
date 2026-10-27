@@ -1,8 +1,7 @@
 <template>
     <div class="mobile-menu d-sm-none">
-        <button class="menu-toggle" :class="{ 'is-open': isOpen }" type="button" :aria-expanded="isOpen"
-            aria-controls="mobile-navigation" :aria-label="isOpen ? 'Close menu' : 'Open menu'" @click="toggleMenu"
-            @keydown="handleKeydown">
+        <button ref="toggleRef" class="menu-toggle" :class="{ 'is-open': isOpen }" type="button"
+            :aria-expanded="isOpen" aria-controls="mobile-navigation" @click="toggleMenu">
             <span>{{ isOpen ? 'Close' : 'Menu' }}</span>
 
             <span class="toggle-icon" aria-hidden="true">
@@ -12,11 +11,11 @@
         </button>
 
         <Transition :css="false" @before-enter="beforeEnter" @enter="enter" @leave="leave">
-            <nav v-if="isOpen" id="mobile-navigation" class="menu-overlay" aria-label="Main navigation">
+            <nav v-if="isOpen" id="mobile-navigation" ref="navRef" class="menu-overlay" aria-label="Main navigation">
                 <div class="menu-content container-fluid">
                     <div class="menu-links">
-                        <NuxtLink v-for="(link, index) in links" :key="link.to" :to="link.to" class="menu-link"
-                            :style="{ '--i': index }" @click="closeMenu">
+                        <NuxtLink v-for="link in links" :key="link.to" :to="link.to" class="menu-link"
+                            @click="closeMenu">
                             <span class="menu-label">
                                 {{ link.label }}
                             </span>
@@ -29,9 +28,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onBeforeUnmount } from 'vue'
+import { ref, watch, nextTick, onBeforeUnmount } from 'vue'
 
 const isOpen = ref(false)
+const toggleRef = ref<HTMLButtonElement | null>(null)
+const navRef = ref<HTMLElement | null>(null)
 
 const links = [
     { label: 'Home', to: '/' },
@@ -47,8 +48,28 @@ function closeMenu() {
     isOpen.value = false
 }
 
+// Escape closes the menu and Tab stays within the toggle and the links
 function handleKeydown(event: KeyboardEvent) {
-    if (event.key === 'Escape') closeMenu()
+    if (event.key === 'Escape') {
+        closeMenu()
+        toggleRef.value?.focus()
+        return
+    }
+
+    if (event.key !== 'Tab' || !toggleRef.value || !navRef.value) return
+
+    const focusable = [toggleRef.value, ...navRef.value.querySelectorAll<HTMLElement>('a[href]')]
+    const first = focusable[0]!
+    const last = focusable[focusable.length - 1]!
+    const active = document.activeElement
+
+    if (event.shiftKey && active === first) {
+        event.preventDefault()
+        last.focus()
+    } else if (!event.shiftKey && active === last) {
+        event.preventDefault()
+        first.focus()
+    }
 }
 
 function getOrigin() {
@@ -76,76 +97,98 @@ function beforeEnter(el: Element) {
     nav.style.setProperty('--origin-y', `${y}px`)
 }
 
+const EASE_OUT = 'cubic-bezier(0.32, 0.72, 0, 1)'
+const EASE_IN_OUT = 'cubic-bezier(0.65, 0, 0.35, 1)'
+const CLOSED = 'circle(0px at var(--origin-x) var(--origin-y))'
+const OPEN = 'circle(150vmax at var(--origin-x) var(--origin-y))'
+
+let overlayAnimation: Animation | null = null
+
+const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+// Decelerating reveal, then the links rise in one after the other
 function enter(el: Element, done: () => void) {
     const nav = el as HTMLElement
 
-    nav.classList.add('is-entering')
+    if (prefersReducedMotion()) {
+        nav.style.clipPath = 'none'
+        overlayAnimation = nav.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 150 })
+        overlayAnimation.finished.then(done).catch(done)
+        return
+    }
 
-    const animation = nav.animate(
-        [
-            {
-                clipPath:
-                    'circle(0px at var(--origin-x) var(--origin-y))',
-            },
-            {
-                clipPath:
-                    'circle(150vmax at var(--origin-x) var(--origin-y))',
-            },
-        ],
-        {
-            duration: 900,
-            easing: 'cubic-bezier(0.76, 0, 0.24, 1)',
-            fill: 'forwards',
-        },
+    overlayAnimation = nav.animate(
+        [{ clipPath: CLOSED }, { clipPath: OPEN }],
+        { duration: 450, easing: EASE_OUT, fill: 'forwards' },
     )
+
+    nav.querySelectorAll('.menu-link').forEach((link, i) => {
+        link.animate(
+            [
+                { opacity: 0, transform: 'translateY(16px)' },
+                { opacity: 1, transform: 'translateY(0)' },
+            ],
+            { duration: 420, delay: 140 + i * 55, easing: EASE_OUT, fill: 'backwards' },
+        )
+    })
+
+    const animation = overlayAnimation
 
     animation.finished
         .then(() => {
-            nav.classList.remove('is-entering')
+            // Fully open: drop the clip so the browser stops compositing it
+            nav.style.clipPath = 'none'
+            animation.cancel()
             done()
         })
-        .catch(() => {
-            nav.classList.remove('is-entering')
-            done()
-        })
+        .catch(done)
 }
 
+// Faster than the entrance; it starts from the current clip if interrupted mid-enter
 function leave(el: Element, done: () => void) {
     const nav = el as HTMLElement
 
-    const animation = nav.animate(
-        [
-            {
-                clipPath:
-                    'circle(150vmax at var(--origin-x) var(--origin-y))',
-            },
-            {
-                clipPath:
-                    'circle(0px at var(--origin-x) var(--origin-y))',
-            },
-        ],
-        {
-            duration: 1000,
-            easing: 'cubic-bezier(0.76, 0, 0.24, 1)',
-            fill: 'forwards',
-        },
-    )
+    if (prefersReducedMotion()) {
+        nav.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 120, fill: 'forwards' })
+            .finished.then(done).catch(done)
+        return
+    }
 
-    animation.finished
-        .then(() => done())
-        .catch(() => done())
+    const current = getComputedStyle(nav).clipPath
+    const from = current && current !== 'none' ? current : OPEN
+
+    overlayAnimation?.cancel()
+    overlayAnimation = null
+    nav.style.clipPath = ''
+
+    nav.querySelectorAll('.menu-link').forEach((link) => {
+        link.animate(
+            [{ opacity: 1 }, { opacity: 0 }],
+            { duration: 150, easing: 'ease-in', fill: 'forwards' },
+        )
+    })
+
+    nav.animate(
+        [{ clipPath: from }, { clipPath: CLOSED }],
+        { duration: 320, easing: EASE_IN_OUT, fill: 'forwards' },
+    ).finished.then(done).catch(done)
 }
 
-watch(isOpen, (open) => {
-    if (typeof document !== 'undefined') {
-        document.body.style.overflow = open ? 'hidden' : ''
+watch(isOpen, async (open) => {
+    document.body.style.overflow = open ? 'hidden' : ''
+
+    if (open) {
+        document.addEventListener('keydown', handleKeydown)
+        await nextTick()
+        navRef.value?.querySelector<HTMLElement>('a[href]')?.focus({ preventScroll: true })
+    } else {
+        document.removeEventListener('keydown', handleKeydown)
     }
 })
 
 onBeforeUnmount(() => {
-    if (typeof document !== 'undefined') {
-        document.body.style.overflow = ''
-    }
+    document.body.style.overflow = ''
+    document.removeEventListener('keydown', handleKeydown)
 })
 </script>
 
@@ -202,6 +245,7 @@ onBeforeUnmount(() => {
     z-index: 1001;
     overflow-y: auto;
     background: $dark;
+    will-change: clip-path;
     clip-path: circle(0 at var(--origin-x) var(--origin-y));
 }
 
@@ -211,14 +255,6 @@ onBeforeUnmount(() => {
     min-height: 100%;
     flex-direction: column;
     padding: $spacer-8 $spacer;
-}
-
-.menu-top,
-.menu-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: $spacer;
 }
 
 .menu-links {
@@ -244,17 +280,5 @@ onBeforeUnmount(() => {
     font-size: $font-size-smaller;
     font-weight: $font-weight-light;
     line-height: $line-height-base;
-}
-
-@keyframes link-in {
-    from {
-        opacity: 0;
-        transform: translate3d(0, 12px, 0);
-    }
-
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
 }
 </style>
