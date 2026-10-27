@@ -3,7 +3,8 @@
         :aria-label="`View ${project.title}`">
         <div class="card flex-row-reverse align-items-center h-100" :class="project.title.toLowerCase()">
             <div class="card-image col-4">
-                <img :src="project.image" :alt="project.title" class="h-100 w-100" width="500" height="300" loading="lazy" decoding="async" />
+                <NuxtImg format="webp" :src="project.image" :alt="project.title" class="h-100 w-100" width="500" height="300"
+                    sizes="110px sm:260px" loading="lazy" decoding="async" />
             </div>
             <div class="card-body d-flex flex-column p-0 pe-3">
                 <div class="h5 card-title fw-medium mb-1 mb-sm-2">{{ project.title }}</div>

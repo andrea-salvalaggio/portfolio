@@ -2,6 +2,11 @@ import svgLoader from 'vite-svg-loader'
 
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
+    modules: ['@nuxt/image'],
+    image: {
+        format: ['webp'],
+        quality: 75
+    },
     devtools: { enabled: true },
     build: {
         transpile: ['@fortawesome/vue-fontawesome', '@fortawesome/fontawesome-svg-core']
