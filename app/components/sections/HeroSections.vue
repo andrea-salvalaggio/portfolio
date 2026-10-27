@@ -2,9 +2,14 @@
     <section class="hero-section">
         <div class="container p-0">
             <div class="row g-md-0">
-                <div class="col-12 mb-2 mb-sm-4">
-                    <NuxtImg format="webp" src="/img/profile.png" width="90" height="90" densities="x1 x2" class="img-fluid rounded-circle img-profile"
-                        alt="Profile picture" fetchpriority="high" preload />
+                <div class="col-12 mb-4">
+                    <div class="hero-avatar">
+                        <NuxtImg format="webp" src="/img/profile.png" width="90" height="90" densities="x1 x2" class="img-fluid rounded-circle img-profile"
+                            alt="Profile picture" fetchpriority="high" preload />
+                        <span class="status-dot" title="Available for new projects">
+                            <span class="visually-hidden">Available for new projects</span>
+                        </span>
+                    </div>
                 </div>
                 <div class="col-12 col-md-10">
                     <h1 class="hero-title fw-bold mb-3">Hey! I’m Andrea</h1>
@@ -15,19 +20,19 @@
                     </p>
                     <div class="hero-links d-md-flex">
                         <div class="flex-wrap row gx-1 gx-sm-2">
-                            <a href="https://drive.google.com/file/d/1IKwbs_N8WZrnHX9v3Jl8cWi9HPtqZgAC/view?usp=sharing"
-                                class="btn-link" target="_blank" rel="noopener noreferrer" aria-label="Download CV">
-                                Download CV <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon"
-                                    alt="" aria-hidden="true" >
-                            </a>
-                            <a href="mailto:andrea.salvalaggio95@gmail.com" class="btn-link mx-md-3"
+                            <a href="mailto:andrea.salvalaggio95@gmail.com" class="btn-link btn-link--primary me-md-3"
                                 aria-label="Contact me">
                                 Contact me <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon"
-                                    alt="" aria-hidden="true" >
+                                    alt="" aria-hidden="true">
+                            </a>
+                            <a href="https://drive.google.com/file/d/1IKwbs_N8WZrnHX9v3Jl8cWi9HPtqZgAC/view?usp=sharing"
+                                class="btn-link me-md-3" target="_blank" rel="noopener noreferrer" aria-label="Download CV">
+                                Download CV <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon"
+                                    alt="" aria-hidden="true">
                             </a>
                             <a href="https://linkedin.com/in/andrea-salvalaggio" class="btn-link" target="_blank" rel="noopener noreferrer"
                                 aria-label="LinkedIn">
-                                LinkedIn <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon" alt="" aria-hidden="true" >
+                                LinkedIn <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon" alt="" aria-hidden="true">
                             </a>
                         </div>
                     </div>
@@ -141,6 +146,66 @@
     }
 }
 
+.hero-links .btn-link--primary {
+    color: $dark;
+    border-color: $gray-100;
+    background-color: $gray-100;
+
+    .btn-icon {
+        filter: brightness(0);
+        opacity: 0.7;
+    }
+
+    &:hover {
+        color: $dark;
+        background-color: $white;
+    }
+}
+
+.hero-avatar {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+}
+
+.status-dot {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    width: 18px;
+    height: 18px;
+    border: 3px solid $dark;
+    border-radius: 50%;
+    background-color: $green;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        background-color: $green;
+        animation: status-pulse 2s ease-out infinite;
+    }
+}
+
+@keyframes status-pulse {
+    from {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(2.2);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .status-dot::after {
+        animation: none;
+    }
+}
+
 .img-profile {
     border: 1px solid $gray-800;
 }
@@ -149,7 +214,6 @@
     .img-profile {
         width: 90px;
         height: 90px;
-        margin-bottom: $spacer;
     }
 }
 </style>

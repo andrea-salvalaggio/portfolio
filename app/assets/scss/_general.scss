@@ -45,11 +45,11 @@ body {
     }
 
     p {
-        color: $gray-500;
+        color: $gray-400;
     }
 
     a {
-        color: $gray-500;
+        color: $gray-400;
         text-decoration: none;
         transition: color 0.2s ease-in-out;
 
@@ -109,7 +109,7 @@ body {
     font-weight: $font-weight-regular;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: $gray-500;
+    color: $gray-400;
 }
 
 .fw-regular {
