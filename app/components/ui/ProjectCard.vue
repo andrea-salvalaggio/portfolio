@@ -7,7 +7,7 @@
                     sizes="110px sm:260px" loading="lazy" decoding="async" />
             </div>
             <div class="card-body d-flex flex-column p-0 pe-3">
-                <div class="h5 card-title fw-medium mb-1 mb-sm-2">{{ project.title }}</div>
+                <h3 class="h5 card-title fw-medium mb-1 mb-sm-2">{{ project.title }}</h3>
                 <p class="card-text line-clamp-2 line-clamp-sm-3 fw-light">{{ project.description }}</p>
             </div>
         </div>

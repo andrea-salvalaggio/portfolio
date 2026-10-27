@@ -3,7 +3,7 @@
         <div class="d-flex flex-grow-1">
             <NuxtImg format="webp" :src="experience.logo" :alt="experience.company" class="experience-logo rounded-pill me-sm-3" width="50" height="50" loading="lazy" decoding="async" />
             <div class="experience-head">
-                <div class="h6 experience-title fw-light mb-1">{{ experience.role }}</div>
+                <h3 class="h6 experience-title fw-light mb-1">{{ experience.role }}</h3>
                 <p class="experience-text m-0">{{ experience.company }}</p>
             </div>
         </div>
