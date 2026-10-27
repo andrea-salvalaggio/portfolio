@@ -68,7 +68,7 @@
             cursor-hide 0s 1.8s forwards;
     }
 
-    @media(max-width: 576px) {
+    @include down($bp-sm) {
         font-size: 2.75rem;
     }
 
@@ -132,7 +132,7 @@
             transform: scale(1.35);
         }
         
-        @media (max-width: 768px) {
+        @include down($bp-md) {
             width: 100%;
             justify-content: space-between;
             padding: $spacer $spacer-4;
@@ -145,7 +145,7 @@
     border: 1px solid $gray-800;
 }
 
-@media (max-width: 768px) {
+@include down($bp-md) {
     .img-profile {
         width: 90px;
         height: 90px;

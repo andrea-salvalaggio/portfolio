@@ -52,7 +52,7 @@ onBeforeUnmount(leave)
 </script>
 
 <style lang="scss">
-@media (max-width: 576px) {
+@include down($bp-sm) {
     .glare-wrap {
         &:not(:first-child) {
             margin-top: $spacer;
@@ -60,7 +60,7 @@ onBeforeUnmount(leave)
     }
 }
 
-@media (min-width: 576px) {
+@include up($bp-sm) {
     .glare-wrap {
         position: relative;
         display: inline-block;

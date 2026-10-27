@@ -43,7 +43,7 @@ defineProps({
     line-height: normal;
 }
 
-@media (max-width: 576px) {
+@include down($bp-sm) {
     .experience-content {
         flex-wrap: wrap;
         flex-grow: 0;

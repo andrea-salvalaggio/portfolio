@@ -17,7 +17,7 @@
 @use '@/assets/scss/variables' as *;
 
 .error-title {
-    @media (max-width: 576px) {
+    @include down($bp-sm) {
         font-size: $font-size-big;
     }
 }

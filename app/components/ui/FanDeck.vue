@@ -27,11 +27,11 @@ const { hoveredIndex, cardStyles } = useFanDeck(props)
     align-items: center;
     position: relative;
 
-    @media (max-width: 320px) {
+    @include down($bp-xs) {
         height: 380px;
     }
 
-    @media (min-width: 768px) {
+    @include up($bp-md) {
         margin-bottom: $spacer-9;
     }
 
@@ -47,7 +47,7 @@ const { hoveredIndex, cardStyles } = useFanDeck(props)
         will-change: transform;
         backface-visibility: hidden;
 
-        @media (max-width: 767.98px) {
+        @include down($bp-md) {
             z-index: var(--mz);
             transform: translate(var(--mx), var(--my)) rotate(var(--mr)) scale(var(--ms));
 
@@ -62,22 +62,23 @@ const { hoveredIndex, cardStyles } = useFanDeck(props)
             object-fit: cover;
         }
 
-        @media (max-width: 320px) {
-            width: 160px;
-            height: 220px;
-        }
-
-        @media (min-width: 325px) and (max-width: 576px) {
-            width: 200px;
-            height: 290px;
-        }
-
-        @media(min-width: 576px) and (max-width: 768px) {
+        // Card size steps down with the viewport, later rules win
+        @include down($bp-md) {
             width: 240px;
             height: 320px;
         }
 
-        @media (min-width: 576px) {
+        @include down($bp-sm) {
+            width: 200px;
+            height: 290px;
+        }
+
+        @include down($bp-xs) {
+            width: 160px;
+            height: 220px;
+        }
+
+        @include up($bp-sm) {
             border-radius: $radius-6;
         }
     }

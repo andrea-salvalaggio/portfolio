@@ -1,5 +1,7 @@
+@use "../variables" as *;
+
 @mixin link-hover-fade($section) {
-    @media (min-width: 576px) {
+    @include up($bp-sm) {
         #{$section} :deep(.btn-link) {
             opacity: 1;
             transition:

@@ -64,7 +64,7 @@ const linkProps = computed(() => isExternal.value
             object-fit: cover;
         }
 
-        @media (max-width: 576px) {
+        @include down($bp-sm) {
             border-radius: 1.25rem;
 
             img {
@@ -74,7 +74,7 @@ const linkProps = computed(() => isExternal.value
     }
 }
 
-@media (min-width: 576px) {
+@include up($bp-sm) {
     .card {
         opacity: 1;
         transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);

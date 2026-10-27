@@ -58,12 +58,12 @@ body {
         }
     }
 
-    @media (min-width: 992px) {
+    @include up($bp-lg) {
         width: 750px;
         margin: 0 auto;
     }
 
-    @media (max-width: 576px) {
+    @include down($bp-sm) {
         padding-top: $spacer-9;
     }
 }
@@ -111,7 +111,7 @@ body {
     margin-top: $spacer-8;
 }
 
-@media (min-width: 576px) {
+@include up($bp-sm) {
     .mt-sm-9 {
         margin-top: $spacer-9 !important;
     }
@@ -129,7 +129,7 @@ body {
     }
 }
 
-@media (min-width: 576px) {
+@include up($bp-sm) {
     .card {
         &.deliveboo:hover {
             .card-image {

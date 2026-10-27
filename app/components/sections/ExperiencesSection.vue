@@ -42,7 +42,7 @@ import experiences from '~/data/experiences.json'
     transition: background-color 0.3s ease-in-out;
 }
 
-@media (min-width: 576px) {
+@include up($bp-sm) {
     .btn-link {
         &:hover {
             background-color: rgba($white, 0.09);

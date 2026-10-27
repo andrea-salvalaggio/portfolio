@@ -48,7 +48,7 @@ header {
     z-index: 1000;
     width: 100%;
 
-    @media (max-width: 576px) {
+    @include down($bp-sm) {
         position: fixed;
         top: 1rem;
     }
@@ -83,7 +83,7 @@ header {
         transform: scale(1);
         transition: transform 0.25s ease-in-out;
 
-        @media (min-width: 768px) {
+        @include up($bp-md) {
             &:hover {
                 transform: scale(1.2);
                 background-color: rgba($white, 0.07);

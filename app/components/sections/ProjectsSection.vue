@@ -16,7 +16,7 @@ import projects from '~/data/projects.json'
 </script>
 
 <style scoped lang="scss">
-@media (min-width: 576px) {
+@include up($bp-sm) {
     .projects-cards:hover :deep(.card) {
         opacity: 0.4;
     }

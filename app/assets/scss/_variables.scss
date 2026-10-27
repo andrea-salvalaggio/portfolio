@@ -68,3 +68,23 @@ $radius-4: 1.5rem;
 $radius-5: 2rem;
 $radius-6: 3rem;
 $radius-pill: 50rem;
+
+// Breakpoints (same values as Bootstrap's xs/sm/md/lg thresholds)
+$bp-xs: 321px;
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+
+// `up` matches from the breakpoint, `down` matches below it, so the two
+// never overlap (Bootstrap uses the same .02px trick for max-width)
+@mixin up($bp) {
+    @media (min-width: $bp) {
+        @content;
+    }
+}
+
+@mixin down($bp) {
+    @media (max-width: $bp - 0.02px) {
+        @content;
+    }
+}
