@@ -9,7 +9,7 @@
             </div>
             <div class="stacks-languages mt-5 mt-sm-9 reveal">
                 <div class="row">
-                    <h2 class="h6 fw-regular col-12 col-md-3 mb-4 mb-md-0">Languages</h2>
+                    <h2 class="section-label col-12 col-md-3 mb-4 mb-md-0">Languages</h2>
                     <div class="col-12 col-md-9 stacks-links">
                         <div class="row flex-wrap g-3">
                             <div v-for="stack in stacks" :key="stack.id" class="col-12 col-md-6">
