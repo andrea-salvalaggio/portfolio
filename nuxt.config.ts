@@ -11,6 +11,10 @@ export default defineNuxtConfig({
         format: ['webp'],
         quality: 75
     },
+    routeRules: {
+        // The old project URL keeps working
+        '/deliveboo': { redirect: { to: '/projects/deliveboo', statusCode: 301 } }
+    },
     devtools: { enabled: true },
     build: {
         transpile: ['@fortawesome/vue-fontawesome', '@fortawesome/fontawesome-svg-core']

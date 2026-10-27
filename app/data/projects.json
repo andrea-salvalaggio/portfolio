@@ -10,8 +10,30 @@
             "PHP",
             "Laravel"
         ],
-        "url": "/deliveboo",
-        "target": "_self"
+        "url": "/projects/deliveboo",
+        "target": "_self",
+        "slug": "deliveboo",
+        "year": 2022,
+        "repo": "https://github.com/andrea-salvalaggio/laravel-deliveboo",
+        "longDescription": "Food delivery web app that allows customers to order food from their favorite restaurant without registration, but entering only the data necessary for delivery (Credit card number, name, address). Restaurateurs can register in the platform and create, modify and delete dishes and see customers orders.",
+        "seoDescription": "Deliveboo is a food delivery web app built with Vue, Sass, PHP and Laravel: customers order without registration, restaurateurs manage dishes and orders.",
+        "screenshots": [
+            {
+                "src": "/img/projects/deliveboo-1.png",
+                "alt": "Deliveboo project desktop",
+                "height": 923
+            },
+            {
+                "src": "/img/projects/deliveboo-2.png",
+                "alt": "Deliveboo project backoffice",
+                "height": 1730
+            },
+            {
+                "src": "/img/projects/deliveboo-3.png",
+                "alt": "Deliveboo project mobile",
+                "height": 923
+            }
+        ]
     },
     {
         "id": 2,
