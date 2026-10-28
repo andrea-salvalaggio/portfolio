@@ -5,10 +5,6 @@
         "description": "A bento grid take on my portfolio, built with Nuxt and Tailwind to present projects, links and availability in a single view.",
         "image": "/img/projects/bento-portfolio.jpg",
         "accent": "#3B6BFF",
-        "tags": [
-            "Nuxt",
-            "Vue.js"
-        ],
         "url": "https://andreasalvalaggio-bento-portfolio.vercel.app/",
         "target": "_blank"
     },
@@ -17,12 +13,6 @@
         "title": "Deliveboo",
         "description": "Deliveboo is a food delivery web app that allows customers to order food from their favorite restaurant without registration.",
         "image": "/img/projects/deliveboo.png",
-        "tags": [
-            "Vue.js",
-            "SCSS",
-            "PHP",
-            "Laravel"
-        ],
         "url": "/projects/deliveboo",
         "target": "_self",
         "slug": "deliveboo",

@@ -19,7 +19,6 @@ export default defineNuxtConfig({
     routeRules: {
         // The old project URL keeps working
         '/deliveboo': { redirect: { to: '/projects/deliveboo', statusCode: 301 } },
-        // Stack now lives as a section of About
         '/stack': { redirect: { to: '/about#stack', statusCode: 301 } }
     },
     devtools: { enabled: true },

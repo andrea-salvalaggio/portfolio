@@ -18,8 +18,6 @@ const { hoveredIndex, cardStyles } = useFanDeck(props)
 </script>
 
 <style scoped lang="scss">
-@use '@/assets/scss/variables' as *;
-
 .fan {
     height: 450px;
     display: flex;

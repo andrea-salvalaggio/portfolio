@@ -1,28 +1,26 @@
 <template>
     <header class="mt-3 mt-sm-4">
         <div class="gradient"/>
-        <nav class="navbar navbar-expand p-0 pt-2">
-            <div class="container justify-content-end justify-content-sm-center p-sm-0">
-                <UiMobileMenu />
-
-                <ul ref="navRef" class="navbar-nav d-none d-sm-flex align-items-center nav-wrapper">
+        <nav class="navbar p-0 pt-2" aria-label="Main navigation">
+            <div class="container p-sm-0">
+                <ul class="navbar-nav flex-row nav-wrapper">
                     <UiLiquidGlass />
 
-                    <li v-for="link in navLinks" :key="link.to" class="nav-item mx-sm-1">
-                        <NuxtLink v-slot="{ href, navigate, isActive }" :to="link.to" custom>
-                            <a :href="href" :class="[
-                                'nav-link',
-                                { active: isActive }
-                            ]" @click="navigate">
-                                {{ link.label }}
-                            </a>
-                        </NuxtLink>
+                    <li class="nav-item">
+                        <NuxtLink to="/about" class="nav-link" active-class="active">About</NuxtLink>
+                    </li>
+
+                    <li class="nav-item">
+                        <a :href="contactUrl" class="nav-cta d-flex align-items-center rounded-pill text-decoration-none">
+                            Contact
+                            <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="nav-cta-icon" alt="" aria-hidden="true">
+                        </a>
                     </li>
                 </ul>
 
-                <NuxtLink to="/" class="navbar-brand d-flex m-0 ms-3 p-0">
+                <NuxtLink to="/" class="navbar-brand d-flex m-0 p-0" aria-label="Home">
                     <UiLiquidGlass />
-                    <img src="/img/icons/logo.svg" class="navbar-logo" alt="Logo" width="22" height="22" >
+                    <img src="/img/icons/logo.svg" alt="" width="22" height="22" >
                 </NuxtLink>
             </div>
         </nav>
@@ -30,17 +28,12 @@
 </template>
 
 <script setup lang="ts">
-const navLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/about', label: 'About' }
-]
+import connections from '~/data/connections.json'
+
+const contactUrl = connections.find((connection) => connection.url.startsWith('mailto:'))?.url
 </script>
 
 <style scoped lang="scss">
-@use "@/assets/scss/mixins/buttons" as *;
-
-@include link-hover-fade(".navbar-nav");
-
 header {
     position: sticky;
     top: 1.5rem;
@@ -70,6 +63,10 @@ header {
     .container {
         position: relative;
         z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: $spacer;
     }
 
     .navbar-brand {
@@ -92,44 +89,41 @@ header {
 
     .nav-wrapper {
         position: relative;
-        display: flex;
-        align-items: center;
-
-        &::before {
-            content: "";
-            display: none;
-            position: absolute;
-            position-anchor: --nav-active;
-            width: 70px;
-            height: 1.5px;
-            left: anchor(center);
-            top: anchor(bottom);
-            transform: translateX(-50%) translateY(7px);
-            background: linear-gradient(
-                to right,
-                transparent 0%,
-                $white 30%,
-                $white 60%,
-                transparent 100%
-            );
-            border-radius: $radius-pill;
-            pointer-events: none;
-            z-index: 1;
-            transition:
-                left 0.3s cubic-bezier(.22, 1, .36, 1),
-                top 0.3s cubic-bezier(.22, 1, .36, 1);
-        }
-
-        &:has(.nav-link.active) {
-            &::before {
-                display: block;
-            }
-        }
+        // Same inset as above and below, so the button sits close to the pill's edge
+        padding-right: $spacer-2;
     }
 
     .nav-item {
         position: relative;
         z-index: 1;
+        display: flex;
+
+        // The pill is the only primary action: it fills the pill's height as an end cap, in the light button style of the hero
+        .nav-cta {
+            gap: $spacer-3;
+            padding: .375rem $spacer-4;
+            color: $dark;
+            background-color: $gray-100;
+            transition: background-color 220ms ease-in-out;
+
+            &:hover {
+                background-color: $white;
+            }
+        }
+
+        .nav-cta-icon {
+            filter: brightness(0);
+            opacity: 0.7;
+            transform: scale(1.35);
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        // Same arrow motion as the other buttons
+        @include up($bp-sm) {
+            .nav-cta:hover .nav-cta-icon {
+                transform: scale(1.35) rotate(45deg);
+            }
+        }
 
         .nav-link {
             display: flex;
@@ -144,7 +138,6 @@ header {
             }
 
             &.active {
-                anchor-name: --nav-active;
                 font-weight: $font-weight-regular;
             }
         }

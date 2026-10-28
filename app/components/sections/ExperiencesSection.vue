@@ -23,8 +23,6 @@ import experiences from '~/data/experiences.json'
 </script>
 
 <style scoped lang="scss">
-@use "@/assets/scss/mixins/buttons" as *;
-
 .experiences-links {
     &--wrapper {
         padding: $spacer-4;
@@ -36,8 +34,6 @@ import experiences from '~/data/experiences.json'
 
 .btn-link {
     color: $primary;
-    background-color: $gray-900;
-    border: 1px solid $gray-800;
     padding: $spacer-2 $spacer-4;
     transition: background-color 0.3s ease-in-out;
 }

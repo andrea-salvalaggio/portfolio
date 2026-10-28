@@ -20,8 +20,8 @@
 // Generate only the utilities used in the templates
 $utilities: map-get-multiple($utilities, (
     "align-items", "border", "display", "flex-direction", "flex-grow", "flex-wrap",
-    "font-size", "font-weight", "height", "justify-content", "margin", "margin-x", "margin-y",
-    "margin-top", "margin-bottom", "margin-end", "margin-start", "padding", "padding-x", "padding-y",
-    "padding-top", "padding-end", "rounded", "text-align", "text-decoration", "width"
+    "font-size", "font-weight", "justify-content", "margin",
+    "margin-top", "margin-bottom", "margin-end", "margin-start", "padding", "padding-y",
+    "padding-top", "rounded", "text-align", "text-decoration", "width"
 ));
 @import "bootstrap/scss/utilities/api";

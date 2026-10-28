@@ -101,7 +101,25 @@ onBeforeUnmount(leave)
         }
     }
 
+    // Lit 1px edge that follows the cursor, same look as the buttons
+    .glare-wrap::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        padding: 1px;
+        border-radius: inherit;
+        pointer-events: none;
+        opacity: 0;
+        background: radial-gradient(circle 220px at var(--gx, 50%) var(--gy, 50%), rgba($white, .45), transparent 70%);
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+        transition: opacity .25s ease;
+    }
+
     .glare-wrap.is-hover {
+        &::before,
         &::after {
             opacity: 1;
         }

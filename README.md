@@ -1,75 +1,27 @@
-# Nuxt Minimal Starter
+# Portfolio
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Personal portfolio of Andrea Salvalaggio, built with Nuxt 4 and Bootstrap (SCSS).
 
-## Setup
-
-Make sure to install dependencies:
+## Development
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+npm run dev        # http://localhost:3000
 ```
 
-## Development Server
+| Script | What it does |
+| --- | --- |
+| `npm run build` | Production build |
+| `npm run generate` | Static build |
+| `npm run preview` | Preview the production build |
+| `npm run lint` | ESLint (`lint:fix` to fix) |
+| `npm run typecheck` | Type check with `nuxt typecheck` |
+| `npm test` | Vitest (`test:watch` to watch) |
 
-Start the development server on `http://localhost:3000`:
+## Configuration
 
-```bash
-# npm
-npm run dev
+Set `NUXT_PUBLIC_SITE_URL` to the production domain (e.g. `https://example.com`): canonical links and `og:url` need it. Without it, `og:image` falls back to the origin the page is served from.
 
-# pnpm
-pnpm dev
+## Content
 
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Content lives in `app/data/`: `projects.json`, `experiences.json`, `stacks.json` and `connections.json`. The contact button in the header uses the `mailto:` entry of `connections.json`.

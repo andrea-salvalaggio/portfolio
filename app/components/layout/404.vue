@@ -14,15 +14,9 @@
 </template>
 
 <style scoped lang="scss">
-@use '@/assets/scss/variables' as *;
-
 .error-title {
     @include down($bp-sm) {
         font-size: $font-size-big;
     }
-}
-
-a {
-    color: $dark
 }
 </style>

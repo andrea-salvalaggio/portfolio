@@ -19,8 +19,6 @@ defineProps<{
 <style scoped lang="scss">
 .btn-link {
     color: $primary;
-    border: 1px solid $gray-800;
-    background-color: $gray-900;
     padding: $spacer $spacer-4;
 
     .btn-icon {
