@@ -1,74 +1,11 @@
 [
-    {
-        "id": "1",
-        "label": "HTML5",
-        "icon": [
-            "fa-brands",
-            "fa-html5"
-        ],
-        "url": "https://it.wikipedia.org/wiki/HTML5"
-    },
-    {
-        "id": "2",
-        "label": "CSS",
-        "icon": [
-            "fa-brands",
-            "fa-css3-alt"
-        ],
-        "url": "https://it.wikipedia.org/wiki/CSS"
-    },
-    {
-        "id": "3",
-        "label": "SCSS",
-        "icon": [
-            "fa-brands",
-            "fa-sass"
-        ],
-        "url": "https://sass-lang.com/"
-    },
-    {
-        "id": "4",
-        "label": "Bootstrap",
-        "icon": [
-            "fa-brands",
-            "fa-bootstrap"
-        ],
-        "url": "https://getbootstrap.com/"
-    },
-    {
-        "id": "5",
-        "label": "JavaScript",
-        "icon": [
-            "fa-brands",
-            "fa-js"
-        ],
-        "url": "https://www.javascript.com/"
-    },
-    {
-        "id": "6",
-        "label": "Vue.js",
-        "icon": [
-            "fa-brands",
-            "fa-vuejs"
-        ],
-        "url": "https://vuejs.org/"
-    },
-    {
-        "id": "7",
-        "label": "PHP",
-        "icon": [
-            "fa-brands",
-            "fa-php"
-        ],
-        "url": "https://www.php.net/"
-    },
-    {
-        "id": "8",
-        "label": "Laravel",
-        "icon": [
-            "fa-brands",
-            "fa-laravel"
-        ],
-        "url": "https://laravel.com/"
-    }
+    { "id": "1", "label": "Vue.js", "icon": ["fa-brands", "fa-vuejs"], "color": "#42B883" },
+    { "id": "2", "label": "Nuxt", "icon": ["fac", "nuxt"], "color": "#00DC82" },
+    { "id": "4", "label": "JavaScript", "icon": ["fa-brands", "fa-js"], "color": "#F7DF1E" },
+    { "id": "5", "label": "SCSS", "icon": ["fa-brands", "fa-sass"], "color": "#CC6699" },
+    { "id": "6", "label": "Bootstrap", "icon": ["fa-brands", "fa-bootstrap"], "color": "#9B7BD6" },
+    { "id": "7", "label": "Figma", "icon": ["fa-brands", "fa-figma"], "color": "#F24E1E" },
+    { "id": "8", "label": "Git", "icon": ["fa-brands", "fa-git-alt"], "color": "#F05032" },
+    { "id": "9", "label": "PHP", "icon": ["fa-brands", "fa-php"], "color": "#8892BF" },
+    { "id": "10", "label": "Laravel", "icon": ["fa-brands", "fa-laravel"], "color": "#FF2D20" }
 ]

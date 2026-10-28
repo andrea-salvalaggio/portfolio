@@ -5,7 +5,10 @@
         "description": "A bento grid take on my portfolio, built with Nuxt and Tailwind to present projects, links and availability in a single view.",
         "image": "/img/projects/bento-portfolio.jpg",
         "accent": "#3B6BFF",
-        "tags": [],
+        "tags": [
+            "Nuxt",
+            "Vue.js"
+        ],
         "url": "https://andreasalvalaggio-bento-portfolio.vercel.app/",
         "target": "_blank"
     },
@@ -15,8 +18,8 @@
         "description": "Deliveboo is a food delivery web app that allows customers to order food from their favorite restaurant without registration.",
         "image": "/img/projects/deliveboo.png",
         "tags": [
-            "Vue",
-            "Sass",
+            "Vue.js",
+            "SCSS",
             "PHP",
             "Laravel"
         ],
@@ -45,19 +48,5 @@
             }
         ],
         "accent": "#FF8E00"
-    },
-    {
-        "id": 2,
-        "title": "Boolzapp",
-        "description": "This project is a practice application developed to recreate the core features of WhatsApp using JavaScript.",
-        "image": "/img/projects/boolzapp.png",
-        "tags": [
-            "HTML",
-            "CSS",
-            "JavaScript"
-        ],
-        "url": "https://github.com/andrea-salvalaggio/vue-boolzapp",
-        "target": "_blank",
-        "accent": "#00B35C"
     }
 ]

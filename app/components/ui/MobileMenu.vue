@@ -37,7 +37,6 @@ const navRef = ref<HTMLElement | null>(null)
 const links = [
     { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
-    { label: 'Stack', to: '/stack' },
 ]
 
 function toggleMenu() {

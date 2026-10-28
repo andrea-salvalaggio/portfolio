@@ -12,15 +12,16 @@
         </div>
         <LazySectionsFanDeckSection hydrate-on-visible />
         <LazySectionsAboutSections hydrate-never />
-        <LazySectionsConnectionsSection hydrate-never />
+        <LazySectionsStacksSection hydrate-never />
         <LazySectionsExperiencesSection hydrate-never />
+        <LazySectionsConnectionsSection hydrate-never />
     </div>
 </template>
 
 <script setup>
 usePageSeo({
     title: 'About | Andrea Salvalaggio',
-    description: 'A little bit of my life: my path from graphic design to web development, my experience and how to get in touch.',
+    description: 'A little bit of my life: my path from graphic design to web development, my stack, my experience and how to get in touch.',
     path: '/about'
 })
 useReveal()

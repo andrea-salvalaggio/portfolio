@@ -32,8 +32,7 @@
 <script setup lang="ts">
 const navLinks = [
     { to: '/', label: 'Home' },
-    { to: '/about', label: 'About' },
-    { to: '/stack', label: 'Stack' }
+    { to: '/about', label: 'About' }
 ]
 </script>
 
