@@ -1,7 +1,10 @@
 <template>
-    <div class="p-3 py-5 py-sm-8">
+    <div class="p-4 py-5">
         <LazySectionsHeroSections hydrate-never />
-        <LazySectionsProjectsSection hydrate-on-visible />
+        <LazySectionsAboutSections hydrate-never />
+        <LazySectionsProjectsSection hydrate-never />
+        <LazySectionsExperiencesSection hydrate-never />
+        <LazySectionsStacksSection hydrate-never />
     </div>
 </template>
 
@@ -10,7 +13,7 @@ useReveal()
 
 usePageSeo({
     title: 'Andrea Salvalaggio',
-    description: 'Web & Frontend Developer based in Padua, Italy. Portfolio with projects, skills and experience in web development.',
+    description: 'Web & Frontend Developer based in Padua, Italy. Portfolio with projects, experience and stack.',
     path: '/'
 })
 </script>

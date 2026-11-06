@@ -1,41 +1,39 @@
 <template>
     <section class="hero-section">
         <div class="container p-0">
-            <div class="row g-md-0">
-                <div class="col-12 mb-4">
-                    <div class="hero-avatar">
-                        <NuxtImg format="webp" src="/img/profile.png" width="90" height="90" densities="x1 x2" class="img-fluid rounded-circle img-profile"
-                            alt="Profile picture" fetchpriority="high" preload />
-                        <span class="status-dot" title="Available for new projects">
-                            <span class="visually-hidden">Available for new projects</span>
+            <div class="mb-5 d-flex align-items-center enter" style="--i: 0">
+                <NuxtImg format="webp" src="/img/profile.png" width="44" height="44" densities="x1 x2" class="rounded-circle img-profile"
+                    alt="Profile picture" fetchpriority="high" preload />
+                <div class="hero-id">
+                    <h1 class="hero-name m-0">Andrea Salvalaggio</h1>
+                    <p class="hero-role m-0">
+                        <span class="visually-hidden">Web Designer and Frontend Developer</span>
+                        <span class="role-rotator" aria-hidden="true">
+                            <span class="role-item">Web Designer</span>
+                            <span class="role-item">Frontend Developer</span>
                         </span>
-                    </div>
-                </div>
-                <div class="col-12 col-md-10">
-                    <h1 class="hero-title fw-bold mb-2" :aria-label="PHRASES[1]">
-                        <span v-for="(phrase, p) in phrases" :key="p" class="hero-phrase" :class="{ 'hero-phrase--draft': p === 0 }"
-                            aria-hidden="true">
-                            <span v-for="(item, i) in phrase" :key="i" class="hero-char" :style="item.style">{{ item.char }}</span>
-                        </span>
-                    </h1>
-                    <p class="hero-description mb-4">
-                        Web & Frontend Developer based in Padua, Italy
-                        with a design-first mindset. I focus on building intuitive, responsive,
-                        combining aesthetics with clean and maintainable code.
                     </p>
-                    <div class="hero-links d-md-flex">
-                        <div class="flex-wrap row gx-1 gx-sm-2">
-                            <a href="https://drive.google.com/file/d/1IKwbs_N8WZrnHX9v3Jl8cWi9HPtqZgAC/view?usp=sharing"
-                                class="btn-link me-md-3" target="_blank" rel="noopener noreferrer" aria-label="Download CV">
-                                Download CV <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon"
-                                    alt="" aria-hidden="true">
-                            </a>
-                            <a href="https://linkedin.com/in/andrea-salvalaggio" class="btn-link" target="_blank" rel="noopener noreferrer"
-                                aria-label="LinkedIn">
-                                LinkedIn <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="btn-icon" alt="" aria-hidden="true">
-                            </a>
-                        </div>
-                    </div>
+                </div>
+                <a :href="contactUrl" class="nav-cta ms-auto">
+                    Email
+                    <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="nav-cta-icon" alt="" aria-hidden="true">
+                </a>
+            </div>
+            <div>
+                <p class="hero-title mb-3">
+                    <span class="visually-hidden">{{ PHRASES[1] }}</span>
+                    <span v-for="(phrase, p) in phrases" :key="p" class="hero-phrase" :class="{ 'hero-phrase--draft': p === 0 }"
+                        aria-hidden="true">
+                        <span v-for="(item, i) in phrase" :key="i" class="hero-char" :style="item.style">{{ item.char }}</span>
+                    </span>
+                </p>
+                <p class="hero-description mb-4 enter" style="--i: 1">
+                    Based in Padua, Italy, with a design-first mindset. I focus on building intuitive,
+                    responsive interfaces, combining aesthetics with clean and maintainable code.
+                </p>
+                <div class="hero-links enter" style="--i: 2">
+                    <UiLinkButton :href="CV_URL" label="Download CV" />
+                    <UiLinkButton v-for="link in socials" :key="link.id" :href="link.url" :label="link.label" />
                 </div>
             </div>
         </div>
@@ -43,8 +41,15 @@
 </template>
 
 <script setup lang="ts">
+import connections from '~/data/connections.json'
+
+const CV_URL = 'https://drive.google.com/file/d/1IKwbs_N8WZrnHX9v3Jl8cWi9HPtqZgAC/view?usp=sharing'
+
+const contactUrl = connections.find((connection) => connection.url.startsWith('mailto:'))?.url
+const socials = connections.filter((connection) => !connection.url.startsWith('mailto:'))
+
 // A draft is typed, held and deleted, then the headline is typed
-const PHRASES = ['Hello world!', 'I’m Andrea']
+const PHRASES = ['Hi, I’m Andrea!', 'I design it. Then I build it.']
 
 const START = 400
 const TYPE = 85
@@ -119,21 +124,99 @@ const phrases = [draftChars, headlineChars]
 
 @include link-hover-fade(".hero-links");
 
-/* Typing: the draft and the headline share one grid cell, so the layout does not move while they swap.
-   Every character carries its own caret, shown only while it is the last visible one. */
+.img-profile {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border: 1px solid $gray-800;
+}
+
+.hero-id {
+    margin-left: $spacer-3;
+}
+
+.hero-name,
+.hero-role {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.hero-name {
+    font-weight: $font-weight-medium;
+    color: $light;
+}
+
+.role-rotator {
+    display: inline-grid;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.role-item {
+    grid-area: 1 / 1;
+    animation: role-swap 8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+
+    & + & {
+        animation-delay: -4s;
+    }
+}
+
+@keyframes role-swap {
+    0%,
+    38% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    50.01%,
+    88% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-cta {
+    flex-shrink: 0;
+    color: $dark;
+    background-color: $gray-100;
+    transition: background-color 220ms ease-in-out, transform 160ms cubic-bezier(0.25, 1, 0.5, 1);
+
+    &:hover {
+        color: $dark;
+        background-color: $white;
+    }
+}
+
+.nav-cta-icon {
+    margin-left: $spacer-1;
+    filter: brightness(0);
+    opacity: 0.7;
+    transform: scale(1.35);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@include up($bp-sm) {
+    .nav-cta:hover .nav-cta-icon {
+        transform: scale(1.35) rotate(45deg);
+    }
+}
+
 .hero-title {
     display: inline-grid;
-    font-size: $font-size-biggest;
-    white-space: nowrap;
-
-    @include up($bp-md) {
-        font-size: 3.75rem;
-    }
-
-    /* The title is about 7.4em wide: scale it down on narrow screens so it always fits */
-    @include down($bp-sm) {
-        font-size: min(2.75rem, calc((100vw - 2.5rem) / 7.6));
-    }
+    font-size: 28px;
+    font-weight: $font-weight-semibold;
+    line-height: 40px;
+    color: $light;
 }
 
 .hero-phrase {
@@ -142,7 +225,7 @@ const phrases = [draftChars, headlineChars]
 
 .hero-char {
     position: relative;
-    white-space: pre;
+    white-space: pre-wrap;
     opacity: 0;
     animation: var(--char-anim, none);
 
@@ -170,75 +253,33 @@ const phrases = [draftChars, headlineChars]
 }
 
 .hero-description {
-    font-size: $font-size-smaller;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 .hero-links {
-    .btn-link {
-        width: fit-content;
-        display: flex;
-        align-items: center;
-        color: $light;
-        padding: .65rem 1.75rem;
-        border-radius: $radius-pill;
-        text-decoration: none;
-        white-space: nowrap;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacer-2;
 
-        .btn-icon {
-            margin-left: $spacer;
-            transform: scale(1.35);
-        }
-        
-        @include down($bp-md) {
-            width: 100%;
+    @include down($bp-sm) {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        :deep(.btn-link) {
             justify-content: space-between;
-            padding: $spacer $spacer-4;
-            margin-bottom: $spacer;
+            height: 46px;
         }
-    }
-}
-
-.hero-avatar {
-    position: relative;
-    display: inline-block;
-    line-height: 0;
-}
-
-.status-dot {
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
-    width: 18px;
-    height: 18px;
-    border: 3px solid $dark;
-    border-radius: 50%;
-    background-color: $green;
-
-    &::after {
-        content: "";
-        position: absolute;
-        inset: -3px;
-        border-radius: 50%;
-        background-color: $green;
-        animation: status-pulse 2s ease-out infinite;
-    }
-}
-
-@keyframes status-pulse {
-    from {
-        opacity: 0.6;
-        transform: scale(1);
-    }
-
-    to {
-        opacity: 0;
-        transform: scale(2.2);
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .status-dot::after {
+    .role-item {
         animation: none;
+
+        & + & {
+            display: none;
+        }
     }
 
     .hero-phrase--draft {
@@ -253,17 +294,6 @@ const phrases = [draftChars, headlineChars]
         &::after {
             display: none;
         }
-    }
-}
-
-.img-profile {
-    border: 1px solid $gray-800;
-}
-
-@include down($bp-md) {
-    .img-profile {
-        width: 90px;
-        height: 90px;
     }
 }
 </style>

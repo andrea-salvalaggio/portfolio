@@ -10,20 +10,14 @@ html {
 }
 
 body {
-    margin: 0;
+    margin: $spacer-0;
     overflow-x: clip;
     font-family: $font-sans;
     font-size: 17px;
     font-weight: $font-weight-light;
     line-height: 1.75rem;
-    letter-spacing: 0.2px;
     color: $light;
     background-color: $dark;
-
-    &::selection {
-        background-color: $gray-700;
-        color: $white;
-    }
 
     h1,
     h2,
@@ -32,7 +26,7 @@ body {
     h5,
     h6,
     p {
-        margin-top: 0;
+        margin-top: $spacer-0;
     }
 
     h1,
@@ -58,79 +52,75 @@ body {
         }
     }
 
-    @include up($bp-lg) {
-        width: 750px;
-        margin: 0 auto;
-    }
+    max-width: 600px;
+    margin: $spacer-0 auto;
 
-    @include down($bp-sm) {
-        padding-top: $spacer-9;
+    &::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        height: 3rem;
+        pointer-events: none;
+        background: linear-gradient(180deg, rgba($dark, 1) 25%, rgba($dark, 0) 100%);
     }
 }
 
-/* Page and hero titles: tighter tracking and leading than the body text */
 h1 {
-    letter-spacing: -0.03em;
     line-height: $line-height-tiny;
-}
-
-.navbar {
-    .nav-wrapper {
-        padding: $spacer-2 $spacer;
-        border-radius: $radius-pill;
-    }
-
-    .nav-item {
-        .nav-link {
-            color: $gray-300;
-
-            &.active {
-                color: $white;
-            }
-        }
-    }
-
-    .navbar-brand {
-        z-index: 1002;
-        
-        img {
-            filter: invert(1);
-        }
-    }
 }
 
 .img-profile {
     background-color: $gray-900;
 }
 
-.bg-image {
-    border: 1px solid $gray-800;
-    border-radius: $radius-5;
-    background-color: $gray-900;
-}
-
-/* A quiet label for section titles, so they do not compete with the content */
 .section-label {
-    font-size: $font-size-tiny;
-    font-weight: $font-weight-regular;
-    letter-spacing: 0.14em;
+    font-family: $font-mono;
+    font-size: 16px;
+    font-weight: $font-weight-medium;
+    line-height: 20px;
     text-transform: uppercase;
-    color: $gray-400;
+    letter-spacing: .5px;
+    color: $primary;
 }
 
-.mt-5 {
-    margin-top: $spacer-8;
+.page-section {
+    margin-top: $spacer-7;
+    font-size: 16px;
+    line-height: 24px;
+
+    .section-label {
+        margin-bottom: $spacer;
+    }
 }
 
-@include up($bp-sm) {
-    .mt-sm-9 {
-        margin-top: $spacer-9 !important;
-    }
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacer;
+    margin: $spacer-0;
+    padding: $spacer-0;
+    list-style: none;
 
-    .py-sm-8 {
-        padding-top: $spacer-8 !important;
-        padding-bottom: $spacer-8 !important;
+    @include up($bp-sm) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+}
+
+.card-list {
+    display: grid;
+    gap: $spacer;
+    margin: $spacer-0;
+    padding: $spacer-0;
+    list-style: none;
+}
+
+.surface-card {
+    border: 1px solid $gray-800;
+    border-radius: $radius-3;
+    background-color: $surface;
 }
 
 .error-section {
@@ -140,11 +130,25 @@ h1 {
     }
 }
 
-/* Cursor-following glow on buttons: a soft fill plus a 1px lit edge, positioned by plugins/button-glow.client.js.
-   Light buttons override --glow-fill / --glow-edge with dark values. */
+.btn-link,
+.nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacer-2;
+    height: 38px;
+    padding: $spacer-0 $spacer-3 $spacer-0 $spacer-3;
+    font-size: 14px;
+    font-weight: $font-weight-medium;
+    line-height: 1;
+    white-space: nowrap;
+    text-decoration: none;
+    border-radius: $radius-2;
+}
+
 .btn-link {
+    color: $light;
     border: 1px solid $gray-800;
-    background-color: $gray-900;
+    background-color: $surface;
 }
 
 .btn-link,
@@ -154,6 +158,11 @@ h1 {
 
     position: relative;
     isolation: isolate;
+    transition: transform 160ms cubic-bezier(0.25, 1, 0.5, 1);
+
+    &:active {
+        transform: scale(0.97);
+    }
 
     &::before,
     &::after {
@@ -174,12 +183,11 @@ h1 {
     &::after {
         padding: 1px;
         background: radial-gradient(6rem circle at var(--mx, 50%) var(--my, 50%), var(--glow-edge), transparent 70%);
-        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask: linear-gradient($black 0 0) content-box, linear-gradient($black 0 0);
         -webkit-mask-composite: xor;
-        mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+        mask: linear-gradient($black 0 0) content-box exclude, linear-gradient($black 0 0);
     }
 
-    /* Mouse on wider screens only, like the other hover effects */
     @include up($bp-sm) {
         @media (hover: hover) and (pointer: fine) {
             &:hover::before,

@@ -1,7 +1,6 @@
 interface PageSeoOptions {
     title: string
     description: string
-    // Route path, used for canonical and og:url when a site URL is configured
     path?: string
     noindex?: boolean
 }
@@ -10,10 +9,7 @@ const SITE_NAME = 'Andrea Salvalaggio'
 const SHARE_IMAGE = '/img/og.png'
 
 export function usePageSeo({ title, description, path, noindex }: PageSeoOptions) {
-    // canonical and og:url need the real domain: set NUXT_PUBLIC_SITE_URL
     const siteUrl = useRuntimeConfig().public.siteUrl.replace(/\/$/, '')
-
-    // og:image must be absolute: without a configured domain use the one the page is served from
     const imageUrl = (siteUrl || useRequestURL().origin) + SHARE_IMAGE
 
     useSeoMeta({

@@ -10,7 +10,7 @@ const getObserver = () => {
 
         visible.forEach((entry, i) => {
             const el = entry.target as HTMLElement
-            el.style.setProperty('--delay', `${i * 100}ms`)
+            el.style.setProperty('--delay', `${150 + i * 150}ms`)
             el.classList.add('visible')
             observer?.unobserve(el)
         })

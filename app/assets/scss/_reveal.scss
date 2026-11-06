@@ -1,10 +1,32 @@
+.enter {
+    animation: enter 700ms cubic-bezier(0.25, 1, 0.5, 1) both;
+    animation-delay: calc(var(--i, 0) * 80ms);
+}
+
+@keyframes enter {
+    from {
+        opacity: 0.01;
+        transform: translateY(8px);
+    }
+}
+
+@keyframes enter-fade {
+    from {
+        opacity: 0.01;
+    }
+}
+
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(var(--reveal-y, 30px));
     transition:
-        opacity 1s cubic-bezier(0.25, 1, 0.5, 1),
-        transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        opacity 1.8s cubic-bezier(0.25, 1, 0.5, 1),
+        transform 1.6s cubic-bezier(0.25, 1, 0.5, 1);
     transition-delay: var(--delay, 0ms);
+}
+
+.reveal--item {
+    --reveal-y: 16px;
 }
 
 .reveal.visible {
@@ -12,9 +34,6 @@
     transform: translateY(0);
 }
 
-/* Where scroll-driven animations exist the reveal needs no JavaScript, so
-   content in the first viewport is not hidden while the bundle loads
-   (useReveal skips the observer in that case) */
 @supports (animation-timeline: view()) {
     .reveal {
         opacity: 1;
@@ -22,13 +41,17 @@
         transition: none;
         animation: reveal-in linear both;
         animation-timeline: view();
-        animation-range: entry 0% entry 40%;
+        animation-range: entry 15% cover 50%;
+    }
+
+    .reveal--item {
+        animation-range: entry 0% entry 100%;
     }
 
     @keyframes reveal-in {
         from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(var(--reveal-y, 30px));
         }
 
         to {
@@ -49,6 +72,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .enter {
+        animation-name: enter-fade;
+    }
+
     .reveal {
         opacity: 1;
         transform: none;

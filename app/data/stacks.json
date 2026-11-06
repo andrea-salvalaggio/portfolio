@@ -1,11 +1,82 @@
 [
-    { "id": "1", "label": "Vue.js", "icon": ["fa-brands", "fa-vuejs"], "color": "#42B883" },
-    { "id": "2", "label": "Nuxt", "icon": ["fac", "nuxt"], "color": "#00DC82" },
-    { "id": "4", "label": "JavaScript", "icon": ["fa-brands", "fa-js"], "color": "#F7DF1E" },
-    { "id": "5", "label": "SCSS", "icon": ["fa-brands", "fa-sass"], "color": "#CC6699" },
-    { "id": "6", "label": "Bootstrap", "icon": ["fa-brands", "fa-bootstrap"], "color": "#9B7BD6" },
-    { "id": "7", "label": "Figma", "icon": ["fa-brands", "fa-figma"], "color": "#F24E1E" },
-    { "id": "8", "label": "Git", "icon": ["fa-brands", "fa-git-alt"], "color": "#F05032" },
-    { "id": "9", "label": "PHP", "icon": ["fa-brands", "fa-php"], "color": "#8892BF" },
-    { "id": "10", "label": "Laravel", "icon": ["fa-brands", "fa-laravel"], "color": "#FF2D20" }
+    {
+        "id": "1",
+        "label": "Vue",
+        "description": "Frontend framework",
+        "icon": [
+            "fa-brands",
+            "fa-vuejs"
+        ],
+        "color": "#42B883"
+    },
+    {
+        "id": "2",
+        "label": "Nuxt",
+        "description": "Vue framework",
+        "icon": [
+            "fac",
+            "nuxt"
+        ],
+        "color": "#00DC82"
+    },
+    {
+        "id": "4",
+        "label": "JavaScript",
+        "description": "Programming language",
+        "icon": [
+            "fa-brands",
+            "fa-js"
+        ],
+        "color": "#F7DF1E"
+    },
+    {
+        "id": "5",
+        "label": "SCSS",
+        "description": "CSS preprocessor",
+        "icon": [
+            "fa-brands",
+            "fa-sass"
+        ],
+        "color": "#CC6699"
+    },
+    {
+        "id": "7",
+        "label": "Figma",
+        "description": "Design tool",
+        "icon": [
+            "fa-brands",
+            "fa-figma"
+        ],
+        "color": "#F24E1E"
+    },
+    {
+        "id": "8",
+        "label": "Git",
+        "description": "Version control",
+        "icon": [
+            "fa-brands",
+            "fa-git-alt"
+        ],
+        "color": "#F05032"
+    },
+    {
+        "id": "9",
+        "label": "PHP",
+        "description": "Backend language",
+        "icon": [
+            "fa-brands",
+            "fa-php"
+        ],
+        "color": "#8892BF"
+    },
+    {
+        "id": "10",
+        "label": "Laravel",
+        "description": "PHP framework",
+        "icon": [
+            "fa-brands",
+            "fa-laravel"
+        ],
+        "color": "#FF2D20"
+    }
 ]

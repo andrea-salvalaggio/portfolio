@@ -9,7 +9,8 @@ export default defineNuxtConfig({
     modules: ['@nuxt/image', '@nuxt/eslint', '@nuxt/fonts'],
     fonts: {
         families: [
-            { name: 'DM Sans', provider: 'google', weights: [300, 400, 500, 700], styles: ['normal'] }
+            { name: 'DM Sans', provider: 'google', weights: [300, 400, 500, 600, 700], styles: ['normal'] },
+            { name: 'DM Mono', provider: 'google', weights: [400, 500], styles: ['normal'] }
         ]
     },
     image: {
@@ -17,9 +18,12 @@ export default defineNuxtConfig({
         quality: 75
     },
     routeRules: {
-        // The old project URL keeps working
-        '/deliveboo': { redirect: { to: '/projects/deliveboo', statusCode: 301 } },
-        '/stack': { redirect: { to: '/about#stack', statusCode: 301 } }
+        // The old project URLs now point to the repository
+        '/deliveboo': { redirect: { to: 'https://github.com/andrea-salvalaggio/laravel-deliveboo', statusCode: 301 } },
+        '/projects/deliveboo': { redirect: { to: 'https://github.com/andrea-salvalaggio/laravel-deliveboo', statusCode: 301 } },
+        // The site is a single page now: old pages land on their section
+        '/about': { redirect: { to: '/#about', statusCode: 301 } },
+        '/stack': { redirect: { to: '/#stack', statusCode: 301 } }
     },
     devtools: { enabled: true },
     build: {
@@ -56,11 +60,9 @@ export default defineNuxtConfig({
                 { name: 'color-scheme', content: 'dark' },
             ],
             link: [
-                {
-                    rel: 'icon',
-                    type: 'image/x-icon',
-                    href: '/favicon.ico'
-                },
+                // Transparent: the ICO is the fallback, the SVG switches logo color with the browser theme
+                { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+                { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
                 { rel: 'apple-touch-icon', href: '/img/profile.png' },
             ]
         },
