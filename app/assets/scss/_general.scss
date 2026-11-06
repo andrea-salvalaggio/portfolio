@@ -99,13 +99,14 @@ h1 {
 .card-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: $spacer;
+    gap: $spacer-2;
     margin: $spacer-0;
     padding: $spacer-0;
     list-style: none;
 
     @include up($bp-sm) {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: $spacer;
     }
 }
 

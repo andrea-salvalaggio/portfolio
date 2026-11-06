@@ -31,11 +31,19 @@ import stacks from '~/data/stacks.json'
         opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1) var(--delay, 0ms),
         transform 1s cubic-bezier(0.25, 1, 0.5, 1) var(--delay, 0ms);
 
-    @media (hover: hover) and (pointer: fine) {
-        &:hover {
-            border-color: $gray-800;
-            background-color: $surface;
+    @include up($bp-sm) {
+        @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                border-color: $gray-800;
+                background-color: $surface;
+            }
         }
+    }
+
+    @include down($bp-sm) {
+        padding-right: $spacer-0;
+        padding-left: $spacer-0;
+        border: 0;
     }
 }
 
