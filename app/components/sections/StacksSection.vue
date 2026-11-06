@@ -1,6 +1,6 @@
 <template>
     <section id="stack" class="stacks-section page-section">
-        <h2 class="section-label reveal">Stack</h2>
+        <h2 class="section-label reveal reveal--item">Stack</h2>
         <ul class="card-grid">
             <li v-for="stack in stacks" :key="stack.id" class="stack-item d-flex align-items-center reveal reveal--item">
                 <span class="stack-icon d-flex align-items-center justify-content-center" :style="{ '--tag-color': stack.color }">
@@ -28,8 +28,8 @@ import stacks from '~/data/stacks.json'
     transition:
         background-color 0.6s ease,
         border-color 0.6s ease,
-        opacity 1.8s cubic-bezier(0.25, 1, 0.5, 1) var(--delay, 0ms),
-        transform 1.6s cubic-bezier(0.25, 1, 0.5, 1) var(--delay, 0ms);
+        opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1) var(--delay, 0ms),
+        transform 1s cubic-bezier(0.25, 1, 0.5, 1) var(--delay, 0ms);
 
     @media (hover: hover) and (pointer: fine) {
         &:hover {
