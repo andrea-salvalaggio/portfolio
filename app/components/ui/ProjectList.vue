@@ -46,7 +46,7 @@ defineProps<{ projects: Project[] }>()
 
 .project-thumb {
     aspect-ratio: 5 / 3;
-    overflow: clip;
+    overflow: hidden;
     border-radius: $radius-2;
     background-color: $dark;
 }
