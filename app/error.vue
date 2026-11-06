@@ -1,6 +1,5 @@
 <template>
-    <LayoutAppHeader />
-    <main class="p-3 py-5 py-sm-8">
+    <main class="p-4 py-5">
         <Layout404 />
     </main>
 </template>

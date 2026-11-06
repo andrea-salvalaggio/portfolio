@@ -1,14 +1,13 @@
 <template>
-    <div class="experience-content d-flex justify-content-between">
-        <div class="d-flex flex-grow-1">
-            <NuxtImg format="webp" :src="experience.logo" :alt="experience.company" class="experience-logo rounded-pill me-sm-3" width="50" height="50" loading="lazy" decoding="async" />
-            <div class="experience-head">
-                <h3 class="h6 experience-title fw-light mb-1">{{ experience.role }}</h3>
-                <p class="experience-text m-0">{{ experience.company }}</p>
-            </div>
+    <div class="experience-row">
+        <span class="experience-version">{{ version }}</span>
+        <div class="experience-head">
+            <h3 class="experience-title m-0">{{ experience.role }}</h3>
+            <p class="experience-company m-0">{{ experience.company }}</p>
         </div>
-        <div class="experience-bottom">
-            <p class="experience-period m-0 text-end">{{ experience.period }}</p>
+        <div class="experience-meta d-flex align-items-center">
+            <span class="experience-period">{{ experience.period }}</span>
+            <span v-if="experience.current" class="experience-current">Current</span>
         </div>
     </div>
 </template>
@@ -18,48 +17,75 @@ defineProps({
     experience: {
         type: Object,
         required: true
+    },
+    // Newest first, so the latest role is the highest version
+    version: {
+        type: String,
+        required: true
     }
 })
 </script>
 
 <style scoped lang="scss">
-.experience-logo {
-    width: 50px;
-    height: 50px;
-    border: 1px solid $gray-800;
-    margin-right: $spacer-3;
+.experience-row {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr auto;
+    align-items: center;
+    gap: $spacer;
+    padding: $spacer;
+
+    @include down($bp-sm) {
+        grid-template-columns: 3.5rem 1fr;
+
+        .experience-meta {
+            grid-column: 2;
+        }
+    }
 }
 
-.experience-content {
-    padding-bottom: $spacer-4;
+.experience-version,
+.experience-period,
+.experience-current {
+    font-family: $font-mono;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.experience-version {
+    justify-self: start;
+    padding: $spacer-0 $spacer-1;
+    color: $light;
+    border: 1px solid $gray-700;
+    border-radius: $radius-1;
+    background-color: $gray-900;
 }
 
 .experience-title {
+    font-size: 16px;
+    font-weight: $font-weight-semibold;
+    line-height: 24px;
     color: $primary;
 }
 
-.experience-text,
-.experience-period {
-    line-height: normal;
+.experience-company {
+    font-size: 16px;
+    line-height: 24px;
 }
 
-@include down($bp-sm) {
-    .experience-content {
-        flex-wrap: wrap;
-        flex-grow: 0;
-        padding-bottom: $spacer-5;
-    }
+.experience-meta {
+    gap: $spacer-3;
+}
 
-    .experience-bottom {
-        margin-left: 3.75rem;
-        margin-top: $spacer-3;
+.experience-period {
+    color: $gray-400;
+    white-space: nowrap;
+}
 
-        .experience-period {
-            color: $gray-400;
-            background-color: rgba($white, 0.1);
-            border-radius: $radius-pill;
-            padding: $spacer-1 $spacer;
-        }
-    }
+.experience-current {
+    padding: $spacer-0 $spacer-2;
+    text-transform: uppercase;
+    color: $white;
+    border-radius: $radius-1;
+    background-color: $blue;
 }
 </style>

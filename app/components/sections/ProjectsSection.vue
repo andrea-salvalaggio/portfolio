@@ -1,9 +1,7 @@
 <template>
-    <section class="projects-section mt-5 mt-sm-9 reveal">
-        <div class="container p-0">
-            <h2 class="section-label mb-4">Projects</h2>
-            <UiProjectList :projects="projects" />
-        </div>
+    <section id="projects" class="projects-section page-section reveal">
+        <h2 class="section-label">Projects</h2>
+        <UiProjectList :projects="projects" />
     </section>
 </template>
 

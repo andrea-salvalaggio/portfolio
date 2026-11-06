@@ -1,15 +1,11 @@
 import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faEnvelope, faFaceFrown } from '@fortawesome/free-solid-svg-icons'
+import { faFaceFrown } from '@fortawesome/free-solid-svg-icons'
 import {
-  faBootstrap,
   faFigma,
   faGitAlt,
-  faGithub,
-  faInstagram,
   faJs,
   faLaravel,
-  faLinkedinIn,
   faPhp,
   faSass,
   faVuejs
@@ -25,8 +21,8 @@ const faNuxt = {
 config.autoAddCss = false
 
 library.add(
-  faEnvelope, faFaceFrown,
-  faBootstrap, faFigma, faGitAlt, faGithub, faInstagram, faJs, faLaravel, faLinkedinIn, faPhp, faSass, faVuejs,
+  faFaceFrown,
+  faFigma, faGitAlt, faJs, faLaravel, faPhp, faSass, faVuejs,
   faNuxt
 )
 

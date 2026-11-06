@@ -86,8 +86,8 @@ describe('useReveal', () => {
         ])
 
         expect(els[0]!.classList.contains('visible')).toBe(true)
-        expect(els[0]!.style.getPropertyValue('--delay')).toBe('0ms')
-        expect(els[1]!.style.getPropertyValue('--delay')).toBe('100ms')
+        expect(els[0]!.style.getPropertyValue('--delay')).toBe('150ms')
+        expect(els[1]!.style.getPropertyValue('--delay')).toBe('300ms')
         expect(unobserve).toHaveBeenCalledWith(els[0])
         expect(unobserve).toHaveBeenCalledWith(els[1])
     })
