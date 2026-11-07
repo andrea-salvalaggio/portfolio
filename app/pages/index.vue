@@ -13,7 +13,7 @@ useReveal()
 
 usePageSeo({
     title: 'Andrea Salvalaggio',
-    description: 'Web & Frontend Developer based in Padua, Italy. Portfolio with projects, experience and stack.',
+    description: "I'm a Web & Frontend Developer focused on building experiences and turning ideas into interfaces",
     path: '/'
 })
 </script>

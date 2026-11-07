@@ -1,28 +1,35 @@
 [
     {
         "id": 1,
-        "role": "Web Designer",
-        "company": "VG7 by Vampigroup S.r.l.",
-        "period": "2023 –",
+        "role": "Web & Frontend Developer",
+        "company": "Dataline",
+        "period": "2026 –",
         "current": true,
-        "url": "https://www.vg7.it/"
+        "url": "https://www.linkedin.com/company/data-line-solutions/"
     },
     {
         "id": 2,
+        "role": "Web Designer",
+        "company": "VG7 by Vampigroup S.r.l.",
+        "period": "2023 – 2026",
+        "url": "https://www.vg7.it/"
+    },
+    {
+        "id": 3,
         "role": "Jr. Full Stack Web Developer Trainee",
         "company": "Boolean",
         "period": "2022",
         "url": "https://boolean.careers/"
     },
     {
-        "id": 3,
+        "id": 4,
         "role": "Graphic Designer",
         "company": "Quellogiusto S.r.l.",
         "period": "2019 – 2022",
         "url": "https://www.quellogiusto.it/"
     },
     {
-        "id": 4,
+        "id": 5,
         "role": "Graphic Designer",
         "company": "Filmop International S.r.l.",
         "period": "2014 – 2019",
