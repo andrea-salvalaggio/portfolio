@@ -43,7 +43,7 @@
 <script setup lang="ts">
 import connections from '~/data/connections.json'
 
-const CV_URL = 'https://drive.google.com/file/d/1IKwbs_N8WZrnHX9v3Jl8cWi9HPtqZgAC/view?usp=sharing'
+const CV_URL = 'https://drive.google.com/file/d/1biO80QVibGtadjXwhWGQF7Z_Z8Qj4uLy/view?usp=sharing'
 
 const contactUrl = connections.find((connection) => connection.url.startsWith('mailto:'))?.url
 const socials = connections.filter((connection) => !connection.url.startsWith('mailto:'))
