@@ -1,7 +1,11 @@
 <template>
     <main class="p-4 py-5">
+        <div class="container p-0">
+            <LayoutSiteHeader as="p" />
+        </div>
         <Layout404 />
     </main>
+    <LayoutSiteFooter />
 </template>
 
 <script setup>
@@ -11,3 +15,4 @@ usePageSeo({
     noindex: true
 })
 </script>
+

@@ -9,6 +9,17 @@ html {
     background-color: $dark;
 }
 
+// Every page is at least one viewport tall: <main> grows and keeps the footer at the bottom
+#__nuxt {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+
+    > main {
+        flex: 1;
+    }
+}
+
 body {
     margin: $spacer-0;
     overflow-x: clip;
