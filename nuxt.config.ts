@@ -63,7 +63,7 @@ export default defineNuxtConfig({
                 // Transparent: the ICO is the fallback, the SVG switches logo color with the browser theme
                 { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
                 { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-                { rel: 'apple-touch-icon', href: '/img/profile.png' },
+                { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
             ]
         },
     },
