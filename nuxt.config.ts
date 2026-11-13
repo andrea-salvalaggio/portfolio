@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     fonts: {
         families: [
             { name: 'DM Sans', provider: 'google', weights: [300, 400, 500, 600, 700], styles: ['normal'] },
-            { name: 'DM Mono', provider: 'google', weights: [400, 500], styles: ['normal'] }
+            { name: 'JetBrains Mono', provider: 'google', weights: [400, 500], styles: ['normal'] }
         ]
     },
     image: {
