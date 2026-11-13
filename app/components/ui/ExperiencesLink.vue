@@ -62,7 +62,7 @@ defineProps({
 
 .experience-title {
     font-size: 16px;
-    font-weight: $font-weight-semibold;
+    font-weight: $font-weight-medium;
     line-height: 24px;
     color: $primary;
 }
@@ -73,7 +73,7 @@ defineProps({
 }
 
 .experience-meta {
-    gap: $spacer-3;
+    gap: $spacer-2;
 }
 
 .experience-period {
