@@ -89,18 +89,18 @@ h1 {
 
 .section-label {
     font-family: $font-mono;
-    font-size: 16px;
-    font-weight: $font-weight-medium;
+    font-size: $font-size-base;
+    font-weight: $font-weight-regular;
     line-height: 20px;
     text-transform: uppercase;
-    letter-spacing: .5px;
+    letter-spacing: 2px;
     color: $primary;
 }
 
 .page-section {
     margin-top: $spacer-7;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
 
     .section-label {
         margin-bottom: $spacer;

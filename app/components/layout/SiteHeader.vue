@@ -14,8 +14,11 @@
                 </p>
             </div>
             <a :href="contactUrl" class="nav-cta ms-auto">
+                <span class="nav-cta-icon" aria-hidden="true">
+                    <img src="/img/icons/mail.svg" width="18" height="18" class="icon-mail" alt="">
+                    <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="icon-arrow" alt="">
+                </span>
                 Email
-                <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="nav-cta-icon" alt="" aria-hidden="true">
             </a>
         </div>
     </header>
@@ -105,20 +108,51 @@ const contactUrl = connections.find((connection) => connection.url.startsWith('m
 }
 
 .nav-cta-icon {
-    margin-left: $spacer-1;
-    filter: brightness(0);
-    opacity: 0.7;
-    transform: scale(1.35);
-    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    // gap and centering come from .nav-cta (inline-flex); icons stack in one 18px cell
+    display: inline-grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+
+    img {
+        grid-area: 1 / 1;
+        filter: brightness(0);
+        transition: transform 320ms cubic-bezier(0.25, 1, 0.5, 1), opacity 200ms ease;
+    }
 }
 
+.icon-arrow {
+    opacity: 0;
+    transform: translateY(10px) rotate(-45deg) scale(1.35);
+}
+
+// desktop only: the envelope "sends" up and an up arrow slides in from below
 @include up($bp-sm) {
-    .nav-cta:hover .nav-cta-icon {
-        transform: scale(1.35) rotate(45deg);
+    @media (hover: hover) and (pointer: fine) {
+        .nav-cta:hover {
+            .icon-mail {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            .icon-arrow {
+                opacity: 1;
+                transform: rotate(-45deg) scale(1.35);
+            }
+        }
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
+    // keep the swap as a plain crossfade
+    .nav-cta .nav-cta-icon img {
+        transform: none !important;
+    }
+
+    .nav-cta .nav-cta-icon .icon-arrow {
+        transform: rotate(-45deg) scale(1.35) !important;
+    }
+
     .role-item {
         animation: none;
 
