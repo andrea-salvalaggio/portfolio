@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     fonts: {
         families: [
             { name: 'DM Sans', provider: 'google', weights: [300, 400, 500, 600, 700], styles: ['normal'] },
-            { name: 'JetBrains Mono', provider: 'google', weights: [400, 500], styles: ['normal'] }
+            { name: 'JetBrains Mono', provider: 'google', weights: [400, 500], styles: ['normal'] },
+            { name: 'Instrument Serif', provider: 'google', weights: [400], styles: ['normal', 'italic'] }
         ]
     },
     image: {
@@ -56,7 +57,7 @@ export default defineNuxtConfig({
                     name: "description",
                     content: "This is my professional portfolio where I present my projects and skills as a web developer. Explore my work and experience in the field of web development.",
                 },
-                { name: 'theme-color', content: '#0B0B0B' },
+                { name: 'theme-color', content: '#000000' },
                 { name: 'color-scheme', content: 'dark' },
             ],
             link: [

@@ -1,5 +1,6 @@
 $font-sans: 'DM Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 $font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+$font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
 
 $font-size-biggest: 3rem;
 $font-size-big: 2rem;
@@ -38,7 +39,7 @@ $primary: $gray-100;
 $light: $gray-200;
 $dark: $gray-1000;
 $blue: #2563EB;
-$surface: $gray-950;
+$surface: $gray-1000;
 
 $spacer-0: 0;
 $spacer-1: .25rem;
@@ -63,9 +64,18 @@ $radius-6: 3rem;
 $radius-pill: 50rem;
 
 $bp-xs: 321px;
+$bp-compact: 360px;
 $bp-sm: 576px;
 $bp-md: 768px;
 $bp-lg: 992px;
+
+$serif-stretch: 1.08;
+
+@mixin serif-wide {
+    width: calc(100% / #{$serif-stretch});
+    scale: $serif-stretch 1;
+    transform-origin: left center;
+}
 
 @mixin up($bp) {
     @media (min-width: $bp) {

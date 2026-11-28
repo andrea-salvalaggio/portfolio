@@ -21,6 +21,8 @@ import stacks from '~/data/stacks.json'
 
 <style scoped lang="scss">
 .stack-item {
+    position: relative;
+    isolation: isolate;
     gap: $spacer-3;
     padding: $spacer-3;
     border: 1px solid transparent;
@@ -33,17 +35,62 @@ import stacks from '~/data/stacks.json'
 
     @include up($bp-sm) {
         @media (hover: hover) and (pointer: fine) {
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                z-index: -1;
+                border-radius: inherit;
+                background: radial-gradient(90% 140% at 0% 50%, color-mix(in srgb, var(--tag-color) 10%, transparent), transparent 70%);
+                opacity: 0;
+                transition: opacity 0.4s ease;
+                pointer-events: none;
+            }
+
             &:hover {
                 border-color: $gray-800;
                 background-color: $surface;
+
+                &::before {
+                    opacity: 1;
+                }
+
+                .stack-icon {
+                    border-color: color-mix(in srgb, var(--tag-color) 45%, #{$gray-800});
+                    box-shadow: 0 0 24px -4px color-mix(in srgb, var(--tag-color) 55%, transparent);
+                }
             }
         }
     }
 
     @include down($bp-sm) {
-        padding-right: $spacer-0;
-        padding-left: $spacer-0;
-        border: 0;
+        gap: 10px;
+        min-width: 0;
+        padding: $spacer-2;
+        border-color: $gray-800;
+        border-radius: 10px;
+        background-color: $surface;
+
+        .stack-icon {
+            width: 32px;
+            height: 32px;
+            font-size: $font-size-base;
+        }
+
+        .stack-label {
+            font-size: 15px;
+        }
+
+        .stack-description {
+            display: none !important;
+        }
+    }
+}
+
+.card-grid {
+    @include down($bp-sm) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: $spacer-2;
     }
 }
 
@@ -56,6 +103,7 @@ import stacks from '~/data/stacks.json'
     border: 1px solid $gray-800;
     border-radius: $radius-2;
     background-color: $surface;
+    transition: border-color 0.3s ease, box-shadow 0.4s ease;
 }
 
 .stack-label {

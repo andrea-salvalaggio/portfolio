@@ -6,7 +6,7 @@
 
 html {
     font-size: 17px;
-    background-color: $dark;
+    background-color: $black;
 }
 
 // Every page is at least one viewport tall: <main> grows and keeps the footer at the bottom
@@ -28,7 +28,7 @@ body {
     font-weight: $font-weight-light;
     line-height: 1.75rem;
     color: $light;
-    background-color: $dark;
+    background-color: $black;
 
     h1,
     h2,
@@ -75,7 +75,7 @@ body {
         width: 100%;
         height: 3rem;
         pointer-events: none;
-        background: linear-gradient(180deg, rgba($dark, 1) 25%, rgba($dark, 0) 100%);
+        background: linear-gradient(180deg, rgba($black, 1) 25%, rgba($black, 0) 100%);
     }
 }
 
@@ -83,17 +83,63 @@ h1 {
     line-height: $line-height-tiny;
 }
 
+.page-shell {
+    padding: $spacer-6 $spacer-4;
+
+    @include down($bp-compact) {
+        padding-inline: $spacer;
+    }
+}
+
+::selection {
+    color: $white;
+    background-color: rgba($blue, 0.45);
+}
+
+.live-dot {
+    position: relative;
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: $blue;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background-color: inherit;
+        animation: live-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        &::after {
+            animation: none;
+        }
+    }
+}
+
+@keyframes live-ping {
+    75%,
+    100% {
+        opacity: 0;
+        transform: scale(2.6);
+    }
+}
+
 .img-profile {
-    background-color: $gray-900;
+    background-color: $gray-950;
 }
 
 .section-label {
-    font-family: $font-mono;
-    font-size: $font-size-base;
+    @include serif-wide;
+
+    font-family: $font-serif;
+    font-size: 28px;
     font-weight: $font-weight-regular;
-    line-height: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    line-height: 32px;
+    letter-spacing: -0.01em;
     color: $primary;
 }
 
@@ -210,7 +256,7 @@ h1 {
     }
 }
 
-.nav-cta {
-    --glow-fill: #{rgba($black, 0.06)};
-    --glow-edge: #{rgba($black, 0.35)};
+.nav-cta::before,
+.nav-cta::after {
+    content: none;
 }

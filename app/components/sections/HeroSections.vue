@@ -7,7 +7,8 @@
                     <span class="visually-hidden">{{ PHRASES[1] }}</span>
                     <span v-for="(phrase, p) in phrases" :key="p" class="hero-phrase" :class="{ 'hero-phrase--draft': p === 0 }"
                         aria-hidden="true">
-                        <span v-for="(item, i) in phrase" :key="i" class="hero-char" :style="item.style">{{ item.char }}</span>
+                        <span v-for="(item, i) in phrase" :key="i" class="hero-char" :class="{ 'hero-char--em': item.em }"
+                            :style="item.style">{{ item.char }}</span>
                     </span>
                 </p>
                 <p class="hero-description mb-4 enter" style="--i: 1">
@@ -83,11 +84,15 @@ const draftChars = draft.map((char, i) => {
     }
 })
 
+// The two verbs are set in italic
+const emphasis = new Set([...PHRASES[1]!.matchAll(/design|build/g)].flatMap((m) => Array.from(m[0], (_, k) => m.index! + k)))
+
 const headlineChars = headline.map((char, i) => {
     const last = i === headline.length - 1
 
     return {
         char,
+        em: emphasis.has(i),
         style: {
             '--char-anim': at('hero-show', headlineIn[i]!),
             '--caret-anim': last
@@ -107,11 +112,20 @@ const phrases = [draftChars, headlineChars]
 @include link-hover-fade(".hero-links");
 
 .hero-title {
+    @include serif-wide;
+
     display: inline-grid;
-    font-size: 28px;
-    font-weight: $font-weight-semibold;
-    line-height: 40px;
+    font-family: $font-serif;
+    font-size: 40px;
+    font-weight: $font-weight-regular;
+    line-height: 44px;
+    letter-spacing: -0.01em;
     color: $light;
+}
+
+.hero-char--em {
+    font-style: italic;
+    color: $gray-300;
 }
 
 .hero-phrase {

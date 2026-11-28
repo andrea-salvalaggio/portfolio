@@ -13,13 +13,12 @@
                     </span>
                 </p>
             </div>
-            <a :href="contactUrl" class="nav-cta ms-auto">
-                <span class="nav-cta-icon" aria-hidden="true">
-                    <img src="/img/icons/mail.svg" width="18" height="18" class="icon-mail" alt="">
-                    <img src="/img/icons/arrow-top-right.svg" width="8" height="8" class="icon-arrow" alt="">
-                </span>
-                Email
-            </a>
+            <span class="nav-cta-ring ms-auto">
+                <a :href="contactUrl" class="nav-cta">
+                    <img src="/img/icons/mail.svg" width="18" height="18" class="nav-cta-icon" alt="" aria-hidden="true">
+                    Email
+                </a>
+            </span>
         </div>
     </header>
 </template>
@@ -95,62 +94,66 @@ const contactUrl = connections.find((connection) => connection.url.startsWith('m
     }
 }
 
-.nav-cta {
+@property --cta-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: true;
+}
+
+.nav-cta-ring {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
     flex-shrink: 0;
+    border-radius: $radius-2;
+    animation: cta-ring 5.5s linear infinite;
+    transition: translate 500ms cubic-bezier(0.25, 1, 0.5, 1);
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        border-radius: inherit;
+        background: conic-gradient(from var(--cta-angle), transparent 0deg, transparent 180deg, $blue 280deg, $white 335deg, transparent 360deg);
+        filter: blur(12px);
+        opacity: 0.95;
+    }
+}
+
+@keyframes cta-ring {
+    to {
+        --cta-angle: 360deg;
+    }
+}
+
+.nav-cta {
+    --cta-fill: #{$gray-100};
+
     color: $dark;
-    background-color: $gray-100;
-    transition: background-color 220ms ease-in-out, transform 160ms cubic-bezier(0.25, 1, 0.5, 1);
+    border: 1.5px solid transparent;
+    background:
+        linear-gradient(var(--cta-fill), var(--cta-fill)) padding-box,
+        conic-gradient(from var(--cta-angle), var(--cta-fill) 0deg, var(--cta-fill) 180deg, $blue 280deg, $white 335deg, var(--cta-fill) 360deg) border-box;
+    transition: transform 160ms cubic-bezier(0.25, 1, 0.5, 1);
+    -webkit-tap-highlight-color: transparent;
 
-    &:hover {
-        color: $dark;
-        background-color: $white;
-    }
-}
-
-.nav-cta-icon {
-    // gap and centering come from .nav-cta (inline-flex); icons stack in one 18px cell
-    display: inline-grid;
-    place-items: center;
-    width: 18px;
-    height: 18px;
-
-    img {
-        grid-area: 1 / 1;
-        filter: brightness(0);
-        transition: transform 320ms cubic-bezier(0.25, 1, 0.5, 1), opacity 200ms ease;
-    }
-}
-
-.icon-arrow {
-    opacity: 0;
-    transform: translateY(10px) rotate(-45deg) scale(1.35);
-}
-
-// desktop only: the envelope "sends" up and an up arrow slides in from below
-@include up($bp-sm) {
     @media (hover: hover) and (pointer: fine) {
-        .nav-cta:hover {
-            .icon-mail {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
+        &:hover {
+            --cta-fill: #{$white};
 
-            .icon-arrow {
-                opacity: 1;
-                transform: rotate(-45deg) scale(1.35);
-            }
+            color: $dark;
         }
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    // keep the swap as a plain crossfade
-    .nav-cta .nav-cta-icon img {
-        transform: none !important;
-    }
+.nav-cta-icon {
+    filter: brightness(0);
+}
 
-    .nav-cta .nav-cta-icon .icon-arrow {
-        transform: rotate(-45deg) scale(1.35) !important;
+@media (prefers-reduced-motion: reduce) {
+    .nav-cta-ring {
+        animation: none;
     }
 
     .role-item {
