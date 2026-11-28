@@ -1,5 +1,5 @@
 <template>
-    <main class="p-4 py-5">
+    <main class="page-shell">
         <div class="container p-0">
             <LayoutSiteHeader as="p" />
         </div>

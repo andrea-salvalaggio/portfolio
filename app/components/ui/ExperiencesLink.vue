@@ -1,5 +1,5 @@
 <template>
-    <div class="experience-row">
+    <div class="experience-row" :class="{ 'experience-row--current': experience.current }">
         <span class="experience-version">{{ version }}</span>
         <div class="experience-head">
             <h3 class="experience-title m-0">{{ experience.role }}</h3>
@@ -7,7 +7,9 @@
         </div>
         <div class="experience-meta d-flex align-items-center">
             <span class="experience-period">{{ experience.period }}</span>
-            <span v-if="experience.current" class="experience-current">Current</span>
+            <span v-if="experience.current" class="experience-current">
+                <span class="live-dot" aria-hidden="true" />Now
+            </span>
         </div>
     </div>
 </template>
@@ -41,6 +43,16 @@ defineProps({
             grid-column: 2;
         }
     }
+
+    @include down($bp-compact) {
+        grid-template-columns: 1fr;
+        gap: $spacer-2;
+
+        .experience-meta {
+            grid-column: 1;
+            margin-top: $spacer-1;
+        }
+    }
 }
 
 .experience-version,
@@ -57,13 +69,21 @@ defineProps({
     color: $light;
     border: 1px solid $gray-700;
     border-radius: $radius-1;
-    background-color: $gray-900;
+    background-color: $gray-950;
+}
+
+.experience-row--current {
+    padding-block: $spacer-4;
 }
 
 .experience-title {
-    font-size: 16px;
-    font-weight: $font-weight-medium;
+    @include serif-wide;
+
+    font-family: $font-serif;
+    font-size: 21px;
+    font-weight: $font-weight-regular;
     line-height: 24px;
+    letter-spacing: 0.01em;
     color: $primary;
 }
 
@@ -82,10 +102,14 @@ defineProps({
 }
 
 .experience-current {
-    padding: $spacer-0 $spacer-2;
+    display: inline-flex;
+    align-items: center;
+    gap: $spacer-2;
+    padding: 2px $spacer-3 2px 10px;
     text-transform: uppercase;
-    color: $white;
-    border-radius: $radius-1;
-    background-color: $blue;
+    color: $light;
+    border: 1px solid rgba($blue, 0.35);
+    border-radius: $radius-pill;
+    background-color: rgba($blue, 0.12);
 }
 </style>

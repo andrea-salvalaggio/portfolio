@@ -8,7 +8,7 @@
                         loading="lazy" decoding="async" class="project-image" />
                 </div>
                 <div class="project-body">
-                    <h3 class="project-title mb-1">
+                    <h3 class="project-title mb-2">
                         {{ project.title }}
                         <span class="visually-hidden">(opens in a new tab)</span>
                     </h3>
@@ -63,9 +63,13 @@ defineProps<{ projects: Project[] }>()
 }
 
 .project-title {
-    font-size: 16px;
-    font-weight: $font-weight-medium;
-    line-height: 20px;
+    @include serif-wide;
+
+    font-family: $font-serif;
+    font-size: 21px;
+    font-weight: $font-weight-regular;
+    line-height: 24px;
+    letter-spacing: 0.01em;
     color: $light;
 }
 

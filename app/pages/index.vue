@@ -1,5 +1,5 @@
 <template>
-    <div class="p-4 py-5">
+    <div class="page-shell">
         <LazySectionsHeroSections hydrate-never />
         <LazySectionsAboutSections hydrate-never />
         <LazySectionsProjectsSection hydrate-never />
